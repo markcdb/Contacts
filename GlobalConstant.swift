@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct NetworkConfig {
     
-    static let baseUrl = "http://gojek-contacts-app.herokuapp.com/"
+    static let baseUrl = "http://gojek-contacts-app.herokuapp.com"
 }
 
 struct Paths {
@@ -30,15 +31,14 @@ struct Keys {
     static let error         = "error"
     static let hosts         = "hosts"
     static let hostResponses = "hostResponses"
+    static let sortKeys      = ["A", "B", "C", "D", "E", ""]
 }
 
 struct Cells {
     
-    static let locationCell        = "LocationCell"
+    static let contactCell         = "ContactCell"
     static let loaderCell          = "LoaderCell"
-    static let permissionCell      = "PermissionCell"
-    static let locationTitleCell   = "LocationTitleCell"
-    static let locationDetailsCell = "LocationDetailsCell"
+    static let emptyCell           = "EmptyCell"
 }
 
 struct URLParameters {
@@ -51,4 +51,20 @@ struct Titles {}
 struct Segues {
     
     static let locationDetails = "LocationDetailsVC"
+}
+
+struct Colors {
+    
+    static let lightGray = UIColor.hex("D8D8D8")
+    static let semiBlack = UIColor.hex("4A4A4A")
+}
+
+struct Fonts {
+    
+    static let helveticaNeue = UIFont(name: "HelveticaNeue", size: 14.0)
+}
+
+struct Images {
+    
+    static let favorite = UIImage(named: "home_favourite")
 }

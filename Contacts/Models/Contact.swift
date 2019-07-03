@@ -19,5 +19,7 @@ struct Contact: Codable {
     var favorite: Bool?
     var created_at: String?
     var updated_at: String?
-
+    var fullName: String {
+        return (first_name ?? "") + " " + (last_name ?? "")
+    }
 }

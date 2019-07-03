@@ -23,18 +23,25 @@ class ContactsRepository: Repository {
         
         request.successCompletion = {[weak self] response in
             guard let self = self else { return }
-            
-            do {
-                let object = try JSONDecoder().decode([Contact].self,
-                                                      from: response.data)
-                print(object)
-                completion(object, nil)
-                
-                if self.requests.isEmpty == false {
-                    self.requests.removeLast()
+            self.background.async {
+                do {
+                    var sortBlock: ((Contact, Contact) throws -> Bool)
+                    sortBlock  = { $0.first_name ?? "" < $1.first_name ?? "" }
+                    let object = try JSONDecoder().decode([Contact].self,
+                                                          from: response.data).sorted(by: sortBlock)
+                    
+                    self.main.async {
+                        completion(object, nil)
+                        
+                        if self.requests.isEmpty == false {
+                            self.requests.removeLast()
+                        }
+                    }
+                } catch let error {
+                    self.main.async {
+                        completion(nil, error)
+                    }
                 }
-            } catch let error {
-                completion(nil, error)
             }
         }
         

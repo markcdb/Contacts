@@ -30,13 +30,22 @@
 		F86BD90222CC79BD00324A6A /* ContactListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD90122CC79BD00324A6A /* ContactListVM.swift */; };
 		F86BD90522CC7AAB00324A6A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD90422CC7AAB00324A6A /* Contact.swift */; };
 		F86BD90722CC833B00324A6A /* GlobalVMFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD90622CC833B00324A6A /* GlobalVMFactory.swift */; };
+		F86BD90C22CCA54300324A6A /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD90B22CCA54300324A6A /* BaseVC.swift */; };
+		F86BD90F22CCABC200324A6A /* BaseContactsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD90E22CCABC200324A6A /* BaseContactsVM.swift */; };
+		F86BD91122CCACBF00324A6A /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F86BD91022CCACBF00324A6A /* ContactCell.xib */; };
+		F86BD91322CCACE200324A6A /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD91222CCACE200324A6A /* ContactCell.swift */; };
+		F86BD91622CCB0A300324A6A /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD91522CCB0A300324A6A /* StringHelper.swift */; };
+		F86BD91822CCB12300324A6A /* ImageViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD91722CCB12300324A6A /* ImageViewHelper.swift */; };
 		F87F7EC122CC51AB00A2B72F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F7EC022CC51AB00A2B72F /* AppDelegate.swift */; };
-		F87F7EC322CC51AB00A2B72F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F7EC222CC51AB00A2B72F /* ViewController.swift */; };
-		F87F7EC622CC51AB00A2B72F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F87F7EC422CC51AB00A2B72F /* Main.storyboard */; };
+		F87F7EC322CC51AB00A2B72F /* ContactListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F7EC222CC51AB00A2B72F /* ContactListVC.swift */; };
+		F87F7EC622CC51AB00A2B72F /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F87F7EC422CC51AB00A2B72F /* Contacts.storyboard */; };
 		F87F7EC822CC51AD00A2B72F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F87F7EC722CC51AD00A2B72F /* Assets.xcassets */; };
 		F87F7ECB22CC51AD00A2B72F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F87F7EC922CC51AD00A2B72F /* LaunchScreen.storyboard */; };
 		F87F7ED622CC51AD00A2B72F /* ContactListVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F7ED522CC51AD00A2B72F /* ContactListVMTest.swift */; };
 		F87F7EE122CC51AD00A2B72F /* ContactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F7EE022CC51AD00A2B72F /* ContactsUITests.swift */; };
+		F8F22D3C22CCD46B0017DA96 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D3B22CCD46B0017DA96 /* URLHelper.swift */; };
+		F8F22D4022CCD6670017DA96 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D3F22CCD6670017DA96 /* ColorHelper.swift */; };
+		F8F22D4222CCDFA50017DA96 /* ArrayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4122CCDFA50017DA96 /* ArrayHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,10 +91,16 @@
 		F86BD90122CC79BD00324A6A /* ContactListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVM.swift; sourceTree = "<group>"; };
 		F86BD90422CC7AAB00324A6A /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		F86BD90622CC833B00324A6A /* GlobalVMFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVMFactory.swift; sourceTree = "<group>"; };
+		F86BD90B22CCA54300324A6A /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		F86BD90E22CCABC200324A6A /* BaseContactsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContactsVM.swift; sourceTree = "<group>"; };
+		F86BD91022CCACBF00324A6A /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		F86BD91222CCACE200324A6A /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		F86BD91522CCB0A300324A6A /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		F86BD91722CCB12300324A6A /* ImageViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewHelper.swift; sourceTree = "<group>"; };
 		F87F7EBD22CC51AB00A2B72F /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F87F7EC022CC51AB00A2B72F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F87F7EC222CC51AB00A2B72F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F87F7EC522CC51AB00A2B72F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F87F7EC222CC51AB00A2B72F /* ContactListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVC.swift; sourceTree = "<group>"; };
+		F87F7EC522CC51AB00A2B72F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Contacts.storyboard; sourceTree = "<group>"; };
 		F87F7EC722CC51AD00A2B72F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F87F7ECA22CC51AD00A2B72F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F87F7ECC22CC51AD00A2B72F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +110,9 @@
 		F87F7EDC22CC51AD00A2B72F /* ContactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F87F7EE022CC51AD00A2B72F /* ContactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUITests.swift; sourceTree = "<group>"; };
 		F87F7EE222CC51AD00A2B72F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8F22D3B22CCD46B0017DA96 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
+		F8F22D3F22CCD6670017DA96 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		F8F22D4122CCDFA50017DA96 /* ArrayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				F87F7EC922CC51AD00A2B72F /* LaunchScreen.storyboard */,
-				F87F7EC422CC51AB00A2B72F /* Main.storyboard */,
+				F87F7EC422CC51AB00A2B72F /* Contacts.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -156,7 +174,7 @@
 		F86BD8B822CC59E800324A6A /* Viewmodels */ = {
 			isa = PBXGroup;
 			children = (
-				F86BD8BA22CC59E800324A6A /* BaseVM.swift */,
+				F86BD90D22CCABB300324A6A /* Base */,
 				F86BD90122CC79BD00324A6A /* ContactListVM.swift */,
 			);
 			path = Viewmodels;
@@ -182,13 +200,13 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		F86BD8E322CC5B2300324A6A /* Views */ = {
+		F86BD8E322CC5B2300324A6A /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				F86BD8E422CC5B2300324A6A /* LoaderCell.swift */,
-				F86BD8E522CC5B2300324A6A /* Base */,
+				F86BD8E722CC5B2300324A6A /* XIBs */,
+				F86BD90822CCA4D600324A6A /* Class */,
 			);
-			path = Views;
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		F86BD8E522CC5B2300324A6A /* Base */ = {
@@ -203,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				F86BD8E822CC5B2300324A6A /* LoaderCell.xib */,
+				F86BD91022CCACBF00324A6A /* ContactCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -220,12 +239,60 @@
 			path = Mocking;
 			sourceTree = "<group>";
 		};
-		F86BD90322CC7A7600324A6A /* Model */ = {
+		F86BD90322CC7A7600324A6A /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				F86BD90422CC7AAB00324A6A /* Contact.swift */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F86BD90822CCA4D600324A6A /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD8E522CC5B2300324A6A /* Base */,
+				F86BD8E422CC5B2300324A6A /* LoaderCell.swift */,
+				F86BD91222CCACE200324A6A /* ContactCell.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		F86BD90922CCA50300324A6A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD90A22CCA53600324A6A /* Base */,
+				F87F7EC222CC51AB00A2B72F /* ContactListVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F86BD90A22CCA53600324A6A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD90B22CCA54300324A6A /* BaseVC.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F86BD90D22CCABB300324A6A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD8BA22CC59E800324A6A /* BaseVM.swift */,
+				F86BD90E22CCABC200324A6A /* BaseContactsVM.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F86BD91422CCB09600324A6A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD91522CCB0A300324A6A /* StringHelper.swift */,
+				F86BD91722CCB12300324A6A /* ImageViewHelper.swift */,
+				F8F22D3B22CCD46B0017DA96 /* URLHelper.swift */,
+				F8F22D3F22CCD6670017DA96 /* ColorHelper.swift */,
+				F8F22D4122CCDFA50017DA96 /* ArrayHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F87F7EB422CC51AB00A2B72F = {
@@ -253,18 +320,18 @@
 		F87F7EBF22CC51AB00A2B72F /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				F86BD91422CCB09600324A6A /* Helpers */,
 				F86BD90622CC833B00324A6A /* GlobalVMFactory.swift */,
 				F86BD8FF22CC790500324A6A /* GlobalEnums.swift */,
 				F86BD8A722CC580E00324A6A /* GlobalConstant.swift */,
 				F87F7EC022CC51AB00A2B72F /* AppDelegate.swift */,
-				F87F7EC222CC51AB00A2B72F /* ViewController.swift */,
-				F86BD90322CC7A7600324A6A /* Model */,
-				F86BD8BC22CC59E800324A6A /* Networking */,
+				F86BD90922CCA50300324A6A /* ViewControllers */,
 				F86BD8B322CC59E700324A6A /* Storyboards */,
-				F86BD8B822CC59E800324A6A /* Viewmodels */,
-				F86BD8E322CC5B2300324A6A /* Views */,
-				F86BD8E722CC5B2300324A6A /* XIBs */,
+				F86BD8E322CC5B2300324A6A /* Subviews */,
+				F86BD8BC22CC59E800324A6A /* Networking */,
 				F86BD8F022CC629C00324A6A /* Mocking */,
+				F86BD90322CC7A7600324A6A /* Models */,
+				F86BD8B822CC59E800324A6A /* Viewmodels */,
 				F87F7EC722CC51AD00A2B72F /* Assets.xcassets */,
 				F87F7ECC22CC51AD00A2B72F /* Info.plist */,
 			);
@@ -403,7 +470,8 @@
 				F87F7ECB22CC51AD00A2B72F /* LaunchScreen.storyboard in Resources */,
 				F87F7EC822CC51AD00A2B72F /* Assets.xcassets in Resources */,
 				F86BD8EB22CC5B2300324A6A /* LoaderCell.xib in Resources */,
-				F87F7EC622CC51AB00A2B72F /* Main.storyboard in Resources */,
+				F86BD91122CCACBF00324A6A /* ContactCell.xib in Resources */,
+				F87F7EC622CC51AB00A2B72F /* Contacts.storyboard in Resources */,
 				F86BD8F622CC738300324A6A /* POST-contacts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,19 +546,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8F22D3C22CCD46B0017DA96 /* URLHelper.swift in Sources */,
+				F86BD91322CCACE200324A6A /* ContactCell.swift in Sources */,
+				F86BD91622CCB0A300324A6A /* StringHelper.swift in Sources */,
 				F86BD8DC22CC59E800324A6A /* API.swift in Sources */,
 				F86BD8D522CC59E800324A6A /* BaseVM.swift in Sources */,
 				F86BD8E922CC5B2300324A6A /* LoaderCell.swift in Sources */,
 				F86BD8DA22CC59E800324A6A /* Response.swift in Sources */,
+				F8F22D4222CCDFA50017DA96 /* ArrayHelper.swift in Sources */,
+				F86BD91822CCB12300324A6A /* ImageViewHelper.swift in Sources */,
+				F8F22D4022CCD6670017DA96 /* ColorHelper.swift in Sources */,
 				F86BD90522CC7AAB00324A6A /* Contact.swift in Sources */,
 				F86BD90022CC790500324A6A /* GlobalEnums.swift in Sources */,
 				F86BD90722CC833B00324A6A /* GlobalVMFactory.swift in Sources */,
+				F86BD90F22CCABC200324A6A /* BaseContactsVM.swift in Sources */,
 				F86BD8EA22CC5B2300324A6A /* BaseCell.swift in Sources */,
 				F86BD90222CC79BD00324A6A /* ContactListVM.swift in Sources */,
 				F86BD8DD22CC59E800324A6A /* Request.swift in Sources */,
 				F86BD8D822CC59E800324A6A /* ContactsRepository.swift in Sources */,
+				F86BD90C22CCA54300324A6A /* BaseVC.swift in Sources */,
 				F86BD8D722CC59E800324A6A /* Repository.swift in Sources */,
-				F87F7EC322CC51AB00A2B72F /* ViewController.swift in Sources */,
+				F87F7EC322CC51AB00A2B72F /* ContactListVC.swift in Sources */,
 				F87F7EC122CC51AB00A2B72F /* AppDelegate.swift in Sources */,
 				F86BD8A822CC580E00324A6A /* GlobalConstant.swift in Sources */,
 			);
@@ -528,12 +604,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F87F7EC422CC51AB00A2B72F /* Main.storyboard */ = {
+		F87F7EC422CC51AB00A2B72F /* Contacts.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F87F7EC522CC51AB00A2B72F /* Base */,
 			);
-			name = Main.storyboard;
+			name = Contacts.storyboard;
 			sourceTree = "<group>";
 		};
 		F87F7EC922CC51AD00A2B72F /* LaunchScreen.storyboard */ = {

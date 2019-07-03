@@ -13,4 +13,11 @@ class BaseCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var subTitleLabel: UILabel?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        titleLabel?.textColor = Colors.semiBlack
+        titleLabel?.font      = Fonts.helveticaNeue
+    }
 }

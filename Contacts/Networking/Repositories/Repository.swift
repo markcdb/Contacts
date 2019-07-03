@@ -15,6 +15,9 @@ protocol RepositoryProtocol {
 
 class Repository: RepositoryProtocol {
     
+    var background = DispatchQueue.global(qos: .userInitiated)
+    var main = DispatchQueue.main
+
     var api: API?
     var requests: [Request] = [] {
         didSet {
