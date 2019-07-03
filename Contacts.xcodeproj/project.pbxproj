@@ -8,6 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		0872F90F335187BE9FE12918 /* Pods_Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7DAEC3DA3187500C5B39F /* Pods_Contacts.framework */; };
+		F86BD8A822CC580E00324A6A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8A722CC580E00324A6A /* Constant.swift */; };
+		F86BD8D522CC59E800324A6A /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8BA22CC59E800324A6A /* BaseVM.swift */; };
+		F86BD8D722CC59E800324A6A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8BE22CC59E800324A6A /* Repository.swift */; };
+		F86BD8D822CC59E800324A6A /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8BF22CC59E800324A6A /* ContactsRepository.swift */; };
+		F86BD8D922CC59E800324A6A /* SingleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8C022CC59E800324A6A /* SingleRequest.swift */; };
+		F86BD8DA22CC59E800324A6A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8C122CC59E800324A6A /* Response.swift */; };
+		F86BD8DB22CC59E800324A6A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8C222CC59E800324A6A /* Request.swift */; };
+		F86BD8DC22CC59E800324A6A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8C322CC59E800324A6A /* API.swift */; };
+		F86BD8DD22CC59E800324A6A /* ListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8C422CC59E800324A6A /* ListRequest.swift */; };
+		F86BD8E922CC5B2300324A6A /* LoaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8E422CC5B2300324A6A /* LoaderCell.swift */; };
+		F86BD8EA22CC5B2300324A6A /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8E622CC5B2300324A6A /* BaseCell.swift */; };
+		F86BD8EB22CC5B2300324A6A /* LoaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8E822CC5B2300324A6A /* LoaderCell.xib */; };
+		F86BD8ED22CC5B8F00324A6A /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86BD8EC22CC5B8F00324A6A /* Kingfisher.framework */; };
+		F86BD8EF22CC5B8F00324A6A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86BD8EE22CC5B8F00324A6A /* Networking.framework */; };
+		F86BD8F222CC62C100324A6A /* GET-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8F122CC62C100324A6A /* GET-contacts.json */; };
+		F86BD8F422CC729600324A6A /* GET-contact.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8F322CC729600324A6A /* GET-contact.json */; };
+		F86BD8F622CC738300324A6A /* POST-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8F522CC738300324A6A /* POST-contacts.json */; };
+		F86BD8FA22CC746B00324A6A /* PUT-contact.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8F922CC746B00324A6A /* PUT-contact.json */; };
+		F86BD8FC22CC749500324A6A /* DELETE-contact.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8FB22CC749500324A6A /* DELETE-contact.json */; };
+		F86BD8FE22CC756C00324A6A /* GET-contact-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8FD22CC756C00324A6A /* GET-contact-failed.json */; };
 		F87F7EC122CC51AB00A2B72F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F7EC022CC51AB00A2B72F /* AppDelegate.swift */; };
 		F87F7EC322CC51AB00A2B72F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F7EC222CC51AB00A2B72F /* ViewController.swift */; };
 		F87F7EC622CC51AB00A2B72F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F87F7EC422CC51AB00A2B72F /* Main.storyboard */; };
@@ -38,6 +58,26 @@
 		5D088C47E497917F6ECE3F7A /* Pods-Contacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.release.xcconfig"; sourceTree = "<group>"; };
 		745D0EA947C8211EAF18C9E4 /* Pods-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
 		B8F7DAEC3DA3187500C5B39F /* Pods_Contacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F86BD8A722CC580E00324A6A /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = SOURCE_ROOT; };
+		F86BD8BA22CC59E800324A6A /* BaseVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
+		F86BD8BE22CC59E800324A6A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		F86BD8BF22CC59E800324A6A /* ContactsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsRepository.swift; sourceTree = "<group>"; };
+		F86BD8C022CC59E800324A6A /* SingleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRequest.swift; sourceTree = "<group>"; };
+		F86BD8C122CC59E800324A6A /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		F86BD8C222CC59E800324A6A /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		F86BD8C322CC59E800324A6A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		F86BD8C422CC59E800324A6A /* ListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRequest.swift; sourceTree = "<group>"; };
+		F86BD8E422CC5B2300324A6A /* LoaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderCell.swift; sourceTree = "<group>"; };
+		F86BD8E622CC5B2300324A6A /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		F86BD8E822CC5B2300324A6A /* LoaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoaderCell.xib; sourceTree = "<group>"; };
+		F86BD8EC22CC5B8F00324A6A /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F86BD8EE22CC5B8F00324A6A /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F86BD8F122CC62C100324A6A /* GET-contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "GET-contacts.json"; sourceTree = "<group>"; };
+		F86BD8F322CC729600324A6A /* GET-contact.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "GET-contact.json"; sourceTree = "<group>"; };
+		F86BD8F522CC738300324A6A /* POST-contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "POST-contacts.json"; sourceTree = "<group>"; };
+		F86BD8F922CC746B00324A6A /* PUT-contact.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "PUT-contact.json"; sourceTree = "<group>"; };
+		F86BD8FB22CC749500324A6A /* DELETE-contact.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "DELETE-contact.json"; sourceTree = "<group>"; };
+		F86BD8FD22CC756C00324A6A /* GET-contact-failed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "GET-contact-failed.json"; sourceTree = "<group>"; };
 		F87F7EBD22CC51AB00A2B72F /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F87F7EC022CC51AB00A2B72F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F87F7EC222CC51AB00A2B72F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F86BD8ED22CC5B8F00324A6A /* Kingfisher.framework in Frameworks */,
+				F86BD8EF22CC5B8F00324A6A /* Networking.framework in Frameworks */,
 				0872F90F335187BE9FE12918 /* Pods_Contacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,9 +133,88 @@
 		2EC7A383FAF5F07FC54235F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F86BD8EC22CC5B8F00324A6A /* Kingfisher.framework */,
+				F86BD8EE22CC5B8F00324A6A /* Networking.framework */,
 				B8F7DAEC3DA3187500C5B39F /* Pods_Contacts.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F86BD8B322CC59E700324A6A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F87F7EC922CC51AD00A2B72F /* LaunchScreen.storyboard */,
+				F87F7EC422CC51AB00A2B72F /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F86BD8B822CC59E800324A6A /* Viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD8BA22CC59E800324A6A /* BaseVM.swift */,
+			);
+			path = Viewmodels;
+			sourceTree = "<group>";
+		};
+		F86BD8BC22CC59E800324A6A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD8BD22CC59E800324A6A /* Repositories */,
+				F86BD8C022CC59E800324A6A /* SingleRequest.swift */,
+				F86BD8C122CC59E800324A6A /* Response.swift */,
+				F86BD8C222CC59E800324A6A /* Request.swift */,
+				F86BD8C322CC59E800324A6A /* API.swift */,
+				F86BD8C422CC59E800324A6A /* ListRequest.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F86BD8BD22CC59E800324A6A /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD8BE22CC59E800324A6A /* Repository.swift */,
+				F86BD8BF22CC59E800324A6A /* ContactsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		F86BD8E322CC5B2300324A6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD8E422CC5B2300324A6A /* LoaderCell.swift */,
+				F86BD8E522CC5B2300324A6A /* Base */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F86BD8E522CC5B2300324A6A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD8E622CC5B2300324A6A /* BaseCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F86BD8E722CC5B2300324A6A /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD8E822CC5B2300324A6A /* LoaderCell.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		F86BD8F022CC629C00324A6A /* Mocking */ = {
+			isa = PBXGroup;
+			children = (
+				F86BD8F122CC62C100324A6A /* GET-contacts.json */,
+				F86BD8F322CC729600324A6A /* GET-contact.json */,
+				F86BD8F522CC738300324A6A /* POST-contacts.json */,
+				F86BD8F922CC746B00324A6A /* PUT-contact.json */,
+				F86BD8FB22CC749500324A6A /* DELETE-contact.json */,
+				F86BD8FD22CC756C00324A6A /* GET-contact-failed.json */,
+			);
+			path = Mocking;
 			sourceTree = "<group>";
 		};
 		F87F7EB422CC51AB00A2B72F = {
@@ -121,11 +242,16 @@
 		F87F7EBF22CC51AB00A2B72F /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				F86BD8A722CC580E00324A6A /* Constant.swift */,
 				F87F7EC022CC51AB00A2B72F /* AppDelegate.swift */,
 				F87F7EC222CC51AB00A2B72F /* ViewController.swift */,
-				F87F7EC422CC51AB00A2B72F /* Main.storyboard */,
+				F86BD8BC22CC59E800324A6A /* Networking */,
+				F86BD8B322CC59E700324A6A /* Storyboards */,
+				F86BD8B822CC59E800324A6A /* Viewmodels */,
+				F86BD8E322CC5B2300324A6A /* Views */,
+				F86BD8E722CC5B2300324A6A /* XIBs */,
+				F86BD8F022CC629C00324A6A /* Mocking */,
 				F87F7EC722CC51AD00A2B72F /* Assets.xcassets */,
-				F87F7EC922CC51AD00A2B72F /* LaunchScreen.storyboard */,
 				F87F7ECC22CC51AD00A2B72F /* Info.plist */,
 			);
 			path = Contacts;
@@ -255,9 +381,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F86BD8FC22CC749500324A6A /* DELETE-contact.json in Resources */,
+				F86BD8FE22CC756C00324A6A /* GET-contact-failed.json in Resources */,
+				F86BD8F422CC729600324A6A /* GET-contact.json in Resources */,
+				F86BD8F222CC62C100324A6A /* GET-contacts.json in Resources */,
+				F86BD8FA22CC746B00324A6A /* PUT-contact.json in Resources */,
 				F87F7ECB22CC51AD00A2B72F /* LaunchScreen.storyboard in Resources */,
 				F87F7EC822CC51AD00A2B72F /* Assets.xcassets in Resources */,
+				F86BD8EB22CC5B2300324A6A /* LoaderCell.xib in Resources */,
 				F87F7EC622CC51AB00A2B72F /* Main.storyboard in Resources */,
+				F86BD8F622CC738300324A6A /* POST-contacts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,8 +464,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F86BD8DC22CC59E800324A6A /* API.swift in Sources */,
+				F86BD8D522CC59E800324A6A /* BaseVM.swift in Sources */,
+				F86BD8E922CC5B2300324A6A /* LoaderCell.swift in Sources */,
+				F86BD8DA22CC59E800324A6A /* Response.swift in Sources */,
+				F86BD8DB22CC59E800324A6A /* Request.swift in Sources */,
+				F86BD8EA22CC5B2300324A6A /* BaseCell.swift in Sources */,
+				F86BD8DD22CC59E800324A6A /* ListRequest.swift in Sources */,
+				F86BD8D822CC59E800324A6A /* ContactsRepository.swift in Sources */,
+				F86BD8D722CC59E800324A6A /* Repository.swift in Sources */,
+				F86BD8D922CC59E800324A6A /* SingleRequest.swift in Sources */,
 				F87F7EC322CC51AB00A2B72F /* ViewController.swift in Sources */,
 				F87F7EC122CC51AB00A2B72F /* AppDelegate.swift in Sources */,
+				F86BD8A822CC580E00324A6A /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,7 +653,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQW794VJB9;
+				DEVELOPMENT_TEAM = 86TST43N9D;
 				INFOPLIST_FILE = Contacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,7 +672,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQW794VJB9;
+				DEVELOPMENT_TEAM = 86TST43N9D;
 				INFOPLIST_FILE = Contacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
