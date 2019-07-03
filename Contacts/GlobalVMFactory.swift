@@ -16,4 +16,11 @@ class GlobalVMFactory {
         return ContactListVM(delegate: delegate,
                              repository: repository ?? ContactsRepository())
     }
+    
+    static func createContactDetailsVM(repository: ContactsRepository? = nil,
+                                       delegate: BaseVMDelegate) -> ContactDetailsVM {
+        
+        return ContactDetailsVM(delegate: delegate,
+                                repository: repository ?? ContactsRepository())
+    }
 }

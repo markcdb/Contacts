@@ -40,10 +40,10 @@ class ContactsRepository: Repository {
         requests.append(request)
     }
     
-    func getContact(id: String,
+    func getContact(id: Int,
                     completion: @escaping ((Contact?, Error?) -> Void)) {
         let path = Paths.contact.replacingOccurrences(of: URLParameters.id,
-                                                      with: id)
+                                                      with: String(id))
         
         let request = Request(path: path,
                               method: .get)
@@ -72,5 +72,9 @@ class MockContactsRepository: ContactsRepository {
     
     override func getContacts(completion: @escaping (([Contact]?, Error?) -> ())) {
         super.getContacts(completion: completion)
+    }
+    
+    override func getContact(id: Int, completion: @escaping ((Contact?, Error?) -> Void)) {
+        super.getContact(id: id, completion: completion)
     }
 }

@@ -22,8 +22,28 @@ class ContactDetailsVM: BaseContactVM {
     override func request() {
         super.request()
         
+        guard let contact = contact else {
+            self.viewState = .error(nil)
+            return
+        }
+        
         self.viewState = .loading(nil)
         
-        
+        repository?.getContact(id: contact.id ?? 0,
+                               completion: {[weak self] (contact, error) in
+                                guard let self = self else { return }
+                                
+                                guard error == nil,
+                                    let contact = contact else {
+                                        
+                                        let errorMsg = error?.localizedDescription ?? ""
+                                        self.viewState = .error(errorMsg)
+                                        
+                                        return
+                                }
+                                
+                                self.contact = contact
+                                self.viewState = .success(nil)
+        })
     }
 }

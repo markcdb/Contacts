@@ -1,8 +1,8 @@
 //
-//  ContactsTests.swift
+//  ContactDetailsVMTest.swift
 //  ContactsTests
 //
-//  Created by Mark Christian Buot on 03/07/2019.
+//  Created by Mark Christian Buot on 04/07/2019.
 //  Copyright © 2019 Mark Christian Buot. All rights reserved.
 //
 
@@ -11,34 +11,44 @@ import XCTest
 
 private enum TestCase: String {
     
-    case getContactsSuccess = "SUT: Get Contacts -- SUCCESS"
-    case getContactsError   = "SUT: Get Contacts -- ERROR"
+    case getContactSuccess = "SUT: Get Contacts -- SUCCESS"
+    case getContactError   = "SUT: Get Contacts -- ERROR"
 }
 
-class ContactListVMTest: XCTestCase {
-
-    var viewModel: ContactListVM?
+class ContactDetailsVMTest: XCTestCase {
+    
+    var viewModel: ContactDetailsVM?
     var repository: MockContactsRepository?
     private var testCase: TestCase?
     var expectation: XCTestExpectation?
-    
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
         repository = MockContactsRepository()
-        viewModel  = GlobalVMFactory.createContactListVM(repository: repository,
-                                                         delegate: self)
+        viewModel  = GlobalVMFactory.createContactDetailsVM(repository: repository,
+                                                            delegate: self)
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
-    func testGetContacts() {
+
+    func testGetContact() {
         
-        testCase    = .getContactsSuccess
-        expectation = XCTestExpectation(description: TestCase.getContactsSuccess.rawValue)
+        testCase    = .getContactSuccess
+        expectation = XCTestExpectation(description: TestCase.getContactSuccess.rawValue)
         
+        let contactStub = Contact(id: 123,
+                              first_name: nil,
+                              last_name: nil,
+                              email: nil,
+                              phone_number: nil,
+                              profile_pic: nil,
+                              favorite: nil,
+                              created_at: nil,
+                              updated_at: nil)
+        
+        viewModel?.contact = contactStub
         viewModel?.request()
         
         wait(for: [expectation!],
@@ -47,8 +57,8 @@ class ContactListVMTest: XCTestCase {
     
     func testGetContactsError() {
         
-        testCase             = .getContactsError
-        expectation          = XCTestExpectation(description: TestCase.getContactsError.rawValue)
+        testCase             = .getContactError
+        expectation          = XCTestExpectation(description: TestCase.getContactError.rawValue)
         repository?.failable = true
         
         viewModel?.request()
@@ -56,9 +66,10 @@ class ContactListVMTest: XCTestCase {
         wait(for: [expectation!],
              timeout: 10.0)
     }
+
 }
 
-extension ContactListVMTest: BaseVMDelegate {
+extension ContactDetailsVMTest: BaseVMDelegate {
     
     func didUpdateModel(_ viewModel: BaseVM,
                         withState viewState: ViewState) {
@@ -73,7 +84,7 @@ extension ContactListVMTest: BaseVMDelegate {
         case .loading(_):
             break
         case .error(_):
-            if testCase == .getContactsError {
+            if testCase == .getContactError {
                 expectation?.fulfill()
             } else {
                 XCTFail("Expectation not met")
