@@ -46,6 +46,17 @@ class ContactListVC: BaseVC<ContactListVM>, UITableViewDelegate, UITableViewData
     //Was forced to put all @objc protocol conformances inside class declaration
     
     //MARK: - Tableview Delegate and DataSource
+    
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         let count = viewModel?.getContactsCountAt(section) ?? 0
