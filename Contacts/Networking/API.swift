@@ -17,15 +17,16 @@ enum HTTPMethod: String {
 }
 
 class API {
-
-    var mocking: Bool {
+    
+    internal var networking: Networking?
+    
+    public var mocking: Bool {
         if ProcessInfo.processInfo.environment[Paths.testPath] != nil {
             return true
         }
         return false
     }
     
-    private var networking: Networking?
     public var host: String
     
     init(host: String) {
@@ -55,16 +56,12 @@ class API {
     public func request(jsonRequest: JSONRequest? = nil,
                               request: Request) {
         
-        let method  = request.method
-        var path    = request.path
-        
+        let method      = request.method
+        let path        = request.path
+
         let completion: (_ result: JSONResult) -> Void = request.getCompletion()
         
         print("Requesting from: \(path)")
-        
-        if mocking {
-            path = method.rawValue + "-\(path.replacingOccurrences(of: "/", with: ""))"
-        }
         
         switch method {
         case .get:
@@ -76,43 +73,78 @@ class API {
                                 withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? ""
             }
             
-            if mocking {
-                self.networking?.fakeGET(path,
-                                         fileName: path,
-                                         bundle: Bundle.main)
-            }
-            
             self.networking?.get("\(path)\(queryString)",
                                 completion: completion)
         case .post:
-            if mocking {
-                self.networking?.fakePOST(path,
-                                          fileName: path,
-                                          bundle: Bundle.main)
-            }
             
             self.networking?.post(path,
                                   parameters: jsonRequest?.parameters,
                                   completion: completion)
         case .put:
-            if mocking {
-                self.networking?.fakePUT(path,
-                                         fileName: path,
-                                         bundle: Bundle.main)
-            }
             
             self.networking?.put(path,
                                  parameterType: .json,
                                  parameters: jsonRequest?.parameters,
                                  completion: completion)
         case .delete:
-            if mocking {
-                self.networking?.fakeDELETE(path, fileName: path, bundle: Bundle.main)
-            }
-            
+
             self.networking?.delete(path,
                                     parameters: jsonRequest?.parameters,
                                     completion: completion)
         }
+    }
+}
+
+class MockAPI: API {
+    
+    var failable: Bool?
+    
+    override init(host: String) {
+        super.init(host: host)
+    }
+    
+    private func createMockPathFrom(_ path: String,
+                                    httpMethod: HTTPMethod) -> String {
+        
+        return httpMethod.rawValue + "-\(path.replacingOccurrences(of: "/", with: ""))"
+    }
+
+    override func request(jsonRequest: JSONRequest?, request: Request) {
+        let method      = request.method
+        let path        = request.path
+        var mockPath    = createMockPathFrom(request.path,
+                                             httpMethod: request.method)
+        
+        if failable == true {
+            mockPath    = mockPath.replacingOccurrences(of: ".json",
+                                                        with: "-failed.json")
+        }
+        
+        let mockRequest                 = Request(path: path,
+                                                  method: request.method)
+        mockRequest.errorCompletion     = request.errorCompletion
+        mockRequest.successCompletion   = request.successCompletion
+        
+        switch method {
+        case .get:
+            self.networking?.fakeGET(path,
+                                     fileName: mockPath,
+                                     bundle: Bundle.main)
+        case .post:
+            self.networking?.fakePOST(path,
+                                      fileName: mockPath,
+                                      bundle: Bundle.main)
+        case .put:
+            self.networking?.fakePUT(path,
+                                     fileName: mockPath,
+                                     bundle: Bundle.main)
+        case .delete:
+            self.networking?.fakeDELETE(path,
+                                        fileName: mockPath,
+                                        bundle: Bundle.main)
+        }
+        
+        super.request(jsonRequest: jsonRequest,
+                      request: request)
     }
 }

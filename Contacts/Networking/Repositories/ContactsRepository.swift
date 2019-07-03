@@ -13,54 +13,54 @@ class ContactsRepository: Repository {
     // MARK: - Init
     override init() {
         super.init()
-        api = API(host: NetworkConfig.baseUrl)
     }
     
-    /*
-    func getVenues(location: Location,
-                   onSuccess success: @escaping (([FoursquareLocation]) -> Void),
-                   onError error: @escaping ((NSError) -> Void)) {
-        var path = Paths.venues
-        path = path.replacingOccurrences(of: URLParameters.lat, with: location.lat)
-        path = path.replacingOccurrences(of: URLParameters.lng, with: location.lng)
+    func getContacts(completion: @escaping (([Contact]?, Error?) -> ())) {
+        let path = Paths.contacts
         
-        let request = ListRequest(path: path,
-                                  method: .get)
+        let request = Request(path: path,
+                              method: .get)
         
         request.successCompletion = {[weak self] response in
             guard let self = self else { return }
-            var venues = response.data.compactMap({ (data) -> FoursquareLocation? in
-                let venue = FoursquareLocation(json: data)
+            
+            do {
+                let object = try JSONDecoder().decode([Contact].self,
+                                                      from: response.data)
+                print(object)
+                completion(object, nil)
                 
-                return venue
-            })
-            
-            venues = venues.sorted(by: { (fs1, fs2) -> Bool in
-                let minDistance = Float(fs1.distance) ?? 0.0
-                let maxDistance = Float(fs2.distance) ?? 0.0
-                
-                return minDistance < maxDistance
-            })
-            
-            success(venues)
-            
-            if self.requests.isEmpty == false {
-                self.requests.removeLast()
+                if self.requests.isEmpty == false {
+                    self.requests.removeLast()
+                }
+            } catch let error {
+                completion(nil, error)
             }
         }
         
         request.errorCompletion = { response in
-            let userInfo = [Keys.error: response.error,
-                            Keys.message: response.message!]
             
-            let err = NSError(domain: response.error,
-                              code: response.statusCode,
-                              userInfo: userInfo)
-            
-            error(err)
+            completion(nil, response)
         }
         
         requests.append(request)
     }
-     */
+}
+
+class MockContactsRepository: ContactsRepository {
+    
+    public var failable: Bool = false {
+        didSet {
+            (api as? MockAPI)?.failable = failable
+        }
+    }
+    
+    override init() {
+        super.init()
+        api = MockAPI(host: NetworkConfig.baseUrl)
+    }
+    
+    override func getContacts(completion: @escaping (([Contact]?, Error?) -> ())) {
+        super.getContacts(completion: completion)
+    }
 }

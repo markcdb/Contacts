@@ -8,25 +8,19 @@
 
 import Foundation
 
-protocol Response {
-    var statusCode: Int { get set }
-    var message: String? { get set }
+struct Response {
+    var status: Int
+    var data: Data
 }
 
-struct SingleResponse: Response {
-    var statusCode: Int
-    var message: String?
-    var data: [String: Any]
-}
-
-struct ListResponse: Response {
-    var statusCode: Int
-    var message: String?
-    var data: [[String: Any]]
-}
-
-struct ErrorResponse: Response {
-    var statusCode: Int
-    var message: String?
-    var error: String
+struct ErrorResponse: LocalizedError {
+    var status: Int
+    var errorDescription: String?
+    
+    init(status: Int,
+         errorDescription: String?) {
+        
+        self.status           = status
+        self.errorDescription = errorDescription
+    }
 }

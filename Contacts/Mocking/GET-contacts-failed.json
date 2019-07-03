@@ -1,4 +1,4 @@
 {
-    "status": "404",
+    "statusCode": "404",
     "error": "Not Found"
 }

@@ -15,7 +15,7 @@ protocol RepositoryProtocol {
 
 class Repository: RepositoryProtocol {
     
-    var api: API!
+    var api: API?
     var requests: [Request] = [] {
         didSet {
             if requests.isEmpty == false {
@@ -24,9 +24,13 @@ class Repository: RepositoryProtocol {
         }
     }
     
+    init() {
+        api = API(host: NetworkConfig.baseUrl)
+    }
+    
     func request() {
         // Construct the request object (ListRequest)
         guard let currRequest = requests.last else { return }
-        api.request(request: currRequest)
+        api?.request(request: currRequest)
     }
 }
