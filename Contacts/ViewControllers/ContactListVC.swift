@@ -18,6 +18,7 @@ class ContactListVC: BaseVC<ContactListVM>, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        title = Titles.contacts
         
         for identifier in identifiers {
             let nib = UINib(nibName: identifier,
@@ -27,6 +28,14 @@ class ContactListVC: BaseVC<ContactListVM>, UITableViewDelegate, UITableViewData
                                 forCellReuseIdentifier: identifier)
         }
         
+        tableView?.sectionIndexColor = Colors.darkGray
+        tableView?.separatorColor    = Colors.semiDarkGray
+        let frame                    = CGRect(x: 0,
+                                              y: 0,
+                                              width: tableView?.frame.size.width ?? 0.0,
+                                              height: 1)
+        tableView?.tableFooterView   = UIView(frame: frame)
+
         if viewModel == nil {
             viewModel = GlobalVMFactory.createContactListVM(delegate: self)
             viewModel?.request()
@@ -83,12 +92,20 @@ class ContactListVC: BaseVC<ContactListVM>, UITableViewDelegate, UITableViewData
         return viewModel?.getSortingKeysCount() ?? 0
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
         guard viewModel?.viewState == .success(nil) else {
             return nil
         }
-
-        return viewModel?.getSortingKeys()[section]
+        
+        let frame = CGRect(x: 0,
+                           y: 0,
+                           width: tableView.frame.width,
+                           height: 28)
+        
+        let view  = SectionHeader(frame: frame)
+        view.titleLabel?.text = viewModel?.getSortingKeys()[section]
+        return view
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {

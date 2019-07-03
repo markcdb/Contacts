@@ -36,7 +36,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wPV-CY-T6a"/>
+                    <navigationItem key="navigationItem" id="wPV-CY-T6a">
+                        <barButtonItem key="leftBarButtonItem" title="Groups" id="zT4-az-Qvb"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fW6-RD-5Bt"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="MrB-oK-NJB" id="dbE-ic-atG"/>
                     </connections>

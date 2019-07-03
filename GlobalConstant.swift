@@ -41,12 +41,20 @@ struct Cells {
     static let emptyCell           = "EmptyCell"
 }
 
+struct Nibs {
+    
+    static let sectionHeader       = "SectionHeader"
+}
+
 struct URLParameters {
     
     static let id = "$[id]"
 }
 
-struct Titles {}
+struct Titles {
+    
+    static let contacts = "Contacts"
+}
 
 struct Segues {
     
@@ -55,13 +63,18 @@ struct Segues {
 
 struct Colors {
     
-    static let lightGray = UIColor.hex("D8D8D8")
-    static let semiBlack = UIColor.hex("4A4A4A")
+    static let darkGray     = UIColor.hex("ADADAD")
+    static let semiDarkGray = UIColor.hex("F0F0F0")
+    static let whiteGray    = UIColor.hex("E9E9E9")
+    static let lightGray    = UIColor.hex("D8D8D8")
+    static let semiBlack    = UIColor.hex("4A4A4A")
+    static let blueGreen    = UIColor.hex("50E3C2")
 }
 
 struct Fonts {
     
     static let helveticaNeue = UIFont(name: "HelveticaNeue", size: 14.0)
+    static let helveticaBold17 = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
 }
 
 struct Images {

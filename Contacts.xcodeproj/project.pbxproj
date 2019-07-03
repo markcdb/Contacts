@@ -46,6 +46,9 @@
 		F8F22D3C22CCD46B0017DA96 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D3B22CCD46B0017DA96 /* URLHelper.swift */; };
 		F8F22D4022CCD6670017DA96 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D3F22CCD6670017DA96 /* ColorHelper.swift */; };
 		F8F22D4222CCDFA50017DA96 /* ArrayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4122CCDFA50017DA96 /* ArrayHelper.swift */; };
+		F8F22D4422CCF6290017DA96 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D4322CCF6290017DA96 /* SectionHeader.xib */; };
+		F8F22D4622CCF7ED0017DA96 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4522CCF7ED0017DA96 /* SectionHeader.swift */; };
+		F8F22D4822CCFC4F0017DA96 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4722CCFC4F0017DA96 /* ImageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +116,9 @@
 		F8F22D3B22CCD46B0017DA96 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 		F8F22D3F22CCD6670017DA96 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		F8F22D4122CCDFA50017DA96 /* ArrayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayHelper.swift; sourceTree = "<group>"; };
+		F8F22D4322CCF6290017DA96 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
+		F8F22D4522CCF7ED0017DA96 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		F8F22D4722CCFC4F0017DA96 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +228,7 @@
 			children = (
 				F86BD8E822CC5B2300324A6A /* LoaderCell.xib */,
 				F86BD91022CCACBF00324A6A /* ContactCell.xib */,
+				F8F22D4322CCF6290017DA96 /* SectionHeader.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -253,6 +260,7 @@
 				F86BD8E522CC5B2300324A6A /* Base */,
 				F86BD8E422CC5B2300324A6A /* LoaderCell.swift */,
 				F86BD91222CCACE200324A6A /* ContactCell.swift */,
+				F8F22D4522CCF7ED0017DA96 /* SectionHeader.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -291,6 +299,7 @@
 				F8F22D3B22CCD46B0017DA96 /* URLHelper.swift */,
 				F8F22D3F22CCD6670017DA96 /* ColorHelper.swift */,
 				F8F22D4122CCDFA50017DA96 /* ArrayHelper.swift */,
+				F8F22D4722CCFC4F0017DA96 /* ImageHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -470,6 +479,7 @@
 				F87F7ECB22CC51AD00A2B72F /* LaunchScreen.storyboard in Resources */,
 				F87F7EC822CC51AD00A2B72F /* Assets.xcassets in Resources */,
 				F86BD8EB22CC5B2300324A6A /* LoaderCell.xib in Resources */,
+				F8F22D4422CCF6290017DA96 /* SectionHeader.xib in Resources */,
 				F86BD91122CCACBF00324A6A /* ContactCell.xib in Resources */,
 				F87F7EC622CC51AB00A2B72F /* Contacts.storyboard in Resources */,
 				F86BD8F622CC738300324A6A /* POST-contacts.json in Resources */,
@@ -562,10 +572,12 @@
 				F86BD90F22CCABC200324A6A /* BaseContactsVM.swift in Sources */,
 				F86BD8EA22CC5B2300324A6A /* BaseCell.swift in Sources */,
 				F86BD90222CC79BD00324A6A /* ContactListVM.swift in Sources */,
+				F8F22D4822CCFC4F0017DA96 /* ImageHelper.swift in Sources */,
 				F86BD8DD22CC59E800324A6A /* Request.swift in Sources */,
 				F86BD8D822CC59E800324A6A /* ContactsRepository.swift in Sources */,
 				F86BD90C22CCA54300324A6A /* BaseVC.swift in Sources */,
 				F86BD8D722CC59E800324A6A /* Repository.swift in Sources */,
+				F8F22D4622CCF7ED0017DA96 /* SectionHeader.swift in Sources */,
 				F87F7EC322CC51AB00A2B72F /* ContactListVC.swift in Sources */,
 				F87F7EC122CC51AB00A2B72F /* AppDelegate.swift in Sources */,
 				F86BD8A822CC580E00324A6A /* GlobalConstant.swift in Sources */,
