@@ -49,6 +49,8 @@
 		F8F22D4422CCF6290017DA96 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D4322CCF6290017DA96 /* SectionHeader.xib */; };
 		F8F22D4622CCF7ED0017DA96 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4522CCF7ED0017DA96 /* SectionHeader.swift */; };
 		F8F22D4822CCFC4F0017DA96 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4722CCFC4F0017DA96 /* ImageHelper.swift */; };
+		F8F22D4A22CD140E0017DA96 /* ContactDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4922CD140E0017DA96 /* ContactDetailsVM.swift */; };
+		F8F22D4C22CD141E0017DA96 /* ContactCreateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4B22CD141E0017DA96 /* ContactCreateVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		F8F22D4322CCF6290017DA96 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		F8F22D4522CCF7ED0017DA96 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		F8F22D4722CCFC4F0017DA96 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		F8F22D4922CD140E0017DA96 /* ContactDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsVM.swift; sourceTree = "<group>"; };
+		F8F22D4B22CD141E0017DA96 /* ContactCreateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCreateVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,8 @@
 			children = (
 				F86BD90D22CCABB300324A6A /* Base */,
 				F86BD90122CC79BD00324A6A /* ContactListVM.swift */,
+				F8F22D4922CD140E0017DA96 /* ContactDetailsVM.swift */,
+				F8F22D4B22CD141E0017DA96 /* ContactCreateVM.swift */,
 			);
 			path = Viewmodels;
 			sourceTree = "<group>";
@@ -576,10 +582,12 @@
 				F86BD8DD22CC59E800324A6A /* Request.swift in Sources */,
 				F86BD8D822CC59E800324A6A /* ContactsRepository.swift in Sources */,
 				F86BD90C22CCA54300324A6A /* BaseVC.swift in Sources */,
+				F8F22D4C22CD141E0017DA96 /* ContactCreateVM.swift in Sources */,
 				F86BD8D722CC59E800324A6A /* Repository.swift in Sources */,
 				F8F22D4622CCF7ED0017DA96 /* SectionHeader.swift in Sources */,
 				F87F7EC322CC51AB00A2B72F /* ContactListVC.swift in Sources */,
 				F87F7EC122CC51AB00A2B72F /* AppDelegate.swift in Sources */,
+				F8F22D4A22CD140E0017DA96 /* ContactDetailsVM.swift in Sources */,
 				F86BD8A822CC580E00324A6A /* GlobalConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

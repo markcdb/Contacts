@@ -88,3 +88,48 @@ class BaseContactsVM: BaseVM {
         return sortingKeys.count
     }
 }
+
+class BaseContactVM: BaseVM {
+    
+    internal var contact: Contact?
+    
+    override init(delegate: BaseVMDelegate) {
+        super.init(delegate: delegate)
+        
+    }
+    
+    func getContact() -> Contact? {
+       
+        return contact
+    }
+    
+    func getFullName() -> String? {
+        
+        return contact?.fullName
+    }
+    
+    func getFirstName() -> String? {
+     
+        return contact?.first_name
+    }
+    
+    func getLastName() -> String? {
+      
+        return contact?.last_name
+    }
+    
+    func getIsFavorite() -> Bool {
+       
+        return contact?.favorite ?? false
+    }
+    
+    func getProfileUrl() -> String? {
+        let urlString = contact?.profile_pic
+        
+        if URL.isvalidURL(string: urlString) {
+            return urlString
+        } else {
+            return NetworkConfig.baseUrl.appending(urlString ?? "")
+        }
+    }
+}

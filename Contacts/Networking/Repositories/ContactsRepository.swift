@@ -21,33 +21,36 @@ class ContactsRepository: Repository {
         let request = Request(path: path,
                               method: .get)
         
-        request.successCompletion = {[weak self] response in
-            guard let self = self else { return }
-            self.background.async {
-                do {
-                    var sortBlock: ((Contact, Contact) throws -> Bool)
-                    sortBlock  = { $0.first_name ?? "" < $1.first_name ?? "" }
-                    let object = try JSONDecoder().decode([Contact].self,
-                                                          from: response.data).sorted(by: sortBlock)
-                    
-                    self.main.async {
-                        completion(object, nil)
-                        
-                        if self.requests.isEmpty == false {
-                            self.requests.removeLast()
-                        }
-                    }
-                } catch let error {
-                    self.main.async {
-                        completion(nil, error)
-                    }
-                }
-            }
+        createSuccessAndFail(request,
+                             completion: completion) { (contacts, group) in
+                                var sortBlock: ((Contact, Contact) throws -> Bool)
+                                sortBlock  = { $0.first_name ?? "" < $1.first_name ?? "" }
+                                
+                                do {
+                                    contacts = try contacts.sorted(by: sortBlock)
+                                } catch let error {
+                                    self.main.async {
+                                        completion(nil, error)
+                                    }
+                                }
+                                
+                                group.leave()
         }
         
-        request.errorCompletion = { response in
-            
-            completion(nil, response)
+        requests.append(request)
+    }
+    
+    func getContact(id: String,
+                    completion: @escaping ((Contact?, Error?) -> Void)) {
+        let path = Paths.contact.replacingOccurrences(of: URLParameters.id,
+                                                      with: id)
+        
+        let request = Request(path: path,
+                              method: .get)
+        
+        createSuccessAndFail(request,
+                             completion: completion) { (contact, group) in
+                                group.leave()
         }
         
         requests.append(request)
