@@ -50,12 +50,12 @@
 		F8F22D5F22CD96040017DA96 /* GET-contacts-6027-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5322CD96030017DA96 /* GET-contacts-6027-failed.json */; };
 		F8F22D6022CD96040017DA96 /* GET-contacts-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5422CD96030017DA96 /* GET-contacts-failed.json */; };
 		F8F22D6222CD96040017DA96 /* POST-contacts-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5622CD96030017DA96 /* POST-contacts-failed.json */; };
-		F8F22D6322CD96040017DA96 /* PUT-contacts-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5722CD96030017DA96 /* PUT-contacts-failed.json */; };
+		F8F22D6322CD96040017DA96 /* PUT-contacts-6027-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5722CD96030017DA96 /* PUT-contacts-6027-failed.json */; };
 		F8F22D6422CD96040017DA96 /* DELETE-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5922CD96040017DA96 /* DELETE-contacts.json */; };
 		F8F22D6522CD96040017DA96 /* GET-contacts-6027.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5A22CD96040017DA96 /* GET-contacts-6027.json */; };
 		F8F22D6622CD96040017DA96 /* GET-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5B22CD96040017DA96 /* GET-contacts.json */; };
 		F8F22D6722CD96040017DA96 /* POST-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5C22CD96040017DA96 /* POST-contacts.json */; };
-		F8F22D6822CD96040017DA96 /* PUT-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5D22CD96040017DA96 /* PUT-contacts.json */; };
+		F8F22D6822CD96040017DA96 /* PUT-contacts-6027.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5D22CD96040017DA96 /* PUT-contacts-6027.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,12 +127,12 @@
 		F8F22D5322CD96030017DA96 /* GET-contacts-6027-failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GET-contacts-6027-failed.json"; sourceTree = "<group>"; };
 		F8F22D5422CD96030017DA96 /* GET-contacts-failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GET-contacts-failed.json"; sourceTree = "<group>"; };
 		F8F22D5622CD96030017DA96 /* POST-contacts-failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "POST-contacts-failed.json"; sourceTree = "<group>"; };
-		F8F22D5722CD96030017DA96 /* PUT-contacts-failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PUT-contacts-failed.json"; sourceTree = "<group>"; };
+		F8F22D5722CD96030017DA96 /* PUT-contacts-6027-failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PUT-contacts-6027-failed.json"; sourceTree = "<group>"; };
 		F8F22D5922CD96040017DA96 /* DELETE-contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "DELETE-contacts.json"; sourceTree = "<group>"; };
 		F8F22D5A22CD96040017DA96 /* GET-contacts-6027.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GET-contacts-6027.json"; sourceTree = "<group>"; };
 		F8F22D5B22CD96040017DA96 /* GET-contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GET-contacts.json"; sourceTree = "<group>"; };
 		F8F22D5C22CD96040017DA96 /* POST-contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "POST-contacts.json"; sourceTree = "<group>"; };
-		F8F22D5D22CD96040017DA96 /* PUT-contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PUT-contacts.json"; sourceTree = "<group>"; };
+		F8F22D5D22CD96040017DA96 /* PUT-contacts-6027.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PUT-contacts-6027.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,7 +385,7 @@
 				F8F22D5322CD96030017DA96 /* GET-contacts-6027-failed.json */,
 				F8F22D5422CD96030017DA96 /* GET-contacts-failed.json */,
 				F8F22D5622CD96030017DA96 /* POST-contacts-failed.json */,
-				F8F22D5722CD96030017DA96 /* PUT-contacts-failed.json */,
+				F8F22D5722CD96030017DA96 /* PUT-contacts-6027-failed.json */,
 			);
 			path = Failed;
 			sourceTree = "<group>";
@@ -397,7 +397,7 @@
 				F8F22D5A22CD96040017DA96 /* GET-contacts-6027.json */,
 				F8F22D5B22CD96040017DA96 /* GET-contacts.json */,
 				F8F22D5C22CD96040017DA96 /* POST-contacts.json */,
-				F8F22D5D22CD96040017DA96 /* PUT-contacts.json */,
+				F8F22D5D22CD96040017DA96 /* PUT-contacts-6027.json */,
 			);
 			path = Success;
 			sourceTree = "<group>";
@@ -509,7 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8F22D6422CD96040017DA96 /* DELETE-contacts.json in Resources */,
-				F8F22D6822CD96040017DA96 /* PUT-contacts.json in Resources */,
+				F8F22D6822CD96040017DA96 /* PUT-contacts-6027.json in Resources */,
 				F87F7ECB22CC51AD00A2B72F /* LaunchScreen.storyboard in Resources */,
 				F8F22D6522CD96040017DA96 /* GET-contacts-6027.json in Resources */,
 				F8F22D5E22CD96040017DA96 /* DELETE-contacts-failed.json in Resources */,
@@ -522,7 +522,7 @@
 				F8F22D5F22CD96040017DA96 /* GET-contacts-6027-failed.json in Resources */,
 				F8F22D6722CD96040017DA96 /* POST-contacts.json in Resources */,
 				F8F22D6222CD96040017DA96 /* POST-contacts-failed.json in Resources */,
-				F8F22D6322CD96040017DA96 /* PUT-contacts-failed.json in Resources */,
+				F8F22D6322CD96040017DA96 /* PUT-contacts-6027-failed.json in Resources */,
 				F87F7EC622CC51AB00A2B72F /* Contacts.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

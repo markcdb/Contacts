@@ -20,14 +20,14 @@ class API {
     
     internal var networking: Networking?
     
-    public var mocking: Bool {
+    internal var mocking: Bool {
         if ProcessInfo.processInfo.environment[Paths.testPath] != nil {
             return true
         }
         return false
     }
     
-    public var host: String
+    internal var host: String
     
     init(host: String) {
         
@@ -53,7 +53,7 @@ class API {
         return queryString
     }
     
-    public func request(request: Request) {
+    internal func request(request: Request) {
         
         let parametersDict: [String: Any]? = request.parameters
         let method                         = request.method

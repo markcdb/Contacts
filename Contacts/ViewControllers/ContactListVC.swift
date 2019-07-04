@@ -47,17 +47,17 @@ class ContactListVC: BaseVC<ContactListVM>, UITableViewDelegate, UITableViewData
     
     //MARK: - Tableview Delegate and DataSource
     
-    func tableView(_ tableView: UITableView,
+    internal func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView,
+    internal func tableView(_ tableView: UITableView,
                    estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
-    func tableView(_ tableView: UITableView,
+    internal func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         let count = viewModel?.getContactsCountAt(section) ?? 0
         
@@ -68,7 +68,7 @@ class ContactListVC: BaseVC<ContactListVM>, UITableViewDelegate, UITableViewData
         return 1
     }
     
-    func tableView(_ tableView: UITableView,
+    internal func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell?
@@ -90,20 +90,20 @@ class ContactListVC: BaseVC<ContactListVM>, UITableViewDelegate, UITableViewData
         return cell ?? UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView,
+    internal func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath,
                               animated: true)
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    internal func numberOfSections(in tableView: UITableView) -> Int {
         guard viewModel?.viewState == .success(nil) else { return 1 }
         print(viewModel?.getSortingKeysCount() ?? 0)
         return viewModel?.getSortingKeysCount() ?? 0
     }
     
-    func tableView(_ tableView: UITableView,
+    internal func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         guard viewModel?.viewState == .success(nil) else {
             return nil
@@ -119,7 +119,7 @@ class ContactListVC: BaseVC<ContactListVM>, UITableViewDelegate, UITableViewData
         return view
     }
     
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    internal func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         guard viewModel?.viewState == .success(nil) else { return nil }
         return viewModel?.getSortingKeys()
     }
@@ -167,7 +167,7 @@ extension ContactListVC {
 
 //MARK: - Contact List VM delegate
 extension ContactListVC: BaseVMDelegate {
-    func didUpdateModel(_ viewModel: BaseVM,
+    internal func didUpdateModel(_ viewModel: BaseVM,
                         withState viewState: ViewState) {
         
         tableView?.reloadData()

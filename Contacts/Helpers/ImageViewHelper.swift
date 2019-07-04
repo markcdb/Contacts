@@ -12,7 +12,7 @@ import Kingfisher
 
 extension UIImageView {
     
-    func setKFImage(with urlString: String,
+    internal func setKFImage(with urlString: String,
                     placeholder: Placeholder? = nil,
                     shouldAnimate: Bool = true,
                     keepCurrentImageWhileLoading: Bool = false,
@@ -45,7 +45,7 @@ extension UIImageView {
     }
     
     /*
-    func setKFImage(with url: URL,
+    internal func setKFImage(with url: URL,
                     placeholder: Placeholder? = nil,
                     targetSize: CGSize? = nil,
                     cornerRadius: CGFloat? = nil,
@@ -110,7 +110,7 @@ extension UIImageView {
     }
     */
     
-    func cancelKFTask() {
+    internal func cancelKFTask() {
         self.kf.cancelDownloadTask()
     }
 }

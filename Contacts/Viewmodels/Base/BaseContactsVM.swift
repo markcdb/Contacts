@@ -12,19 +12,19 @@ class BaseContactsVM: BaseVM {
     
     internal var contacts: [String: [Contact]] = [:]
     internal var sortingKeys: [String]         = []
-    
+
     override init(delegate: BaseVMDelegate) {
         super.init(delegate: delegate)
     }
     
-    func getContactsCountAt(_ section: Int) -> Int {
+    internal func getContactsCountAt(_ section: Int) -> Int {
         guard section < contacts.count else { return 0 }
         let key = sortingKeys[section]
 
         return contacts[key]?.count ?? 0
     }
     
-    func getContactAt(_ indexPath: IndexPath) -> Contact? {
+    internal func getContactAt(_ indexPath: IndexPath) -> Contact? {
         guard indexPath.section < contacts.count else { return nil }
         let key = sortingKeys[indexPath.section]
         
@@ -32,7 +32,7 @@ class BaseContactsVM: BaseVM {
         return contacts[key]?[indexPath.row]
     }
     
-    func getFullNameAt(_ indexPath: IndexPath) -> String? {
+    internal func getFullNameAt(_ indexPath: IndexPath) -> String? {
         guard indexPath.section < contacts.count else { return nil }
         let key = sortingKeys[indexPath.section]
 
@@ -40,7 +40,7 @@ class BaseContactsVM: BaseVM {
         return contacts[key]?[indexPath.row].fullName
     }
     
-    func getFirstNameAt(_ indexPath: IndexPath) -> String? {
+    internal func getFirstNameAt(_ indexPath: IndexPath) -> String? {
         guard indexPath.section < contacts.count else { return nil }
         let key = sortingKeys[indexPath.section]
         
@@ -48,7 +48,7 @@ class BaseContactsVM: BaseVM {
         return contacts[key]?[indexPath.row].first_name
     }
     
-    func getLastNameAt(_ indexPath: IndexPath) -> String? {
+    internal func getLastNameAt(_ indexPath: IndexPath) -> String? {
         guard indexPath.section < contacts.count else { return nil }
         let key = sortingKeys[indexPath.section]
         
@@ -56,7 +56,7 @@ class BaseContactsVM: BaseVM {
         return contacts[key]?[indexPath.row].last_name
     }
     
-    func getIsFavorite(_ indexPath: IndexPath) -> Bool {
+    internal func getIsFavorite(_ indexPath: IndexPath) -> Bool {
         guard indexPath.section < contacts.count else { return false }
         let key = sortingKeys[indexPath.section]
         
@@ -64,7 +64,7 @@ class BaseContactsVM: BaseVM {
         return contacts[key]?[indexPath.row].favorite ?? false
     }
     
-    func getProfileUrl(_ indexPath: IndexPath) -> String? {
+    internal func getProfileUrl(_ indexPath: IndexPath) -> String? {
         guard indexPath.section < contacts.count else { return nil }
         let key = sortingKeys[indexPath.section]
         
@@ -78,12 +78,12 @@ class BaseContactsVM: BaseVM {
         }
     }
     
-    func getSortingKeys() -> [String] {
+    internal func getSortingKeys() -> [String] {
         
         return sortingKeys
     }
     
-    func getSortingKeysCount() -> Int {
+    internal func getSortingKeysCount() -> Int {
         
         return sortingKeys.count
     }
@@ -92,38 +92,38 @@ class BaseContactsVM: BaseVM {
 class BaseContactVM: BaseVM {
     
     internal var contact: Contact?
+    internal var idForUpdate: String?
     
     override init(delegate: BaseVMDelegate) {
         super.init(delegate: delegate)
-        
     }
     
-    func getContact() -> Contact? {
+    internal func getContact() -> Contact? {
        
         return contact
     }
     
-    func getFullName() -> String? {
+    internal func getFullName() -> String? {
         
         return contact?.fullName
     }
     
-    func getFirstName() -> String? {
+    internal func getFirstName() -> String? {
      
         return contact?.first_name
     }
     
-    func getLastName() -> String? {
+    internal func getLastName() -> String? {
       
         return contact?.last_name
     }
     
-    func getIsFavorite() -> Bool {
+    internal func getIsFavorite() -> Bool {
        
         return contact?.favorite ?? false
     }
     
-    func getProfileUrl() -> String? {
+    internal func getProfileUrl() -> String? {
         let urlString = contact?.profile_pic
         
         if URL.isvalidURL(string: urlString) {

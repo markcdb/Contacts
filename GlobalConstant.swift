@@ -81,3 +81,10 @@ struct Images {
     
     static let favorite = UIImage(named: "home_favourite")
 }
+
+struct Notifications {
+    
+    static let create = Notification.Name(rawValue: "Create")
+    static let update = Notification.Name(rawValue: "Update")
+    static let delete = Notification.Name(rawValue: "Delete")
+}

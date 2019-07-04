@@ -32,13 +32,13 @@ class Repository: RepositoryProtocol {
         api = API(host: NetworkConfig.baseUrl)
     }
     
-    func request() {
+    internal func request() {
         // Construct the request object (ListRequest)
         guard let currRequest = requests.last else { return }
         api?.request(request: currRequest)
     }
     
-    func createSuccessAndFail<T: Codable>(_ request: Request,
+    internal func createSuccessAndFail<T: Codable>(_ request: Request,
                                           completion: @escaping ((T?, Error?) -> ()),
                                           operationBlock: ((inout T, DispatchGroup) -> ())? = nil ) {
         

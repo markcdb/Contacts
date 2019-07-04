@@ -34,7 +34,7 @@ class ContactListVMTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testGetContacts() {
+    internal func testGetContacts() {
         
         testCase    = .getContactsSuccess
         expectation = XCTestExpectation(description: TestCase.getContactsSuccess.rawValue)
@@ -45,7 +45,7 @@ class ContactListVMTest: XCTestCase {
              timeout: 10.0)
     }
     
-    func testGetContactsError() {
+    internal func testGetContactsError() {
         
         testCase             = .getContactsError
         expectation          = XCTestExpectation(description: TestCase.getContactsError.rawValue)
@@ -60,7 +60,7 @@ class ContactListVMTest: XCTestCase {
 
 extension ContactListVMTest: BaseVMDelegate {
     
-    func didUpdateModel(_ viewModel: BaseVM,
+    internal func didUpdateModel(_ viewModel: BaseVM,
                         withState viewState: ViewState) {
         
         switch viewState {

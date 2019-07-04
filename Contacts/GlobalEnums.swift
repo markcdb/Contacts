@@ -13,7 +13,7 @@ enum ViewState: Equatable {
     case success(String?)
     case error(String?)
     
-    func getString() -> String {
+    internal func getString() -> String {
         switch self {
         case .loading(let str):
             return str ?? ""

@@ -17,6 +17,7 @@ class ContactListVM: BaseContactsVM {
         super.init(delegate: delegate)
         
         self.repository = repository
+        self.setupCUD()
     }
     
     override func request() {
@@ -52,5 +53,66 @@ class ContactListVM: BaseContactsVM {
             
             self.viewState = .success(nil)
         })
+    }
+    
+    internal func setupCUD() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(create(notification:)),
+                                               name: Notifications.create,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(update(notification:)),
+                                               name: Notifications.update,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(delete(notification:)),
+                                               name: Notifications.delete,
+                                               object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+//MARK: - Custom methods
+extension ContactListVM {
+
+    @objc internal func create(notification: Notification) {
+        guard let contact = notification.object as? Contact,
+              let first   = contact.first_name?.first else { return }
+        
+        let string        = String(first).uppercased()
+        
+        if self.contacts[string]?.contains(where: { $0.id == contact.id }) == true {
+            return
+        }
+        
+        self.contacts[string]?.append(contact)
+    }
+    
+    @objc internal func update(notification: Notification) {
+        guard let contact = notification.object as? Contact,
+              let first   = contact.first_name?.first else { return }
+        
+        let string      = String(first).uppercased()
+        if let index    = self.contacts[string]?.firstIndex(where: { $0.id == contact.id }),
+            index < self.contacts.count {
+            self.contacts[string]?[index] = contact
+        }
+    }
+    
+    @objc internal func delete(notification: Notification) {
+        guard let contact = notification.object as? Contact,
+            let first   = contact.first_name?.first else { return }
+        
+        let string      = String(first).uppercased()
+        
+        if let index    = self.contacts[string]?.firstIndex(where: { $0.id == contact.id }),
+            index < self.contacts.count {
+            self.contacts[string]?.remove(at: index)
+        }
     }
 }

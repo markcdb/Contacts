@@ -15,7 +15,7 @@ class ContactsRepository: Repository {
         super.init()
     }
     
-    func getContacts(completion: @escaping (([Contact]?, Error?) -> ())) {
+    internal func getContacts(completion: @escaping (([Contact]?, Error?) -> ())) {
         let path = Paths.contacts
         
         let request = Request(path: path,
@@ -40,7 +40,7 @@ class ContactsRepository: Repository {
         requests.append(request)
     }
     
-    func getContact(id: Int,
+    internal func getContact(id: Int,
                     completion: @escaping ((Contact?, Error?) -> Void)) {
         let path = Paths.contact.replacingOccurrences(of: URLParameters.id,
                                                       with: String(id))
@@ -54,7 +54,7 @@ class ContactsRepository: Repository {
         requests.append(request)
     }
     
-    func editContact(newContact: Contact,
+    internal func editContact(newContact: Contact,
                      completion: @escaping ((Contact?, Error?) -> Void)) {
         let path = Paths.contact.replacingOccurrences(of: URLParameters.id,
                                                       with: String(newContact.id ?? 0))
@@ -66,18 +66,44 @@ class ContactsRepository: Repository {
         
         createSuccessAndFail(request,
                              completion: completion)
+        
+        requests.append(request)
     }
     
-    func createContact(newContact: Contact,
+    internal func createContact(newContact: Contact,
                        completion: @escaping ((Contact?, Error?) -> Void)) {
     
+        let path = Paths.contact
+        
+        let request = Request(path: path,
+                              method: .post)
+        
+        request.createParametersFrom(newContact)
+        
+        createSuccessAndFail(request,
+                             completion: completion)
+        
+        requests.append(request)
+    }
     
+    internal func deleteContact(contact: Contact,
+                       completion: @escaping ((Contact?, Error?) -> Void)) {
+        
+        let path = Paths.contact
+        
+        let request = Request(path: path,
+                              method: .delete)
+        
+        request.createParametersFrom(contact)
+        
+        createSuccessAndFail(request,
+                             completion: completion)
     }
 }
 
 class MockContactsRepository: ContactsRepository {
     
-    public var failable: Bool = false {
+    internal var failable: Bool = false {
         didSet {
             (api as? MockAPI)?.failable = failable
         }
@@ -92,7 +118,27 @@ class MockContactsRepository: ContactsRepository {
         super.getContacts(completion: completion)
     }
     
-    override func getContact(id: Int, completion: @escaping ((Contact?, Error?) -> Void)) {
-        super.getContact(id: id, completion: completion)
+    override func getContact(id: Int,
+                             completion: @escaping ((Contact?, Error?) -> Void)) {
+        super.getContact(id: id,
+                         completion: completion)
+    }
+    
+    override func editContact(newContact: Contact,
+                              completion: @escaping ((Contact?, Error?) -> Void)) {
+        super.editContact(newContact: newContact,
+                          completion: completion)
+    }
+    
+    override func createContact(newContact: Contact,
+                                completion: @escaping ((Contact?, Error?) -> Void)) {
+        super.createContact(newContact: newContact,
+                            completion: completion)
+    }
+    
+    override func deleteContact(contact: Contact,
+                                completion: @escaping ((Contact?, Error?) -> Void)) {
+        super.deleteContact(contact: contact,
+                            completion: completion)
     }
 }

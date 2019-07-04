@@ -11,8 +11,9 @@ import XCTest
 
 private enum TestCase: String {
     
-    case getContactSuccess = "SUT: Get Contacts -- SUCCESS"
-    case getContactError   = "SUT: Get Contacts -- ERROR"
+    case getContactSuccess    = "SUT: Get Contacts -- SUCCESS"
+    case getContactError      = "SUT: Get Contacts -- ERROR"
+    case updateContactSuccess = "SUT: Update Contacts -- SUCCESS"
 }
 
 class ContactDetailsVMTest: XCTestCase {
@@ -33,7 +34,7 @@ class ContactDetailsVMTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testGetContact() {
+    internal func testGetContact() {
         
         testCase    = .getContactSuccess
         expectation = XCTestExpectation(description: TestCase.getContactSuccess.rawValue)
@@ -45,7 +46,7 @@ class ContactDetailsVMTest: XCTestCase {
              timeout: 10.0)
     }
     
-    func testGetContactsError() {
+    internal func testGetContactsError() {
         
         testCase             = .getContactError
         expectation          = XCTestExpectation(description: TestCase.getContactError.rawValue)
@@ -57,11 +58,32 @@ class ContactDetailsVMTest: XCTestCase {
         wait(for: [expectation!],
              timeout: 10.0)
     }
+    
+    internal func testUpdateContacts() {
+        
+        testCase            = .updateContactSuccess
+        expectation         = XCTestExpectation(description: TestCase.updateContactSuccess.rawValue)
+        
+        viewModel?.contact = Contact.createStub()
+        viewModel?.editContact(contact: Contact.createStub(),
+                                     completion: {[weak self] (contact, error) in
+                                        guard let self = self,
+                                            error == nil else {
+                                            XCTFail("Expectation not met")
+                                            return
+                                        }
+                                        
+                                        self.expectation?.fulfill()
+        })
+        
+        wait(for: [expectation!],
+             timeout: 10.0)
+    }
 }
 
 extension ContactDetailsVMTest: BaseVMDelegate {
     
-    func didUpdateModel(_ viewModel: BaseVM,
+    internal func didUpdateModel(_ viewModel: BaseVM,
                         withState viewState: ViewState) {
         
         switch viewState {

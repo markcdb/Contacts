@@ -16,8 +16,7 @@ internal enum ContactDetailsType {
 
 class ContactDetailsVM: BaseContactVM {
     
-    var detailsType: ContactDetailsType?
-    
+    internal var detailsType: ContactDetailsType?
     private var repository: ContactsRepository?
     
     init(delegate: BaseVMDelegate,
@@ -55,9 +54,61 @@ class ContactDetailsVM: BaseContactVM {
         })
     }
     
-    func updateContactWith(contact: Contact,
-                           completion: ((Contact? , Error?) -> Void)) {
+    internal func createContact(contact: Contact,
+                       completion: @escaping ((Error?) -> Void)) {
+        
+        repository?.createContact(newContact: contact,
+                                  completion: { [weak self] (newContact, error) in
+                                    guard let self = self,
+                                        error == nil else {
+                                            completion(error)
+                                            return
+                                    }
+                                    
+                                    self.contact = newContact
+                                    completion(nil)
+                                    
+                                    NotificationCenter.default.post(name: Notifications.create,
+                                                                    object: contact)
+        })
+    }
+    
+    internal func editContact(contact: Contact,
+                              completion: @escaping ((Error?) -> Void)) {
         
         
+        repository?.editContact(newContact: contact,
+                                completion: { [weak self] contact, error in
+                                    guard let self = self,
+                                        error == nil else {
+                                            completion(error)
+                                            return
+                                    }
+                                    
+                                    self.contact = contact
+                                    completion(nil)
+                                    
+                                    NotificationCenter.default.post(name: Notifications.update,
+                                                                    object: contact)
+                                    
+        })
+    }
+    
+    internal func deleteContact(contact: Contact,
+                       completion: @escaping ((Error?) -> Void)) {
+        
+        repository?.deleteContact(contact: contact,
+                                  completion: {[weak self] (deletedContact, error) in
+                                    guard let _ = self,
+                                        error == nil else {
+                                            completion(error)
+                                            return
+                                    }
+                                    
+                                    completion(nil)
+                                    
+                                    NotificationCenter.default.post(name: Notifications.delete,
+                                                                    object: contact)
+        })
     }
 }

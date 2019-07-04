@@ -31,7 +31,7 @@ class Request: RequestProtocol {
         self.method     = method
     }
     
-    func getCompletion() -> (JSONResult) -> Void {
+    internal func getCompletion() -> (JSONResult) -> Void {
 
         return { result in
             
@@ -58,13 +58,14 @@ class Request: RequestProtocol {
         }
     }
     
-    func createParametersFrom<T: Encodable>(_ parameters: T) {
+    internal func createParametersFrom<T: Encodable>(_ parameters: T) {
         do {
             let params       = try JSONEncoder().encode(parameters)
             let serialized   = try JSONSerialization.jsonObject(with: params,
                                                                 options: .mutableContainers)
-            let dict         = serialized as? [String: Any]
-            let parameters   = dict
+            let dict              = serialized as? [String: Any]
+            self.parameters       = dict
+            print(self.parameters!)
         } catch let error {
             print(error.localizedDescription)
         }

@@ -9,7 +9,7 @@
 import Foundation
 
 extension Array where Element: Hashable {
-    func removingDuplicates() -> [Element] {
+    internal func removingDuplicates() -> [Element] {
         var addedDict = [Element: Bool]()
         
         return filter {
