@@ -20,6 +20,8 @@ private enum TestCase: String {
 
 class ContactDetailsVMTest: XCTestCase {
     
+    internal lazy var stub: Contact = Contact.createStub()
+
     internal var viewModel: ContactDetailsVM?
     internal var repository: MockContactsRepository?
     internal var expectation: XCTestExpectation?
@@ -66,8 +68,8 @@ class ContactDetailsVMTest: XCTestCase {
         testCase            = .updateContactSuccess
         expectation         = XCTestExpectation(description: TestCase.updateContactSuccess.rawValue)
         
-        viewModel?.contact = Contact.createStub()
-        viewModel?.editContact(contact: Contact.createStub(),
+        viewModel?.contact = stub
+        viewModel?.editContact(contact: stub,
                                      completion: {[weak self] (error) in
                                         guard let self = self,
                                             error == nil else {
@@ -87,7 +89,6 @@ class ContactDetailsVMTest: XCTestCase {
         self.testCase    = .createContactSuccess
         expectation      = XCTestExpectation(description: TestCase.createContactSuccess.rawValue)
         
-        let stub         = Contact.createStub()
         self.viewModel?.createContact(contact: stub,
                                       completion: {(error) in
                                         guard error == nil else {
@@ -107,11 +108,18 @@ class ContactDetailsVMTest: XCTestCase {
         testCase            = .createContactSuccess
         expectation         = XCTestExpectation(description: TestCase.createContactSuccess.rawValue)
         
-        let vm = GlobalVMFactory.createContactListVM(repository: repository,
-                                                     delegate: self)
-        vm.request()
+        viewModel?.deleteContact(contact: stub,
+                                 completion: { (error) in
+                                    guard error == nil else {
+                                        XCTFail("Expectation not met")
+                                        return
+                                    }
+                                    
+                                    self.expectation?.fulfill()
+        })
         
-        //viewModel?.deleteContact(contact: vm.getContactAt(<#T##indexPath: IndexPath##IndexPath#>), completion: <#T##((Error?) -> Void)##((Error?) -> Void)##(Error?) -> Void#>)
+        wait(for: [expectation!],
+             timeout: 10.0)
     }
 }
 

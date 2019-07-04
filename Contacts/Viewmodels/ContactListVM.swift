@@ -93,6 +93,7 @@ extension ContactListVM {
         
         print("Added contact with ID: \(contact.id ?? 0)")
         self.contacts[string]?.append(contact)
+        self.viewState = .success(nil)
     }
     
     @objc internal func update(notification: Notification) {
@@ -103,6 +104,7 @@ extension ContactListVM {
         if let index    = self.contacts[string]?.firstIndex(where: { $0.id == contact.id }),
             index < self.contacts.count {
             self.contacts[string]?[index] = contact
+            self.viewState = .success(nil)
         }
     }
     
@@ -115,6 +117,7 @@ extension ContactListVM {
         if let index    = self.contacts[string]?.firstIndex(where: { $0.id == contact.id }),
             index < self.contacts.count {
             self.contacts[string]?.remove(at: index)
+            self.viewState = .success(nil)
         }
     }
 }
