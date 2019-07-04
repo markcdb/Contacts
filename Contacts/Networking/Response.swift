@@ -13,7 +13,6 @@ struct Response {
     var data: Data
 }
 
-
 struct ErrorCodable: Codable {
     
     var statusCode: String

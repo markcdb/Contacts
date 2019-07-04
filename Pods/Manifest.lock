@@ -1,20 +1,24 @@
 PODS:
   - Kingfisher (4.10.1)
   - Networking (4.1.1)
+  - pop (1.0.12)
 
 DEPENDENCIES:
   - Kingfisher (~> 4.10.1)
   - Networking (~> 4.1.1)
+  - pop (~> 1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Kingfisher
     - Networking
+    - pop
 
 SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Networking: ffde5754883907f90f9f751e183eba4a75dc4b89
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
 
-PODFILE CHECKSUM: 12257b02ca19027084846d00c8cbc44a3f2244fb
+PODFILE CHECKSUM: 4aab7472c63d00167aa84430814daaf86036d611
 
 COCOAPODS: 1.5.3

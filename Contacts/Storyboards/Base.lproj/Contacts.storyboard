@@ -18,13 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MrB-oK-NJB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MrB-oK-NJB" customClass="BaseTableView" customModule="Contacts" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="mUS-Cx-RQT"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xHb-Wy-nmr"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,6 +43,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="26.53673163418291"/>
+        </scene>
+        <!--Contact DetailsVC-->
+        <scene sceneID="LLy-yr-LB7">
+            <objects>
+                <viewController storyboardIdentifier="ContactDetailsVC" automaticallyAdjustsScrollViewInsets="NO" id="3eG-ME-RQm" customClass="ContactDetailsVC" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="km8-8O-bLS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jie-Lm-MJK" customClass="BaseTableView" customModule="Contacts" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="3eG-ME-RQm" id="Mkf-gG-UJs"/>
+                                    <outlet property="delegate" destination="3eG-ME-RQm" id="1nI-bD-8kE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jie-Lm-MJK" firstAttribute="leading" secondItem="08b-Wb-aUi" secondAttribute="leading" id="4kC-Wd-KS0"/>
+                            <constraint firstItem="jie-Lm-MJK" firstAttribute="top" secondItem="km8-8O-bLS" secondAttribute="top" id="VaV-ei-DmH"/>
+                            <constraint firstItem="08b-Wb-aUi" firstAttribute="trailing" secondItem="jie-Lm-MJK" secondAttribute="trailing" id="cq2-dI-B6f"/>
+                            <constraint firstItem="08b-Wb-aUi" firstAttribute="bottom" secondItem="jie-Lm-MJK" secondAttribute="bottom" id="n0H-kA-1DY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="08b-Wb-aUi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dNK-kF-ZS8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="t5h-kQ-b4G">
+                            <connections>
+                                <action selector="didTapEditButton:" destination="3eG-ME-RQm" id="DvY-NL-mQX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="jie-Lm-MJK" id="ba6-f0-1iE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBX-8h-fBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="993" y="706"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cjd-da-5Gl">

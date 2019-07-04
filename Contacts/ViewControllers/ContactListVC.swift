@@ -8,161 +8,38 @@
 
 import UIKit
 
-class ContactListVC: BaseVC<ContactListVM>, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var tableView: UITableView?
-    
-    var identifiers = [Cells.contactCell,
-                       Cells.loaderCell]
+class ContactListVC: BaseContactVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         title = Titles.contacts
         
-        for identifier in identifiers {
-            let nib = UINib(nibName: identifier,
-                            bundle: nil)
-            
-            tableView?.register(nib,
-                                forCellReuseIdentifier: identifier)
-        }
-        
-        tableView?.sectionIndexColor = Colors.darkGray
-        tableView?.separatorColor    = Colors.semiDarkGray
-        let frame                    = CGRect(x: 0,
-                                              y: 0,
-                                              width: tableView?.frame.size.width ?? 0.0,
-                                              height: 1)
-        tableView?.tableFooterView   = UIView(frame: frame)
-
         if viewModel == nil {
             viewModel = GlobalVMFactory.createContactListVM(delegate: self)
             viewModel?.request()
         }
+        
+        setShadowImageFrom(color: Colors.whiteGray)
     }
     
-    //@objc is not supported within extensions of generic classes or classes that inherit from generic classes
-    //Was forced to put all @objc protocol conformances inside class declaration
-    
-    //MARK: - Tableview Delegate and DataSource
-    
-    internal func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        
+        routeTo(StoryboardIDs.contactDetails)
     }
     
-    internal func tableView(_ tableView: UITableView,
-                   estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
-    internal func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-        let count = viewModel?.getContactsCountAt(section) ?? 0
+    override func routeTo(_ storyboardId: String) {
+        super.routeTo(storyboardId)
         
-        if count > 0 {
-            return count
-        }
-        
-        return 1
-    }
-    
-    internal func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var cell: UITableViewCell?
-        
-        switch viewModel?.viewState {
-        case .loading(_)?:
-            cell = createLoaderCell(tableView: tableView,
-                                    indexPath: indexPath)
-        case .success(_)?:
-            cell = createContactCell(tableView: tableView,
-                                     indexPath: indexPath)
-        case .error(_)?:
-            cell = createErrorCell(tableView: tableView,
-                                   indexPath: indexPath)
-        default:
-            break
-        }
-        
-        return cell ?? UITableViewCell()
-    }
-    
-    internal func tableView(_ tableView: UITableView,
-                   didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath,
-                              animated: true)
-    }
-    
-    internal func numberOfSections(in tableView: UITableView) -> Int {
-        guard viewModel?.viewState == .success(nil) else { return 1 }
-        print(viewModel?.getSortingKeysCount() ?? 0)
-        return viewModel?.getSortingKeysCount() ?? 0
-    }
-    
-    internal func tableView(_ tableView: UITableView,
-                   viewForHeaderInSection section: Int) -> UIView? {
-        guard viewModel?.viewState == .success(nil) else {
-            return nil
-        }
-        
-        let frame = CGRect(x: 0,
-                           y: 0,
-                           width: tableView.frame.width,
-                           height: 28)
-        
-        let view  = SectionHeader(frame: frame)
-        view.titleLabel?.text = viewModel?.getSortingKeys()[section]
-        return view
-    }
-    
-    internal func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        guard viewModel?.viewState == .success(nil) else { return nil }
-        return viewModel?.getSortingKeys()
+        let vc = Storyboard.contacts.instantiateViewController(withIdentifier: storyboardId)
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
     }
 }
 
-//MARK: - Custom methods
+//MARK: - Custom Methods
 extension ContactListVC {
-    
-    private func createLoaderCell(tableView: UITableView,
-                                  indexPath: IndexPath) -> LoaderCell? {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.loaderCell,
-                                                 for: indexPath) as? LoaderCell
-        
-        cell?.loadingIndicator.startAnimating()
-        
-        return cell
-    }
-    
-    private func createContactCell(tableView: UITableView,
-                                   indexPath: IndexPath) -> ContactCell? {
-        
-        let id        = Cells.contactCell
-        let name      = viewModel?.getFullNameAt(indexPath) ?? ""
-        let favorite  = viewModel?.getIsFavorite(indexPath) ?? false
-        let urlString = viewModel?.getProfileUrl(indexPath) ?? ""
-        let cell      = tableView.dequeueReusableCell(withIdentifier: id) as? ContactCell
-        
-        
-        cell?.setNameFrom(name)
-        cell?.setFavoriteFrom(favorite)
-        cell?.setProfileImageFrom(urlString)
-        
-        return cell
-    }
-    
-    private func createErrorCell(tableView: UITableView,
-                                 indexPath: IndexPath) -> UITableViewCell? {
-        let id = Cells.emptyCell
-        let cell = tableView.dequeueReusableCell(withIdentifier: id)
-
-        return cell
-    }
 }
 
 //MARK: - Contact List VM delegate

@@ -18,7 +18,12 @@ class SectionHeader: UIView {
     }
     */
     @IBOutlet weak var container: UIView?
-    @IBOutlet weak var titleLabel: UILabel?
+    @IBOutlet weak var titleLabel: BaseLabel?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        initNib()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

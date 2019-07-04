@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionButton" customModule="Contacts" customModuleProvider="target">
+            <connections>
+                <outlet property="button" destination="frK-JG-qQ0" id="bYF-gX-Lcx"/>
+                <outlet property="container" destination="iN0-l3-epB" id="5DQ-at-Z0p"/>
+                <outlet property="imageView" destination="JUo-0S-YBB" id="K8W-aG-OJc"/>
+                <outlet property="titleLabel" destination="zjk-HS-cRI" id="fqx-ho-3lw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="81" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vF-Kv-vJX">
+                    <rect key="frame" x="0.0" y="0.0" width="81" height="70"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frK-JG-qQ0">
+                            <rect key="frame" x="0.0" y="0.0" width="81" height="70"/>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_button" translatesAutoresizingMaskIntoConstraints="NO" id="JUo-0S-YBB">
+                            <rect key="frame" x="18.5" y="2" width="44" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="JUo-0S-YBB" secondAttribute="height" multiplier="1:1" id="WVN-oI-7A2"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjk-HS-cRI" customClass="BaseLabel" customModule="Contacts" customModuleProvider="target">
+                            <rect key="frame" x="2" y="51" width="77" height="19"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="frK-JG-qQ0" secondAttribute="trailing" id="12Y-Ic-yWJ"/>
+                        <constraint firstItem="frK-JG-qQ0" firstAttribute="top" secondItem="9vF-Kv-vJX" secondAttribute="top" id="5UX-0I-c9y"/>
+                        <constraint firstAttribute="trailing" secondItem="zjk-HS-cRI" secondAttribute="trailing" constant="2" id="9IX-Mr-eiL"/>
+                        <constraint firstItem="frK-JG-qQ0" firstAttribute="leading" secondItem="9vF-Kv-vJX" secondAttribute="leading" id="9W1-r5-vWY"/>
+                        <constraint firstAttribute="bottom" secondItem="frK-JG-qQ0" secondAttribute="bottom" id="RTd-rY-qDz"/>
+                        <constraint firstItem="JUo-0S-YBB" firstAttribute="top" secondItem="9vF-Kv-vJX" secondAttribute="top" constant="2" id="e2m-To-8gw"/>
+                        <constraint firstAttribute="bottom" secondItem="zjk-HS-cRI" secondAttribute="bottom" id="e48-1g-MdC"/>
+                        <constraint firstItem="zjk-HS-cRI" firstAttribute="top" secondItem="JUo-0S-YBB" secondAttribute="bottom" constant="5" id="o8c-7X-Pvk"/>
+                        <constraint firstItem="zjk-HS-cRI" firstAttribute="leading" secondItem="9vF-Kv-vJX" secondAttribute="leading" constant="2" id="qEt-4k-5V2"/>
+                        <constraint firstItem="JUo-0S-YBB" firstAttribute="centerX" secondItem="9vF-Kv-vJX" secondAttribute="centerX" id="rBc-1A-1Ev"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="C6I-hg-ct6"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9vF-Kv-vJX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8GG-Ht-OVT"/>
+                <constraint firstAttribute="bottom" secondItem="9vF-Kv-vJX" secondAttribute="bottom" id="M4z-rv-1cg"/>
+                <constraint firstItem="9vF-Kv-vJX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZUG-f5-XV0"/>
+                <constraint firstAttribute="trailing" secondItem="9vF-Kv-vJX" secondAttribute="trailing" id="iEa-UI-LrU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="153.82308845577214"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="message_button" width="44" height="44"/>
+    </resources>
+</document>

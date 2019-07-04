@@ -26,9 +26,6 @@ class BaseVC<T: BaseVM>: UIViewController {
         
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.tintColor    = Colors.blueGreen
-        
-        let shadowImage = UIImage.imageWithColor(Colors.whiteGray)
-        self.navigationController?.navigationBar.shadowImage  = shadowImage
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,5 +42,13 @@ class BaseVC<T: BaseVM>: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+    }
+    
+    open func routeTo(_ storyboardId: String) {}
+    
+    open func setShadowImageFrom(color: UIColor = .clear) {
+        
+        let shadowImage = UIImage.imageWithColor(color)
+        self.navigationController?.navigationBar.shadowImage  = shadowImage
     }
 }

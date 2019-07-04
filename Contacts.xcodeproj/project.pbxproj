@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0872F90F335187BE9FE12918 /* Pods_Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7DAEC3DA3187500C5B39F /* Pods_Contacts.framework */; };
+		F823014A22CE4A9D002A1A5B /* FieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823014922CE4A9D002A1A5B /* FieldCell.swift */; };
+		F823014C22CE4B2C002A1A5B /* FieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F823014B22CE4B2C002A1A5B /* FieldCell.xib */; };
+		F8271E2322CDEDA700B9F75F /* ContactDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8271E2222CDEDA700B9F75F /* ContactDetailsVC.swift */; };
+		F8271E2522CDEDF000B9F75F /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8271E2422CDEDF000B9F75F /* BaseTableView.swift */; };
+		F8271E2722CDF51400B9F75F /* ProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8271E2622CDF51400B9F75F /* ProfileHeaderCell.xib */; };
+		F8271E2922CDF6A000B9F75F /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8271E2822CDF6A000B9F75F /* BaseLabel.swift */; };
+		F8271E2B22CDFD3400B9F75F /* ActionButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8271E2A22CDFD3400B9F75F /* ActionButton.xib */; };
+		F8271E2D22CDFDC700B9F75F /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8271E2C22CDFDC700B9F75F /* ActionButton.swift */; };
 		F86BD8A822CC580E00324A6A /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8A722CC580E00324A6A /* GlobalConstant.swift */; };
 		F86BD8D522CC59E800324A6A /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8BA22CC59E800324A6A /* BaseVM.swift */; };
 		F86BD8D722CC59E800324A6A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8BE22CC59E800324A6A /* Repository.swift */; };
@@ -37,6 +45,10 @@
 		F87F7ECB22CC51AD00A2B72F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F87F7EC922CC51AD00A2B72F /* LaunchScreen.storyboard */; };
 		F87F7ED622CC51AD00A2B72F /* ContactListVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F7ED522CC51AD00A2B72F /* ContactListVMTest.swift */; };
 		F87F7EE122CC51AD00A2B72F /* ContactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87F7EE022CC51AD00A2B72F /* ContactsUITests.swift */; };
+		F8D4233822CE01A0004718B0 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4233722CE01A0004718B0 /* ProfileHeaderCell.swift */; };
+		F8D4233A22CE04CF004718B0 /* BaseContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D4233922CE04CF004718B0 /* BaseContactVC.swift */; };
+		F8E8D02822CE1D9200040CDA /* NavigationControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E8D02722CE1D9200040CDA /* NavigationControllerHelper.swift */; };
+		F8E8D02A22CE2A8C00040CDA /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E8D02922CE2A8C00040CDA /* ViewHelper.swift */; };
 		F8F22D3C22CCD46B0017DA96 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D3B22CCD46B0017DA96 /* URLHelper.swift */; };
 		F8F22D4022CCD6670017DA96 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D3F22CCD6670017DA96 /* ColorHelper.swift */; };
 		F8F22D4222CCDFA50017DA96 /* ArrayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4122CCDFA50017DA96 /* ArrayHelper.swift */; };
@@ -79,6 +91,14 @@
 		5D088C47E497917F6ECE3F7A /* Pods-Contacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.release.xcconfig"; sourceTree = "<group>"; };
 		745D0EA947C8211EAF18C9E4 /* Pods-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
 		B8F7DAEC3DA3187500C5B39F /* Pods_Contacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F823014922CE4A9D002A1A5B /* FieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCell.swift; sourceTree = "<group>"; };
+		F823014B22CE4B2C002A1A5B /* FieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldCell.xib; sourceTree = "<group>"; };
+		F8271E2222CDEDA700B9F75F /* ContactDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsVC.swift; sourceTree = "<group>"; };
+		F8271E2422CDEDF000B9F75F /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
+		F8271E2622CDF51400B9F75F /* ProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCell.xib; sourceTree = "<group>"; };
+		F8271E2822CDF6A000B9F75F /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
+		F8271E2A22CDFD3400B9F75F /* ActionButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionButton.xib; sourceTree = "<group>"; };
+		F8271E2C22CDFDC700B9F75F /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F86BD8A722CC580E00324A6A /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = SOURCE_ROOT; };
 		F86BD8BA22CC59E800324A6A /* BaseVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
 		F86BD8BE22CC59E800324A6A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -114,6 +134,10 @@
 		F87F7EDC22CC51AD00A2B72F /* ContactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F87F7EE022CC51AD00A2B72F /* ContactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUITests.swift; sourceTree = "<group>"; };
 		F87F7EE222CC51AD00A2B72F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8D4233722CE01A0004718B0 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
+		F8D4233922CE04CF004718B0 /* BaseContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContactVC.swift; sourceTree = "<group>"; };
+		F8E8D02722CE1D9200040CDA /* NavigationControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerHelper.swift; sourceTree = "<group>"; };
+		F8E8D02922CE2A8C00040CDA /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 		F8F22D3B22CCD46B0017DA96 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 		F8F22D3F22CCD6670017DA96 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		F8F22D4122CCDFA50017DA96 /* ArrayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayHelper.swift; sourceTree = "<group>"; };
@@ -235,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				F86BD8E622CC5B2300324A6A /* BaseCell.swift */,
+				F8271E2422CDEDF000B9F75F /* BaseTableView.swift */,
+				F8271E2822CDF6A000B9F75F /* BaseLabel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -245,6 +271,9 @@
 				F86BD8E822CC5B2300324A6A /* LoaderCell.xib */,
 				F86BD91022CCACBF00324A6A /* ContactCell.xib */,
 				F8F22D4322CCF6290017DA96 /* SectionHeader.xib */,
+				F8271E2622CDF51400B9F75F /* ProfileHeaderCell.xib */,
+				F8271E2A22CDFD3400B9F75F /* ActionButton.xib */,
+				F823014B22CE4B2C002A1A5B /* FieldCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -270,9 +299,12 @@
 			isa = PBXGroup;
 			children = (
 				F86BD8E522CC5B2300324A6A /* Base */,
+				F823014922CE4A9D002A1A5B /* FieldCell.swift */,
 				F86BD8E422CC5B2300324A6A /* LoaderCell.swift */,
 				F86BD91222CCACE200324A6A /* ContactCell.swift */,
 				F8F22D4522CCF7ED0017DA96 /* SectionHeader.swift */,
+				F8271E2C22CDFDC700B9F75F /* ActionButton.swift */,
+				F8D4233722CE01A0004718B0 /* ProfileHeaderCell.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -282,6 +314,7 @@
 			children = (
 				F86BD90A22CCA53600324A6A /* Base */,
 				F87F7EC222CC51AB00A2B72F /* ContactListVC.swift */,
+				F8271E2222CDEDA700B9F75F /* ContactDetailsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -290,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				F86BD90B22CCA54300324A6A /* BaseVC.swift */,
+				F8D4233922CE04CF004718B0 /* BaseContactVC.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -312,6 +346,8 @@
 				F8F22D3F22CCD6670017DA96 /* ColorHelper.swift */,
 				F8F22D4122CCDFA50017DA96 /* ArrayHelper.swift */,
 				F8F22D4722CCFC4F0017DA96 /* ImageHelper.swift */,
+				F8E8D02722CE1D9200040CDA /* NavigationControllerHelper.swift */,
+				F8E8D02922CE2A8C00040CDA /* ViewHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -517,12 +553,15 @@
 				F8F22D6022CD96040017DA96 /* GET-contacts-failed.json in Resources */,
 				F86BD8EB22CC5B2300324A6A /* LoaderCell.xib in Resources */,
 				F8F22D6622CD96040017DA96 /* GET-contacts.json in Resources */,
+				F8271E2722CDF51400B9F75F /* ProfileHeaderCell.xib in Resources */,
 				F8F22D4422CCF6290017DA96 /* SectionHeader.xib in Resources */,
 				F86BD91122CCACBF00324A6A /* ContactCell.xib in Resources */,
 				F8F22D5F22CD96040017DA96 /* GET-contacts-6027-failed.json in Resources */,
+				F8271E2B22CDFD3400B9F75F /* ActionButton.xib in Resources */,
 				F8F22D6722CD96040017DA96 /* POST-contacts.json in Resources */,
 				F8F22D6222CD96040017DA96 /* POST-contacts-failed.json in Resources */,
 				F8F22D6322CD96040017DA96 /* PUT-contacts-6027-failed.json in Resources */,
+				F823014C22CE4B2C002A1A5B /* FieldCell.xib in Resources */,
 				F87F7EC622CC51AB00A2B72F /* Contacts.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,6 +594,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Contacts/Pods-Contacts-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Networking/Networking.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -562,6 +602,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Networking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -597,9 +638,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8271E2D22CDFDC700B9F75F /* ActionButton.swift in Sources */,
 				F8F22D3C22CCD46B0017DA96 /* URLHelper.swift in Sources */,
 				F86BD91322CCACE200324A6A /* ContactCell.swift in Sources */,
 				F86BD91622CCB0A300324A6A /* StringHelper.swift in Sources */,
+				F8271E2522CDEDF000B9F75F /* BaseTableView.swift in Sources */,
 				F86BD8DC22CC59E800324A6A /* API.swift in Sources */,
 				F86BD8D522CC59E800324A6A /* BaseVM.swift in Sources */,
 				F86BD8E922CC5B2300324A6A /* LoaderCell.swift in Sources */,
@@ -607,20 +650,27 @@
 				F8F22D4222CCDFA50017DA96 /* ArrayHelper.swift in Sources */,
 				F86BD91822CCB12300324A6A /* ImageViewHelper.swift in Sources */,
 				F8F22D4022CCD6670017DA96 /* ColorHelper.swift in Sources */,
+				F8D4233822CE01A0004718B0 /* ProfileHeaderCell.swift in Sources */,
 				F86BD90522CC7AAB00324A6A /* Contact.swift in Sources */,
 				F86BD90022CC790500324A6A /* GlobalEnums.swift in Sources */,
 				F86BD90722CC833B00324A6A /* GlobalVMFactory.swift in Sources */,
 				F86BD90F22CCABC200324A6A /* BaseContactsVM.swift in Sources */,
 				F86BD8EA22CC5B2300324A6A /* BaseCell.swift in Sources */,
 				F86BD90222CC79BD00324A6A /* ContactListVM.swift in Sources */,
+				F8D4233A22CE04CF004718B0 /* BaseContactVC.swift in Sources */,
+				F8E8D02A22CE2A8C00040CDA /* ViewHelper.swift in Sources */,
 				F8F22D4822CCFC4F0017DA96 /* ImageHelper.swift in Sources */,
 				F86BD8DD22CC59E800324A6A /* Request.swift in Sources */,
+				F8271E2922CDF6A000B9F75F /* BaseLabel.swift in Sources */,
 				F86BD8D822CC59E800324A6A /* ContactsRepository.swift in Sources */,
 				F86BD90C22CCA54300324A6A /* BaseVC.swift in Sources */,
 				F8F22D4C22CD141E0017DA96 /* ContactCreateVM.swift in Sources */,
 				F86BD8D722CC59E800324A6A /* Repository.swift in Sources */,
+				F8E8D02822CE1D9200040CDA /* NavigationControllerHelper.swift in Sources */,
 				F8F22D4622CCF7ED0017DA96 /* SectionHeader.swift in Sources */,
+				F823014A22CE4A9D002A1A5B /* FieldCell.swift in Sources */,
 				F87F7EC322CC51AB00A2B72F /* ContactListVC.swift in Sources */,
+				F8271E2322CDEDA700B9F75F /* ContactDetailsVC.swift in Sources */,
 				F87F7EC122CC51AB00A2B72F /* AppDelegate.swift in Sources */,
 				F8F22D4A22CD140E0017DA96 /* ContactDetailsVM.swift in Sources */,
 				F86BD8A822CC580E00324A6A /* GlobalConstant.swift in Sources */,
