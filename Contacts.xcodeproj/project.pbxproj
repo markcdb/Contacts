@@ -10,6 +10,10 @@
 		0872F90F335187BE9FE12918 /* Pods_Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7DAEC3DA3187500C5B39F /* Pods_Contacts.framework */; };
 		F823014A22CE4A9D002A1A5B /* FieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823014922CE4A9D002A1A5B /* FieldCell.swift */; };
 		F823014C22CE4B2C002A1A5B /* FieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F823014B22CE4B2C002A1A5B /* FieldCell.xib */; };
+		F823014E22CE5977002A1A5B /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823014D22CE5977002A1A5B /* BaseTableViewController.swift */; };
+		F823015022CE5CA3002A1A5B /* TextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823014F22CE5CA3002A1A5B /* TextFieldHelper.swift */; };
+		F823015222CE617F002A1A5B /* UnicodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823015122CE617F002A1A5B /* UnicodeHelper.swift */; };
+		F823015422CE6685002A1A5B /* GlobalVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823015322CE6685002A1A5B /* GlobalVCFactory.swift */; };
 		F8271E2322CDEDA700B9F75F /* ContactDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8271E2222CDEDA700B9F75F /* ContactDetailsVC.swift */; };
 		F8271E2522CDEDF000B9F75F /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8271E2422CDEDF000B9F75F /* BaseTableView.swift */; };
 		F8271E2722CDF51400B9F75F /* ProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8271E2622CDF51400B9F75F /* ProfileHeaderCell.xib */; };
@@ -93,6 +97,10 @@
 		B8F7DAEC3DA3187500C5B39F /* Pods_Contacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F823014922CE4A9D002A1A5B /* FieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCell.swift; sourceTree = "<group>"; };
 		F823014B22CE4B2C002A1A5B /* FieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldCell.xib; sourceTree = "<group>"; };
+		F823014D22CE5977002A1A5B /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		F823014F22CE5CA3002A1A5B /* TextFieldHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHelper.swift; sourceTree = "<group>"; };
+		F823015122CE617F002A1A5B /* UnicodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnicodeHelper.swift; sourceTree = "<group>"; };
+		F823015322CE6685002A1A5B /* GlobalVCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVCFactory.swift; sourceTree = "<group>"; };
 		F8271E2222CDEDA700B9F75F /* ContactDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsVC.swift; sourceTree = "<group>"; };
 		F8271E2422CDEDF000B9F75F /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 		F8271E2622CDF51400B9F75F /* ProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCell.xib; sourceTree = "<group>"; };
@@ -324,6 +332,7 @@
 			children = (
 				F86BD90B22CCA54300324A6A /* BaseVC.swift */,
 				F8D4233922CE04CF004718B0 /* BaseContactVC.swift */,
+				F823014D22CE5977002A1A5B /* BaseTableViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -348,6 +357,8 @@
 				F8F22D4722CCFC4F0017DA96 /* ImageHelper.swift */,
 				F8E8D02722CE1D9200040CDA /* NavigationControllerHelper.swift */,
 				F8E8D02922CE2A8C00040CDA /* ViewHelper.swift */,
+				F823014F22CE5CA3002A1A5B /* TextFieldHelper.swift */,
+				F823015122CE617F002A1A5B /* UnicodeHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -378,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				F86BD91422CCB09600324A6A /* Helpers */,
+				F823015322CE6685002A1A5B /* GlobalVCFactory.swift */,
 				F86BD90622CC833B00324A6A /* GlobalVMFactory.swift */,
 				F86BD8FF22CC790500324A6A /* GlobalEnums.swift */,
 				F86BD8A722CC580E00324A6A /* GlobalConstant.swift */,
@@ -649,17 +661,21 @@
 				F86BD8DA22CC59E800324A6A /* Response.swift in Sources */,
 				F8F22D4222CCDFA50017DA96 /* ArrayHelper.swift in Sources */,
 				F86BD91822CCB12300324A6A /* ImageViewHelper.swift in Sources */,
+				F823015022CE5CA3002A1A5B /* TextFieldHelper.swift in Sources */,
 				F8F22D4022CCD6670017DA96 /* ColorHelper.swift in Sources */,
 				F8D4233822CE01A0004718B0 /* ProfileHeaderCell.swift in Sources */,
 				F86BD90522CC7AAB00324A6A /* Contact.swift in Sources */,
 				F86BD90022CC790500324A6A /* GlobalEnums.swift in Sources */,
+				F823014E22CE5977002A1A5B /* BaseTableViewController.swift in Sources */,
 				F86BD90722CC833B00324A6A /* GlobalVMFactory.swift in Sources */,
+				F823015422CE6685002A1A5B /* GlobalVCFactory.swift in Sources */,
 				F86BD90F22CCABC200324A6A /* BaseContactsVM.swift in Sources */,
 				F86BD8EA22CC5B2300324A6A /* BaseCell.swift in Sources */,
 				F86BD90222CC79BD00324A6A /* ContactListVM.swift in Sources */,
 				F8D4233A22CE04CF004718B0 /* BaseContactVC.swift in Sources */,
 				F8E8D02A22CE2A8C00040CDA /* ViewHelper.swift in Sources */,
 				F8F22D4822CCFC4F0017DA96 /* ImageHelper.swift in Sources */,
+				F823015222CE617F002A1A5B /* UnicodeHelper.swift in Sources */,
 				F86BD8DD22CC59E800324A6A /* Request.swift in Sources */,
 				F8271E2922CDF6A000B9F75F /* BaseLabel.swift in Sources */,
 				F86BD8D822CC59E800324A6A /* ContactsRepository.swift in Sources */,

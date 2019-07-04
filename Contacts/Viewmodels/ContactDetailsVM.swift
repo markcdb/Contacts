@@ -16,7 +16,22 @@ internal enum ContactDetailsType {
 
 class ContactDetailsVM: BaseContactVM {
     
+    override var contact: Contact? {
+        didSet {
+            firstName = contact?.first_name
+            lastName  = contact?.last_name
+            mobile    = contact?.phone_number
+            email     = contact?.email
+        }
+    }
+    
     internal var detailsType: ContactDetailsType?
+    
+    internal var firstName: String?
+    internal var lastName: String?
+    internal var mobile: String?
+    internal var email: String?
+
     private var repository: ContactsRepository?
     
     init(delegate: BaseVMDelegate,
@@ -106,5 +121,44 @@ class ContactDetailsVM: BaseContactVM {
                                                                     object: contact)
                                     completion(nil)
         })
+    }
+    
+    internal func validateEntries() -> Bool {
+        var isValid = true
+        
+        if firstName?.containsANumber() == true ||
+            firstName?.containsEmoji == true ||
+            firstName?.containsOnlyValidCharacters() == false {
+            isValid = false
+        }
+        
+        if lastName?.containsANumber() == true ||
+            lastName?.containsEmoji == true ||
+            lastName?.containsOnlyValidCharacters() == false {
+            isValid = false
+        }
+        
+        if email != nil ||
+            email?.isEmpty == false &&
+            email?.isValidEmail() == false {
+            isValid = false
+        }
+        
+        return isValid
+    }
+    
+    internal func getTextFromTag(_ tag: Int) -> String {
+        switch tag {
+        case 0:
+            return firstName ?? ""
+        case 1:
+            return lastName ?? ""
+        case 2:
+            return mobile ?? ""
+        case 3:
+            return email ?? ""
+        default:
+            return ""
+        }
     }
 }

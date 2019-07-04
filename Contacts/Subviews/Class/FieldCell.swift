@@ -16,6 +16,8 @@ class FieldCell: BaseCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        descriptor?.font = Fonts.helveticaNeue
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

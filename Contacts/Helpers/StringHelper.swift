@@ -9,6 +9,54 @@
 import Foundation
 
 extension String {
+    internal func isEnglishCharactersOnly() -> Bool {
+        let regexStatement = "[A-Za-z .,'-]*"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regexStatement)
+        return predicate.evaluate(with: self)
+    }
+    
+    internal func containsOnlyValidCharacters() -> Bool {
+        let regexStatement = "[\\p{L}\\s .,'-]*"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regexStatement)
+        return predicate.evaluate(with: self)
+    }
+    
+    internal func containsOnlyLetters() -> Bool {
+        let regexStatement = "[\\p{L} ]*"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regexStatement)
+        return predicate.evaluate(with: self)
+    }
+    
+    internal func containsALetter() -> Bool {
+        let range = self.rangeOfCharacter(from: CharacterSet.letters)
+        if range != nil {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    internal func containsANumber() -> Bool {
+        let range = self.rangeOfCharacter(from: CharacterSet.decimalDigits)
+        if range != nil {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    internal func isValidEmail() -> Bool {
+        let regexStatement = "[\\p{L}0-9._%+-]+@[\\p{L}0-9.-]+\\.[A-Za-z]{2,64}"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regexStatement)
+        return predicate.evaluate(with: self) && !self.contains("..")
+    }
+    
+    internal func containsAlphaNumericOnly() -> Bool {
+        let regexStatement = "[^\\p{L}0-9]"
+        return self.range(of: regexStatement, options: .regularExpression) == nil && self != ""
+    }
     
     internal func toDate() -> Date? {
         if self == "" { return nil }

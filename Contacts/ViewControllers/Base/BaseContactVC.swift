@@ -8,8 +8,7 @@
 
 import UIKit
 
-class BaseContactVC: BaseVC<ContactListVM>, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var tableView: BaseTableView?
+class BaseContactVC: BaseTableViewController<ContactListVM>, UITableViewDelegate, UITableViewDataSource {
 
     var identifiers = [Cells.contactCell,
                        Cells.loaderCell]
@@ -122,6 +121,7 @@ extension BaseContactVC {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.loaderCell,
                                                  for: indexPath) as? LoaderCell
         
+        cell?.selectionStyle = .none
         cell?.loadingIndicator.startAnimating()
         
         return cell

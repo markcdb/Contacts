@@ -10,6 +10,7 @@ import UIKit
 
 class ContactListVC: BaseContactVC {
     
+    var selectedIndex: IndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,17 +25,27 @@ class ContactListVC: BaseContactVC {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
+        if viewModel?.viewState != .success(nil) {
+            return
+        }
         
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        selectedIndex = indexPath
         routeTo(StoryboardIDs.contactDetails)
     }
     
     override func routeTo(_ storyboardId: String) {
         super.routeTo(storyboardId)
         
-        let vc = Storyboard.contacts.instantiateViewController(withIdentifier: storyboardId)
-        navigationController?.pushViewController(vc,
-                                                 animated: true)
+        guard let indexPath = selectedIndex,
+            let contact = viewModel?.getContactAt(indexPath) else { return }
+        
+        if let vc = GlobalVCFactory.createContactDetails(contact,
+                                                         storyboardId: storyboardId) {
+            
+            navigationController?.pushViewController(vc,
+                                                     animated: true)
+        }
     }
 }
 

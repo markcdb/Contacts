@@ -82,6 +82,7 @@ struct Colors {
 struct Fonts {
     
     static let helveticaNeue    = UIFont(name: "HelveticaNeue", size: 14.0)
+    static let helveticaNeue16  = UIFont(name: "HelveticaNeue", size: 16.0)
     static let helveticaBold17  = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
 }
 
@@ -97,8 +98,19 @@ struct Notifications {
     static let create = Notification.Name(rawValue: "Create")
     static let update = Notification.Name(rawValue: "Update")
     static let delete = Notification.Name(rawValue: "Delete")
+    static let showKeyboard = UIResponder.keyboardWillShowNotification
+    static let hideKeyboard = UIResponder.keyboardWillHideNotification
 }
 
 struct Storyboard {
     static let contacts = UIStoryboard(name: "Contacts", bundle: nil)
+}
+
+struct Strings {
+    static let firstName = "First Name"
+    static let lastName  = "Last Name"
+    static let mobile    = "mobile"
+    static let email     = "email"
+    static let Cancel    = "Cancel"
+    static let Next      = "Next"
 }

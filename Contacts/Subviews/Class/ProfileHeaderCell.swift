@@ -91,3 +91,42 @@ class ProfileHeaderCell: BaseCell {
         favouriteImageView?.bounce(withCompletion: nil)
     }
 }
+
+//MARK: - Custom methods
+extension ProfileHeaderCell {
+    
+    internal func doUpdateFromType(_ contactViewType: ContactViewType?) {
+        
+        if contactViewType == .edit ||
+            contactViewType == .create {
+            
+            profileName?.isHidden       = true
+            buttonStackHeight?.constant = 0
+            buttonStack?.subviews.forEach({ view in
+                view.subviews.forEach({ v in
+                    if let l = v as? BaseLabel {
+                        l.isHidden = true
+                    }
+                })
+            })
+            
+            UIView.animate(withDuration: 0.2) {
+                self.buttonStack?.layoutIfNeeded()
+            }
+        } else {
+            profileName?.isHidden       = false
+            buttonStackHeight?.constant = 70
+            buttonStack?.subviews.forEach({ view in
+                view.subviews.forEach({ v in
+                    if let l = v as? BaseLabel {
+                        l.isHidden = false
+                    }
+                })
+            })
+            
+            UIView.animate(withDuration: 0.2) {
+                self.buttonStack?.layoutIfNeeded()
+            }
+        }
+    }
+}

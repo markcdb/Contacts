@@ -17,7 +17,52 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cIM-15-Sc1" id="20j-yo-1ce">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7r0-az-4St" customClass="BaseLabel" customModule="Contacts" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="90" height="27.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="VUT-eV-8gd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isDescriptor" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="REL-kh-5jW">
+                        <rect key="frame" x="130" y="8" width="229" height="27.5"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NXe-az-gWa">
+                        <rect key="frame" x="14" y="42.5" width="361" height="1"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="8I8-fL-wX2"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="NXe-az-gWa" secondAttribute="trailing" id="1ZO-VR-7cG"/>
+                    <constraint firstItem="REL-kh-5jW" firstAttribute="top" secondItem="20j-yo-1ce" secondAttribute="top" constant="8" id="7hJ-Vg-PcO"/>
+                    <constraint firstItem="NXe-az-gWa" firstAttribute="leading" secondItem="20j-yo-1ce" secondAttribute="leading" constant="14" id="DRD-VB-hf9"/>
+                    <constraint firstAttribute="bottom" secondItem="7r0-az-4St" secondAttribute="bottom" constant="8" id="Fvt-os-jHH"/>
+                    <constraint firstAttribute="bottom" secondItem="NXe-az-gWa" secondAttribute="bottom" id="OMv-Ho-bmI"/>
+                    <constraint firstItem="REL-kh-5jW" firstAttribute="leading" secondItem="7r0-az-4St" secondAttribute="trailing" constant="32" id="Rdb-Pd-YMP"/>
+                    <constraint firstItem="7r0-az-4St" firstAttribute="top" secondItem="20j-yo-1ce" secondAttribute="top" constant="8" id="Rsx-gG-SJj"/>
+                    <constraint firstItem="7r0-az-4St" firstAttribute="leading" secondItem="20j-yo-1ce" secondAttribute="leading" constant="8" id="eWD-cw-1He"/>
+                    <constraint firstAttribute="trailing" secondItem="REL-kh-5jW" secondAttribute="trailing" constant="16" id="lzc-JT-kAL"/>
+                    <constraint firstAttribute="bottom" secondItem="REL-kh-5jW" secondAttribute="bottom" constant="8" id="oq2-8B-5R6"/>
+                </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="descriptor" destination="7r0-az-4St" id="T08-WH-52z"/>
+                <outlet property="textField" destination="REL-kh-5jW" id="ifx-X3-1nM"/>
+            </connections>
+            <point key="canvasLocation" x="53.600000000000001" y="50.374812593703155"/>
         </tableViewCell>
     </objects>
 </document>
