@@ -100,9 +100,9 @@ extension String {
             
             if cur.isEmoji {
                 
-                guard let index = unicodeScalars.index(where: { $0 == cur }) else { return nil }
+                guard let index = unicodeScalars.firstIndex(where: { $0 == cur }) else { return nil }
                 
-                return index.encodedOffset
+                return index.utf16Offset(in: self)
             }
         }
         
@@ -115,15 +115,15 @@ extension String {
         
         for i in stride(from: 0, to: unicodeScalars.count, by: 1) {
             
-            let cur = unicodeScalars[Index(encodedOffset: i)]
+            let cur = unicodeScalars[Index(utf16Offset: i, in: self)]
             
             if cur.isEmoji {
                 
-                index = Index(encodedOffset: i)
+                index = Index(utf16Offset: i, in: self)
             }
         }
         
-        return index?.encodedOffset
+        return index?.utf16Offset(in: self)
     }
     
     fileprivate var emojiScalars: [UnicodeScalar] {

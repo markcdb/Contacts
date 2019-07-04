@@ -529,9 +529,11 @@
 				TargetAttributes = {
 					F87F7EBC22CC51AB00A2B72F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					F87F7ED022CC51AD00A2B72F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = F87F7EBC22CC51AB00A2B72F;
 					};
 					F87F7EDB22CC51AD00A2B72F = {
@@ -887,7 +889,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.morph.Contacts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -906,7 +908,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.morph.Contacts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -926,7 +928,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.morph.ContactsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Contacts.app/Contacts";
 			};
@@ -947,7 +949,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.morph.ContactsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Contacts.app/Contacts";
 			};
