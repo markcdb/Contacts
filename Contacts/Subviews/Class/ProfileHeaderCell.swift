@@ -38,7 +38,15 @@ class ProfileHeaderCell: BaseCell {
     
     weak var delegate: ProfileHeaderCellDelegate?
     
-    internal var isFavourite: Bool = false
+    internal var isFavourite: Bool = false {
+        didSet {
+            if self.isFavourite == false {
+                self.favouriteImageView?.image = Images.favorite_button
+            } else {
+                self.favouriteImageView?.image = Images.favorite_button_selected
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -78,14 +86,8 @@ class ProfileHeaderCell: BaseCell {
     @IBAction func didTapFavourite(_ sender: UIButton) {
         delegate?.doFavourite()
         
-        isFavourite.toggle()
-        
         UIView.animate(withDuration: 5) {
-            if self.isFavourite == false {
-                self.favouriteImageView?.image = Images.favorite_button
-            } else {
-                self.favouriteImageView?.image = Images.favorite_button_selected
-            }
+            self.isFavourite.toggle()
         }
        
         favouriteImageView?.bounce(withCompletion: nil)

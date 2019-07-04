@@ -86,16 +86,15 @@ class ContactsRepository: Repository {
         requests.append(request)
     }
     
-    internal func deleteContact(contact: Contact,
-                       completion: @escaping ((Contact?, Error?) -> Void)) {
+    internal func deleteContact(id: Int,
+                                completion: @escaping ((Contact?, Error?) -> Void)) {
         
-        let path = Paths.contacts
+        let path = Paths.contact.replacingOccurrences(of: URLParameters.id,
+                                                      with: String(id))
         
         let request = Request(path: path,
                               method: .delete)
-        
-        request.createParametersFrom(contact)
-        
+                
         createSuccessAndFail(request,
                              completion: completion)
         
@@ -138,9 +137,9 @@ class MockContactsRepository: ContactsRepository {
                             completion: completion)
     }
     
-    override func deleteContact(contact: Contact,
+    override func deleteContact(id: Int,
                                 completion: @escaping ((Contact?, Error?) -> Void)) {
-        super.deleteContact(contact: contact,
+        super.deleteContact(id: id,
                             completion: completion)
     }
 }

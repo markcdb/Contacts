@@ -45,6 +45,13 @@ class Repository: RepositoryProtocol {
         request.successCompletion = {[weak self] response in
             guard let self = self else { return }
             self.background.async {
+                if response.data.isEmpty {
+                    self.main.async {
+                        completion(nil, nil)
+                    }
+                    return
+                }
+                
                 do {
                     self.group.enter()
                     //Try to check if response is of type ErrorResponse: Codable

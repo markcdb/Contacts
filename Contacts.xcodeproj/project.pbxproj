@@ -15,6 +15,8 @@
 		F823015222CE617F002A1A5B /* UnicodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823015122CE617F002A1A5B /* UnicodeHelper.swift */; };
 		F823015422CE6685002A1A5B /* GlobalVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823015322CE6685002A1A5B /* GlobalVCFactory.swift */; };
 		F823015622CE860D002A1A5B /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823015522CE860D002A1A5B /* ViewControllerHelper.swift */; };
+		F823015822CE8C4E002A1A5B /* DeleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F823015722CE8C4E002A1A5B /* DeleteCell.xib */; };
+		F823015B22CE8D12002A1A5B /* DeleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823015A22CE8D12002A1A5B /* DeleteCell.swift */; };
 		F8271E2322CDEDA700B9F75F /* ContactDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8271E2222CDEDA700B9F75F /* ContactDetailsVC.swift */; };
 		F8271E2522CDEDF000B9F75F /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8271E2422CDEDF000B9F75F /* BaseTableView.swift */; };
 		F8271E2722CDF51400B9F75F /* ProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8271E2622CDF51400B9F75F /* ProfileHeaderCell.xib */; };
@@ -103,6 +105,8 @@
 		F823015122CE617F002A1A5B /* UnicodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnicodeHelper.swift; sourceTree = "<group>"; };
 		F823015322CE6685002A1A5B /* GlobalVCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVCFactory.swift; sourceTree = "<group>"; };
 		F823015522CE860D002A1A5B /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
+		F823015722CE8C4E002A1A5B /* DeleteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteCell.xib; sourceTree = "<group>"; };
+		F823015A22CE8D12002A1A5B /* DeleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCell.swift; sourceTree = "<group>"; };
 		F8271E2222CDEDA700B9F75F /* ContactDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsVC.swift; sourceTree = "<group>"; };
 		F8271E2422CDEDF000B9F75F /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 		F8271E2622CDF51400B9F75F /* ProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCell.xib; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 				F8271E2622CDF51400B9F75F /* ProfileHeaderCell.xib */,
 				F8271E2A22CDFD3400B9F75F /* ActionButton.xib */,
 				F823014B22CE4B2C002A1A5B /* FieldCell.xib */,
+				F823015722CE8C4E002A1A5B /* DeleteCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 				F8F22D4522CCF7ED0017DA96 /* SectionHeader.swift */,
 				F8271E2C22CDFDC700B9F75F /* ActionButton.swift */,
 				F8D4233722CE01A0004718B0 /* ProfileHeaderCell.swift */,
+				F823015A22CE8D12002A1A5B /* DeleteCell.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -397,11 +403,11 @@
 				F86BD8FF22CC790500324A6A /* GlobalEnums.swift */,
 				F86BD8A722CC580E00324A6A /* GlobalConstant.swift */,
 				F87F7EC022CC51AB00A2B72F /* AppDelegate.swift */,
+				F86BD8BC22CC59E800324A6A /* Networking */,
+				F86BD8F022CC629C00324A6A /* Mocking */,
 				F86BD90922CCA50300324A6A /* ViewControllers */,
 				F86BD8B322CC59E700324A6A /* Storyboards */,
 				F86BD8E322CC5B2300324A6A /* Subviews */,
-				F86BD8BC22CC59E800324A6A /* Networking */,
-				F86BD8F022CC629C00324A6A /* Mocking */,
 				F86BD90322CC7A7600324A6A /* Models */,
 				F86BD8B822CC59E800324A6A /* Viewmodels */,
 				F87F7EC722CC51AD00A2B72F /* Assets.xcassets */,
@@ -573,6 +579,7 @@
 				F86BD91122CCACBF00324A6A /* ContactCell.xib in Resources */,
 				F8F22D5F22CD96040017DA96 /* GET-contacts-6027-failed.json in Resources */,
 				F8271E2B22CDFD3400B9F75F /* ActionButton.xib in Resources */,
+				F823015822CE8C4E002A1A5B /* DeleteCell.xib in Resources */,
 				F8F22D6722CD96040017DA96 /* POST-contacts.json in Resources */,
 				F8F22D6222CD96040017DA96 /* POST-contacts-failed.json in Resources */,
 				F8F22D6322CD96040017DA96 /* PUT-contacts-6027-failed.json in Resources */,
@@ -669,6 +676,7 @@
 				F8F22D4022CCD6670017DA96 /* ColorHelper.swift in Sources */,
 				F8D4233822CE01A0004718B0 /* ProfileHeaderCell.swift in Sources */,
 				F86BD90522CC7AAB00324A6A /* Contact.swift in Sources */,
+				F823015B22CE8D12002A1A5B /* DeleteCell.swift in Sources */,
 				F86BD90022CC790500324A6A /* GlobalEnums.swift in Sources */,
 				F823014E22CE5977002A1A5B /* BaseTableViewController.swift in Sources */,
 				F86BD90722CC833B00324A6A /* GlobalVMFactory.swift in Sources */,

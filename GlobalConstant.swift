@@ -41,6 +41,7 @@ struct Cells {
     static let emptyCell           = "EmptyCell"
     static let profileHeaderCell   = "ProfileHeaderCell"
     static let fieldCell           = "FieldCell"
+    static let deleteCell          = "DeleteCell"
 }
 
 struct Nibs {
@@ -78,6 +79,7 @@ struct Colors {
     static let semiBlack        = UIColor.hex("4A4A4A")
     static let blueGreen        = UIColor.hex("50E3C2")
     static let descriptorGray   = UIColor.hex("A1A1A1")
+    static let destructiveRed   = UIColor.hex("FE4431")
 }
 
 struct Fonts {
@@ -126,5 +128,8 @@ struct Strings {
     static let uhm       = "Uhmm"
     static let something = "Something went wrong!\nPlease try again."
     static let override  = "Are you sure you want to save the following changes?"
+    static let willDelete     = "Are you sure you want to delete this person?"
+    static let delete         = "Delete"
     static let createdContact = "Successfully created NEW Contact! :)"
+    static let successDelete  = "Successfully deleted contact. :("
 }

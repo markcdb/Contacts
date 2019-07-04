@@ -77,8 +77,12 @@ class ContactListVMTest: XCTestCase {
         testBlock = {
             self.testBlock = nil
             
-            vm.createContact(contact: self.stub,
-                             completion: { error in
+            vm.firstName  = self.stub.first_name
+            vm.lastName   = self.stub.last_name
+            vm.mobile     = self.stub.phone_number
+            vm.email      = self.stub.email
+            
+            vm.createContact(completion: { error in
                                 guard error == nil else {
                                         XCTFail("Expectation not met")
                                         return
@@ -129,7 +133,7 @@ class ContactListVMTest: XCTestCase {
             guard let self = self else { return }
             self.testBlock = nil
             
-            vm.deleteContact(contact: self.stub,
+            vm.deleteContact(id: self.stub.id,
                              completion: { error in
                                 guard error == nil else {
                                     XCTFail("Expectation not met")

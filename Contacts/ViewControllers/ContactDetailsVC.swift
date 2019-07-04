@@ -24,7 +24,8 @@ class ContactDetailsVC: BaseTableViewController<ContactDetailsVM>, UITableViewDe
     }
     
     internal let identifiers = [Cells.profileHeaderCell,
-                                Cells.fieldCell]
+                                Cells.fieldCell,
+                                Cells.deleteCell]
     
     internal let descriptors = [Strings.firstName,
                                 Strings.lastName,
@@ -82,6 +83,11 @@ class ContactDetailsVC: BaseTableViewController<ContactDetailsVM>, UITableViewDe
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         
+        if contactViewType == .view ||
+            contactViewType == .edit {
+            return descriptors.count + 2
+        }
+        
         return descriptors.count + 1
     }
     
@@ -91,12 +97,23 @@ class ContactDetailsVC: BaseTableViewController<ContactDetailsVM>, UITableViewDe
         if indexPath.row == 0 {
             let id   = identifiers[0]
             let cell = tableView.dequeueReusableCell(withIdentifier: id) as! ProfileHeaderCell
-            cell.delegate = self
+            cell.delegate           = self
             cell.doUpdateFromType(contactViewType)
-            cell.profileName?.text = viewModel?.getFullName()
+            cell.profileName?.text  = viewModel?.getFullName()
             cell.setImageFrom(viewModel?.getProfileUrl() ?? "")
-            cell.separatorInset = .zero
-            cell.selectionStyle = .none
+            cell.isFavourite        = viewModel?.getIsFavorite() ?? false
+            cell.separatorInset     = .zero
+            cell.selectionStyle     = .none
+            
+            return cell
+        }
+        
+        if indexPath.row == descriptors.count + 1 {
+            let id   = identifiers[2]
+            let cell = tableView.dequeueReusableCell(withIdentifier: id) as! DeleteCell
+            cell.delegate           = self
+            cell.separatorInset     = .zero
+            cell.selectionStyle     = .none
             
             return cell
         }
@@ -312,7 +329,43 @@ extension ContactDetailsVC: ProfileHeaderCellDelegate {
     }
     
     func doFavourite() {
-        print("Do Favourite")
+        guard !loader.isAnimating else { return }
+        
+        viewModel?.updateFavorite(completion: { _ in
+            self.createViewTypeBarButton()
+        })
+    }
+}
+
+//MARK: - Delete Cell Delegate
+extension ContactDetailsVC: DeleteCellDelegate {
+    
+    func didTapDelete() {
+        showAlertMessageWithAction(.destructive,
+                                   title: Strings.uhm,
+                                   message: Strings.willDelete,
+                                   cancelTitle: Strings.Cancel,
+                                   acceptTitle: Strings.delete) {[weak self] in
+                                    guard let self = self else { return }
+                     
+                                    self.startLoader()
+                                    self.viewModel?.deleteContact(completion: { error in
+                                        guard error == nil else {
+                                            self.showErrorWith(message: Strings.something)
+                                            self.createViewTypeBarButton()
+                                            return
+                                        }
+                                        
+                                        self.showSuccessWith(message: Strings.successDelete, completion: {
+                                            if let _ = self.presentingViewController {
+                                                self.dismiss(animated: true,
+                                                             completion: nil)
+                                            } else {
+                                                self.navigationController?.popViewController(animated: true)
+                                            }
+                                        })
+                                    })
+        }
     }
 }
 

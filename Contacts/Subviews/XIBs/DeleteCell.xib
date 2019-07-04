@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeleteCell" id="Mgr-ue-LGX" userLabel="DeleteCell" customClass="DeleteCell" customModule="Contacts" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mgr-ue-LGX" id="OwC-S7-Xll">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCe-EZ-weZ" customClass="BaseLabel" customModule="Contacts" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="90" height="27.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="CBA-Ha-3fb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.99607843137254903" green="0.26666666666666666" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isDescriptor" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oTN-Jp-YFa">
+                        <rect key="frame" x="14" y="42.5" width="361" height="1"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="vDg-Dk-2mc"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tt6-zX-g1h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <connections>
+                            <action selector="didTapDeleteButton:" destination="Mgr-ue-LGX" eventType="touchUpInside" id="4kd-qc-mEu"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Tt6-zX-g1h" firstAttribute="top" secondItem="OwC-S7-Xll" secondAttribute="top" id="6Z5-B3-f1k"/>
+                    <constraint firstAttribute="trailing" secondItem="Tt6-zX-g1h" secondAttribute="trailing" id="BzY-WM-VaO"/>
+                    <constraint firstAttribute="trailing" secondItem="oTN-Jp-YFa" secondAttribute="trailing" id="Dq6-VU-BAL"/>
+                    <constraint firstAttribute="bottom" secondItem="oTN-Jp-YFa" secondAttribute="bottom" id="HGR-DF-khh"/>
+                    <constraint firstAttribute="bottom" secondItem="zCe-EZ-weZ" secondAttribute="bottom" constant="8" id="Lwq-NC-1qb"/>
+                    <constraint firstItem="zCe-EZ-weZ" firstAttribute="top" secondItem="OwC-S7-Xll" secondAttribute="top" constant="8" id="Mro-IH-a3W"/>
+                    <constraint firstItem="zCe-EZ-weZ" firstAttribute="leading" secondItem="OwC-S7-Xll" secondAttribute="leading" constant="8" id="Y0b-8J-e9c"/>
+                    <constraint firstItem="Tt6-zX-g1h" firstAttribute="leading" secondItem="OwC-S7-Xll" secondAttribute="leading" id="eA2-Id-e0W"/>
+                    <constraint firstAttribute="bottom" secondItem="Tt6-zX-g1h" secondAttribute="bottom" id="myk-BS-Lia"/>
+                    <constraint firstItem="oTN-Jp-YFa" firstAttribute="leading" secondItem="OwC-S7-Xll" secondAttribute="leading" constant="14" id="p9v-NI-v96"/>
+                </constraints>
+            </tableViewCellContentView>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="deleteButton" destination="Tt6-zX-g1h" id="y0R-Gl-Cro"/>
+                <outlet property="titleLabel" destination="zCe-EZ-weZ" id="sbR-NZ-NvH"/>
+            </connections>
+            <point key="canvasLocation" x="53.600000000000001" y="50.374812593703155"/>
+        </tableViewCell>
+    </objects>
+</document>

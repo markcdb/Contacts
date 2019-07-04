@@ -69,6 +69,21 @@ class ContactDetailsVM: BaseContactVM {
         })
     }
     
+    internal func updateFavorite(completion: @escaping ((Error?) -> Void)) {
+        contact?.favorite?.toggle()
+        
+        guard let con = contact else { return }
+        
+        repository?.editContact(newContact: con,
+                                completion: {[weak self] (contact, error) in
+                                    guard let self = self else { return }
+                                    self.contact = contact
+                                    NotificationCenter.default.post(name: Notifications.update,
+                                                                    object: contact)
+                                    completion(error)
+        })
+    }
+    
     internal func createContact(completion: @escaping ((Error?) -> Void)) {
         
         let con     = Contact(id: 0,
@@ -82,7 +97,7 @@ class ContactDetailsVM: BaseContactVM {
                               updated_at: nil)
         
         repository?.createContact(newContact: con,
-                                  completion: { [weak self] (newContact, error) in
+                                  completion: {[weak self] (newContact, error) in
                                     guard let self = self,
                                         error == nil else {
                                             completion(error)
@@ -122,19 +137,23 @@ class ContactDetailsVM: BaseContactVM {
         })
     }
     
-    internal func deleteContact(contact: Contact,
-                       completion: @escaping ((Error?) -> Void)) {
+    internal func deleteContact(id: Int? = nil,
+                                completion: @escaping ((Error?) -> Void)) {
         
-        repository?.deleteContact(contact: contact,
-                                  completion: {[weak self] (deletedContact, error) in
-                                    guard let _ = self,
+        let id = id ?? contact?.id
+        
+        guard let i = id else { return }
+        
+        repository?.deleteContact(id: i,
+                                  completion: {[weak self] (_, error) in
+                                    guard let self = self,
                                         error == nil else {
                                             completion(error)
                                             return
                                     }
                                     
                                     NotificationCenter.default.post(name: Notifications.delete,
-                                                                    object: contact)
+                                                                    object: self.contact)
                                     completion(nil)
         })
     }

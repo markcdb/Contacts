@@ -25,8 +25,6 @@ class BaseLabel: UILabel {
         
         if isDescriptor == true {
             self.textColor = Colors.descriptorGray
-        } else {
-            self.textColor = Colors.semiBlack
         }
     }
     
