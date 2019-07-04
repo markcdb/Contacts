@@ -16,8 +16,9 @@ protocol RepositoryProtocol {
 class Repository: RepositoryProtocol {
     
     var background = DispatchQueue.global(qos: .userInitiated)
-    var main = DispatchQueue.main
-
+    var main       = DispatchQueue.main
+    var group      = DispatchGroup()
+    
     var api: API?
     var requests: [Request] = [] {
         didSet {
@@ -39,20 +40,35 @@ class Repository: RepositoryProtocol {
     
     func createSuccessAndFail<T: Codable>(_ request: Request,
                                           completion: @escaping ((T?, Error?) -> ()),
-                                          operationBlock: @escaping ((inout T, DispatchGroup) -> ()) ) {
+                                          operationBlock: ((inout T, DispatchGroup) -> ())? = nil ) {
         
         request.successCompletion = {[weak self] response in
             guard let self = self else { return }
             self.background.async {
                 do {
-                    let group = DispatchGroup()
-                    group.enter()
+                    self.group.enter()
+                    //Try to check if response is of type ErrorResponse: Codable
+                    let error = try? JSONDecoder().decode(ErrorResponse.self,
+                                                         from: response.data)
+                    
+                    if let error = error {
+                        self.main.async {
+                            completion(nil, error)
+                        }
+                        self.group.leave()
+                        return
+                    }
+                    
                     var object = try JSONDecoder().decode(T.self,
                                                           from: response.data)
                     
-                    operationBlock(&object, group)
+                    if let block = operationBlock {
+                        block(&object, self.group)
+                    } else {
+                        self.group.leave()
+                    }
                     
-                    group.notify(queue: self.main, execute: {
+                    self.group.notify(queue: self.main, execute: {
                         completion(object, nil)
                         
                         if self.requests.isEmpty == false {
@@ -60,6 +76,7 @@ class Repository: RepositoryProtocol {
                         }
                     })
                 } catch let error {
+                    
                     self.main.async {
                         completion(nil, error)
                     }

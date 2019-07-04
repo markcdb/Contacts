@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>ContactsTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>F87F7EBC22CC51AB00A2B72F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F87F7ED022CC51AD00A2B72F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F87F7EDB22CC51AD00A2B72F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

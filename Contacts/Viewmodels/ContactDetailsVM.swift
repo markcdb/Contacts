@@ -8,7 +8,15 @@
 
 import Foundation
 
+internal enum ContactDetailsType {
+    case create
+    case edit
+    case view
+}
+
 class ContactDetailsVM: BaseContactVM {
+    
+    var detailsType: ContactDetailsType?
     
     private var repository: ContactsRepository?
     
@@ -45,5 +53,11 @@ class ContactDetailsVM: BaseContactVM {
                                 self.contact = contact
                                 self.viewState = .success(nil)
         })
+    }
+    
+    func updateContactWith(contact: Contact,
+                           completion: ((Contact? , Error?) -> Void)) {
+        
+        
     }
 }

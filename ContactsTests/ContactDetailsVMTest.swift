@@ -38,17 +38,7 @@ class ContactDetailsVMTest: XCTestCase {
         testCase    = .getContactSuccess
         expectation = XCTestExpectation(description: TestCase.getContactSuccess.rawValue)
         
-        let contactStub = Contact(id: 123,
-                              first_name: nil,
-                              last_name: nil,
-                              email: nil,
-                              phone_number: nil,
-                              profile_pic: nil,
-                              favorite: nil,
-                              created_at: nil,
-                              updated_at: nil)
-        
-        viewModel?.contact = contactStub
+        viewModel?.contact = Contact.createStub()
         viewModel?.request()
         
         wait(for: [expectation!],
@@ -61,12 +51,12 @@ class ContactDetailsVMTest: XCTestCase {
         expectation          = XCTestExpectation(description: TestCase.getContactError.rawValue)
         repository?.failable = true
         
+        viewModel?.contact = Contact.createStub()
         viewModel?.request()
         
         wait(for: [expectation!],
              timeout: 10.0)
     }
-
 }
 
 extension ContactDetailsVMTest: BaseVMDelegate {

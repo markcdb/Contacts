@@ -9,18 +9,18 @@
 import Foundation
 
 struct Response {
-    var status: Int
+    var statusCode: Int
     var data: Data
 }
 
-struct ErrorResponse: LocalizedError {
-    var status: Int
-    var errorDescription: String?
+struct ErrorResponse: Codable, LocalizedError {
+    var statusCode: Int
+    var error: String?
     
-    init(status: Int,
-         errorDescription: String?) {
+    init(statusCode: Int,
+         error: String?) {
         
-        self.status           = status
-        self.errorDescription = errorDescription
+        self.statusCode = statusCode
+        self.error      = error
     }
 }

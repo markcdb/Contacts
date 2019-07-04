@@ -20,12 +20,6 @@
 		F86BD8EB22CC5B2300324A6A /* LoaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8E822CC5B2300324A6A /* LoaderCell.xib */; };
 		F86BD8ED22CC5B8F00324A6A /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86BD8EC22CC5B8F00324A6A /* Kingfisher.framework */; };
 		F86BD8EF22CC5B8F00324A6A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86BD8EE22CC5B8F00324A6A /* Networking.framework */; };
-		F86BD8F222CC62C100324A6A /* GET-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8F122CC62C100324A6A /* GET-contacts.json */; };
-		F86BD8F422CC729600324A6A /* GET-contact.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8F322CC729600324A6A /* GET-contact.json */; };
-		F86BD8F622CC738300324A6A /* POST-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8F522CC738300324A6A /* POST-contacts.json */; };
-		F86BD8FA22CC746B00324A6A /* PUT-contact.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8F922CC746B00324A6A /* PUT-contact.json */; };
-		F86BD8FC22CC749500324A6A /* DELETE-contact.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8FB22CC749500324A6A /* DELETE-contact.json */; };
-		F86BD8FE22CC756C00324A6A /* GET-contacts-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F86BD8FD22CC756C00324A6A /* GET-contacts-failed.json */; };
 		F86BD90022CC790500324A6A /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD8FF22CC790500324A6A /* GlobalEnums.swift */; };
 		F86BD90222CC79BD00324A6A /* ContactListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD90122CC79BD00324A6A /* ContactListVM.swift */; };
 		F86BD90522CC7AAB00324A6A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BD90422CC7AAB00324A6A /* Contact.swift */; };
@@ -52,6 +46,16 @@
 		F8F22D4A22CD140E0017DA96 /* ContactDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4922CD140E0017DA96 /* ContactDetailsVM.swift */; };
 		F8F22D4C22CD141E0017DA96 /* ContactCreateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4B22CD141E0017DA96 /* ContactCreateVM.swift */; };
 		F8F22D4E22CD20010017DA96 /* ContactDetailsVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F22D4D22CD20010017DA96 /* ContactDetailsVMTest.swift */; };
+		F8F22D5E22CD96040017DA96 /* DELETE-contacts-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5222CD96030017DA96 /* DELETE-contacts-failed.json */; };
+		F8F22D5F22CD96040017DA96 /* GET-contacts-6027-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5322CD96030017DA96 /* GET-contacts-6027-failed.json */; };
+		F8F22D6022CD96040017DA96 /* GET-contacts-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5422CD96030017DA96 /* GET-contacts-failed.json */; };
+		F8F22D6222CD96040017DA96 /* POST-contacts-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5622CD96030017DA96 /* POST-contacts-failed.json */; };
+		F8F22D6322CD96040017DA96 /* PUT-contacts-failed.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5722CD96030017DA96 /* PUT-contacts-failed.json */; };
+		F8F22D6422CD96040017DA96 /* DELETE-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5922CD96040017DA96 /* DELETE-contacts.json */; };
+		F8F22D6522CD96040017DA96 /* GET-contacts-6027.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5A22CD96040017DA96 /* GET-contacts-6027.json */; };
+		F8F22D6622CD96040017DA96 /* GET-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5B22CD96040017DA96 /* GET-contacts.json */; };
+		F8F22D6722CD96040017DA96 /* POST-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5C22CD96040017DA96 /* POST-contacts.json */; };
+		F8F22D6822CD96040017DA96 /* PUT-contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F22D5D22CD96040017DA96 /* PUT-contacts.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,12 +91,6 @@
 		F86BD8E822CC5B2300324A6A /* LoaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoaderCell.xib; sourceTree = "<group>"; };
 		F86BD8EC22CC5B8F00324A6A /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F86BD8EE22CC5B8F00324A6A /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F86BD8F122CC62C100324A6A /* GET-contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "GET-contacts.json"; sourceTree = "<group>"; };
-		F86BD8F322CC729600324A6A /* GET-contact.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "GET-contact.json"; sourceTree = "<group>"; };
-		F86BD8F522CC738300324A6A /* POST-contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "POST-contacts.json"; sourceTree = "<group>"; };
-		F86BD8F922CC746B00324A6A /* PUT-contact.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "PUT-contact.json"; sourceTree = "<group>"; };
-		F86BD8FB22CC749500324A6A /* DELETE-contact.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "DELETE-contact.json"; sourceTree = "<group>"; };
-		F86BD8FD22CC756C00324A6A /* GET-contacts-failed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "GET-contacts-failed.json"; sourceTree = "<group>"; };
 		F86BD8FF22CC790500324A6A /* GlobalEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEnums.swift; sourceTree = "<group>"; };
 		F86BD90122CC79BD00324A6A /* ContactListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVM.swift; sourceTree = "<group>"; };
 		F86BD90422CC7AAB00324A6A /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -125,6 +123,16 @@
 		F8F22D4922CD140E0017DA96 /* ContactDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsVM.swift; sourceTree = "<group>"; };
 		F8F22D4B22CD141E0017DA96 /* ContactCreateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCreateVM.swift; sourceTree = "<group>"; };
 		F8F22D4D22CD20010017DA96 /* ContactDetailsVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsVMTest.swift; sourceTree = "<group>"; };
+		F8F22D5222CD96030017DA96 /* DELETE-contacts-failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "DELETE-contacts-failed.json"; sourceTree = "<group>"; };
+		F8F22D5322CD96030017DA96 /* GET-contacts-6027-failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GET-contacts-6027-failed.json"; sourceTree = "<group>"; };
+		F8F22D5422CD96030017DA96 /* GET-contacts-failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GET-contacts-failed.json"; sourceTree = "<group>"; };
+		F8F22D5622CD96030017DA96 /* POST-contacts-failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "POST-contacts-failed.json"; sourceTree = "<group>"; };
+		F8F22D5722CD96030017DA96 /* PUT-contacts-failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PUT-contacts-failed.json"; sourceTree = "<group>"; };
+		F8F22D5922CD96040017DA96 /* DELETE-contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "DELETE-contacts.json"; sourceTree = "<group>"; };
+		F8F22D5A22CD96040017DA96 /* GET-contacts-6027.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GET-contacts-6027.json"; sourceTree = "<group>"; };
+		F8F22D5B22CD96040017DA96 /* GET-contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "GET-contacts.json"; sourceTree = "<group>"; };
+		F8F22D5C22CD96040017DA96 /* POST-contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "POST-contacts.json"; sourceTree = "<group>"; };
+		F8F22D5D22CD96040017DA96 /* PUT-contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PUT-contacts.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,12 +252,8 @@
 		F86BD8F022CC629C00324A6A /* Mocking */ = {
 			isa = PBXGroup;
 			children = (
-				F86BD8F122CC62C100324A6A /* GET-contacts.json */,
-				F86BD8F322CC729600324A6A /* GET-contact.json */,
-				F86BD8F522CC738300324A6A /* POST-contacts.json */,
-				F86BD8F922CC746B00324A6A /* PUT-contact.json */,
-				F86BD8FB22CC749500324A6A /* DELETE-contact.json */,
-				F86BD8FD22CC756C00324A6A /* GET-contacts-failed.json */,
+				F8F22D5122CD96030017DA96 /* Failed */,
+				F8F22D5822CD96040017DA96 /* Success */,
 			);
 			path = Mocking;
 			sourceTree = "<group>";
@@ -374,6 +378,30 @@
 			path = ContactsUITests;
 			sourceTree = "<group>";
 		};
+		F8F22D5122CD96030017DA96 /* Failed */ = {
+			isa = PBXGroup;
+			children = (
+				F8F22D5222CD96030017DA96 /* DELETE-contacts-failed.json */,
+				F8F22D5322CD96030017DA96 /* GET-contacts-6027-failed.json */,
+				F8F22D5422CD96030017DA96 /* GET-contacts-failed.json */,
+				F8F22D5622CD96030017DA96 /* POST-contacts-failed.json */,
+				F8F22D5722CD96030017DA96 /* PUT-contacts-failed.json */,
+			);
+			path = Failed;
+			sourceTree = "<group>";
+		};
+		F8F22D5822CD96040017DA96 /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				F8F22D5922CD96040017DA96 /* DELETE-contacts.json */,
+				F8F22D5A22CD96040017DA96 /* GET-contacts-6027.json */,
+				F8F22D5B22CD96040017DA96 /* GET-contacts.json */,
+				F8F22D5C22CD96040017DA96 /* POST-contacts.json */,
+				F8F22D5D22CD96040017DA96 /* PUT-contacts.json */,
+			);
+			path = Success;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -480,18 +508,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F86BD8FC22CC749500324A6A /* DELETE-contact.json in Resources */,
-				F86BD8FE22CC756C00324A6A /* GET-contacts-failed.json in Resources */,
-				F86BD8F422CC729600324A6A /* GET-contact.json in Resources */,
-				F86BD8F222CC62C100324A6A /* GET-contacts.json in Resources */,
-				F86BD8FA22CC746B00324A6A /* PUT-contact.json in Resources */,
+				F8F22D6422CD96040017DA96 /* DELETE-contacts.json in Resources */,
+				F8F22D6822CD96040017DA96 /* PUT-contacts.json in Resources */,
 				F87F7ECB22CC51AD00A2B72F /* LaunchScreen.storyboard in Resources */,
+				F8F22D6522CD96040017DA96 /* GET-contacts-6027.json in Resources */,
+				F8F22D5E22CD96040017DA96 /* DELETE-contacts-failed.json in Resources */,
 				F87F7EC822CC51AD00A2B72F /* Assets.xcassets in Resources */,
+				F8F22D6022CD96040017DA96 /* GET-contacts-failed.json in Resources */,
 				F86BD8EB22CC5B2300324A6A /* LoaderCell.xib in Resources */,
+				F8F22D6622CD96040017DA96 /* GET-contacts.json in Resources */,
 				F8F22D4422CCF6290017DA96 /* SectionHeader.xib in Resources */,
 				F86BD91122CCACBF00324A6A /* ContactCell.xib in Resources */,
+				F8F22D5F22CD96040017DA96 /* GET-contacts-6027-failed.json in Resources */,
+				F8F22D6722CD96040017DA96 /* POST-contacts.json in Resources */,
+				F8F22D6222CD96040017DA96 /* POST-contacts-failed.json in Resources */,
+				F8F22D6322CD96040017DA96 /* PUT-contacts-failed.json in Resources */,
 				F87F7EC622CC51AB00A2B72F /* Contacts.storyboard in Resources */,
-				F86BD8F622CC738300324A6A /* POST-contacts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

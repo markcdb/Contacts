@@ -22,4 +22,17 @@ struct Contact: Codable {
     var fullName: String {
         return (first_name ?? "") + " " + (last_name ?? "")
     }
+    
+    static func createStub() -> Contact {
+        
+        return Contact(id: 6027,
+                       first_name: "SUT_FirstName",
+                       last_name: "SUT_LastName",
+                       email: "SUT_email@SUT.com",
+                       phone_number: nil,
+                       profile_pic: nil,
+                       favorite: nil,
+                       created_at: nil,
+                       updated_at: nil)
+    }
 }

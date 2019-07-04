@@ -53,12 +53,12 @@ class API {
         return queryString
     }
     
-    public func request(jsonRequest: JSONRequest? = nil,
-                              request: Request) {
+    public func request(request: Request) {
         
-        let method      = request.method
-        let path        = request.path
-
+        let parametersDict: [String: Any]? = request.parameters
+        let method                         = request.method
+        let path                           = request.path
+        
         let completion: (_ result: JSONResult) -> Void = request.getCompletion()
         
         print("Requesting from: \(path)")
@@ -66,30 +66,30 @@ class API {
         switch method {
         case .get:
             var queryString   = ""
-            if let parameters = jsonRequest?.parameters {
-                
-                queryString   = jsonRequest != nil ? createQueryString(from: parameters) : ""
+            
+            if let dict = parametersDict {
+                queryString   = createQueryString(from: dict)
                 queryString   = queryString.addingPercentEncoding(
                                 withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? ""
             }
-            
+          
             self.networking?.get("\(path)\(queryString)",
                                 completion: completion)
         case .post:
             
             self.networking?.post(path,
-                                  parameters: jsonRequest?.parameters,
+                                  parameters: parametersDict,
                                   completion: completion)
         case .put:
             
             self.networking?.put(path,
                                  parameterType: .json,
-                                 parameters: jsonRequest?.parameters,
+                                 parameters: parametersDict,
                                  completion: completion)
         case .delete:
 
             self.networking?.delete(path,
-                                    parameters: jsonRequest?.parameters,
+                                    parameters: parametersDict,
                                     completion: completion)
         }
     }
@@ -106,10 +106,10 @@ class MockAPI: API {
     private func createMockPathFrom(_ path: String,
                                     httpMethod: HTTPMethod) -> String {
         
-        return httpMethod.rawValue + "-\(path.replacingOccurrences(of: "/", with: ""))"
+        return httpMethod.rawValue + "\(path.replacingOccurrences(of: "/", with: "-"))"
     }
 
-    override func request(jsonRequest: JSONRequest?, request: Request) {
+    override func request(request: Request) {
         let method      = request.method
         let path        = request.path
         var mockPath    = createMockPathFrom(request.path,
@@ -144,7 +144,6 @@ class MockAPI: API {
                                         bundle: Bundle.main)
         }
         
-        super.request(jsonRequest: jsonRequest,
-                      request: request)
+        super.request(request: mockRequest)
     }
 }

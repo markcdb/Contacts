@@ -49,11 +49,29 @@ class ContactsRepository: Repository {
                               method: .get)
         
         createSuccessAndFail(request,
-                             completion: completion) { (contact, group) in
-                                group.leave()
-        }
+                             completion: completion)
         
         requests.append(request)
+    }
+    
+    func editContact(newContact: Contact,
+                     completion: @escaping ((Contact?, Error?) -> Void)) {
+        let path = Paths.contact.replacingOccurrences(of: URLParameters.id,
+                                                      with: String(newContact.id ?? 0))
+        
+        let request = Request(path: path,
+                              method: .put)
+        
+        request.createParametersFrom(newContact)
+        
+        createSuccessAndFail(request,
+                             completion: completion)
+    }
+    
+    func createContact(newContact: Contact,
+                       completion: @escaping ((Contact?, Error?) -> Void)) {
+    
+    
     }
 }
 
