@@ -81,6 +81,7 @@ class ContactListVM: BaseContactsVM {
 extension ContactListVM {
 
     @objc internal func create(notification: Notification) {
+        print("Notified CREATE!!")
         guard let contact = notification.object as? Contact,
               let first   = contact.first_name?.first else { return }
         
@@ -90,6 +91,7 @@ extension ContactListVM {
             return
         }
         
+        print("Added contact with ID: \(contact.id ?? 0)")
         self.contacts[string]?.append(contact)
     }
     

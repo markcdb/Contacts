@@ -55,7 +55,7 @@ class ContactDetailsVM: BaseContactVM {
     }
     
     internal func createContact(contact: Contact,
-                       completion: @escaping ((Error?) -> Void)) {
+                                completion: @escaping ((Error?) -> Void)) {
         
         repository?.createContact(newContact: contact,
                                   completion: { [weak self] (newContact, error) in
@@ -66,10 +66,9 @@ class ContactDetailsVM: BaseContactVM {
                                     }
                                     
                                     self.contact = newContact
-                                    completion(nil)
-                                    
                                     NotificationCenter.default.post(name: Notifications.create,
                                                                     object: contact)
+                                    completion(nil)
         })
     }
     
@@ -86,11 +85,9 @@ class ContactDetailsVM: BaseContactVM {
                                     }
                                     
                                     self.contact = contact
-                                    completion(nil)
-                                    
                                     NotificationCenter.default.post(name: Notifications.update,
                                                                     object: contact)
-                                    
+                                    completion(nil)
         })
     }
     
@@ -105,10 +102,9 @@ class ContactDetailsVM: BaseContactVM {
                                             return
                                     }
                                     
-                                    completion(nil)
-                                    
                                     NotificationCenter.default.post(name: Notifications.delete,
                                                                     object: contact)
+                                    completion(nil)
         })
     }
 }

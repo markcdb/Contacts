@@ -13,14 +13,31 @@ struct Response {
     var data: Data
 }
 
-struct ErrorResponse: Codable, LocalizedError {
-    var statusCode: Int
+
+struct ErrorCodable: Codable {
+    
+    var statusCode: String
+    var error: String?
+}
+
+struct ErrorResponse: LocalizedError {
+    var statusCode: String
     var error: String?
     
-    init(statusCode: Int,
+    init(statusCode: String,
          error: String?) {
         
         self.statusCode = statusCode
         self.error      = error
+    }
+    
+    init(errorCodable: ErrorCodable) {
+        
+        self.statusCode = errorCodable.statusCode
+        self.error      = errorCodable.error
+    }
+    
+    var errorDescription: String? {
+        return error
     }
 }

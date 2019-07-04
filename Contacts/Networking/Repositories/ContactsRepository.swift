@@ -73,7 +73,7 @@ class ContactsRepository: Repository {
     internal func createContact(newContact: Contact,
                        completion: @escaping ((Contact?, Error?) -> Void)) {
     
-        let path = Paths.contact
+        let path = Paths.contacts
         
         let request = Request(path: path,
                               method: .post)
@@ -89,7 +89,7 @@ class ContactsRepository: Repository {
     internal func deleteContact(contact: Contact,
                        completion: @escaping ((Contact?, Error?) -> Void)) {
         
-        let path = Paths.contact
+        let path = Paths.contacts
         
         let request = Request(path: path,
                               method: .delete)
@@ -98,6 +98,8 @@ class ContactsRepository: Repository {
         
         createSuccessAndFail(request,
                              completion: completion)
+        
+        requests.append(request)
     }
 }
 

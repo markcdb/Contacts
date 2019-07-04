@@ -14,14 +14,16 @@ private enum TestCase: String {
     case getContactSuccess    = "SUT: Get Contacts -- SUCCESS"
     case getContactError      = "SUT: Get Contacts -- ERROR"
     case updateContactSuccess = "SUT: Update Contacts -- SUCCESS"
+    case createContactSuccess = "SUT: Create Contacts -- SUCCESS"
+    case deleteContactSuccess = "SUT: Delete Contacts -- SUCCESS"
 }
 
 class ContactDetailsVMTest: XCTestCase {
     
-    var viewModel: ContactDetailsVM?
-    var repository: MockContactsRepository?
+    internal var viewModel: ContactDetailsVM?
+    internal var repository: MockContactsRepository?
+    internal var expectation: XCTestExpectation?
     private var testCase: TestCase?
-    var expectation: XCTestExpectation?
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -59,14 +61,14 @@ class ContactDetailsVMTest: XCTestCase {
              timeout: 10.0)
     }
     
-    internal func testUpdateContacts() {
+    internal func testUpdateContact() {
         
         testCase            = .updateContactSuccess
         expectation         = XCTestExpectation(description: TestCase.updateContactSuccess.rawValue)
         
         viewModel?.contact = Contact.createStub()
         viewModel?.editContact(contact: Contact.createStub(),
-                                     completion: {[weak self] (contact, error) in
+                                     completion: {[weak self] (error) in
                                         guard let self = self,
                                             error == nil else {
                                             XCTFail("Expectation not met")
@@ -79,6 +81,38 @@ class ContactDetailsVMTest: XCTestCase {
         wait(for: [expectation!],
              timeout: 10.0)
     }
+    
+    internal func testCreateContact() {
+        
+        self.testCase    = .createContactSuccess
+        expectation      = XCTestExpectation(description: TestCase.createContactSuccess.rawValue)
+        
+        let stub         = Contact.createStub()
+        self.viewModel?.createContact(contact: stub,
+                                      completion: {(error) in
+                                        guard error == nil else {
+                                            XCTFail("Expectation not met")
+                                            return
+                                        }
+                                        
+                                        self.expectation?.fulfill()
+        })
+        
+        wait(for: [expectation!],
+             timeout: 10.0)
+    }
+    
+    internal func testDeleteContact() {
+        
+        testCase            = .createContactSuccess
+        expectation         = XCTestExpectation(description: TestCase.createContactSuccess.rawValue)
+        
+        let vm = GlobalVMFactory.createContactListVM(repository: repository,
+                                                     delegate: self)
+        vm.request()
+        
+        //viewModel?.deleteContact(contact: vm.getContactAt(<#T##indexPath: IndexPath##IndexPath#>), completion: <#T##((Error?) -> Void)##((Error?) -> Void)##(Error?) -> Void#>)
+    }
 }
 
 extension ContactDetailsVMTest: BaseVMDelegate {
@@ -88,10 +122,8 @@ extension ContactDetailsVMTest: BaseVMDelegate {
         
         switch viewState {
         case .success(_):
-            if testCase?.rawValue == expectation?.description {
+            if testCase == .getContactSuccess {
                 expectation?.fulfill()
-            } else {
-                XCTFail("Expectation not met")
             }
         case .loading(_):
             break

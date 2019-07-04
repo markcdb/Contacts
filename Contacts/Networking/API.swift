@@ -61,7 +61,7 @@ class API {
         
         let completion: (_ result: JSONResult) -> Void = request.getCompletion()
         
-        print("Requesting from: \(path)")
+        print("Requesting from: \(path)\nWith: \(method.rawValue)")
         
         switch method {
         case .get:

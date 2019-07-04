@@ -48,7 +48,7 @@ class Request: RequestProtocol {
                 self.successCompletion(successResponse)
             case .failure(let response):
                 
-                let errorResponse = ErrorResponse(statusCode: response.error.code,
+                let errorResponse = ErrorResponse(statusCode: String(response.error.code),
                                                   error: response.error.localizedDescription)
                 
                 DispatchQueue.main.async {
@@ -65,7 +65,7 @@ class Request: RequestProtocol {
                                                                 options: .mutableContainers)
             let dict              = serialized as? [String: Any]
             self.parameters       = dict
-            print(self.parameters!)
+            print(self.parameters ?? [:])
         } catch let error {
             print(error.localizedDescription)
         }
