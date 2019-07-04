@@ -69,10 +69,19 @@ class ContactDetailsVM: BaseContactVM {
         })
     }
     
-    internal func createContact(contact: Contact,
-                                completion: @escaping ((Error?) -> Void)) {
+    internal func createContact(completion: @escaping ((Error?) -> Void)) {
         
-        repository?.createContact(newContact: contact,
+        let con     = Contact(id: 0,
+                              first_name: firstName,
+                              last_name: lastName,
+                              email: email,
+                              phone_number: mobile,
+                              profile_pic: nil,
+                              favorite: nil,
+                              created_at: nil,
+                              updated_at: nil)
+        
+        repository?.createContact(newContact: con,
                                   completion: { [weak self] (newContact, error) in
                                     guard let self = self,
                                         error == nil else {
@@ -82,16 +91,23 @@ class ContactDetailsVM: BaseContactVM {
                                     
                                     self.contact = newContact
                                     NotificationCenter.default.post(name: Notifications.create,
-                                                                    object: contact)
+                                                                    object: newContact)
                                     completion(nil)
         })
     }
     
-    internal func editContact(contact: Contact,
+    internal func editContact(contact: Contact? = nil,
                               completion: @escaping ((Error?) -> Void)) {
         
+        var contact = contact ?? self.contact
+        contact?.first_name     = firstName
+        contact?.last_name      = lastName
+        contact?.phone_number   = mobile
+        contact?.email          = email
         
-        repository?.editContact(newContact: contact,
+        guard let con = contact else { return }
+        
+        repository?.editContact(newContact: con,
                                 completion: { [weak self] contact, error in
                                     guard let self = self,
                                         error == nil else {
@@ -123,28 +139,47 @@ class ContactDetailsVM: BaseContactVM {
         })
     }
     
-    internal func validateEntries() -> Bool {
-        var isValid = true
+    internal func setTextFromTag(_ tag: Int,
+                                 text: String) {
+        switch tag {
+        case 0:
+            firstName = text
+        case 1:
+            lastName = text
+        case 2:
+            mobile = text
+        case 3:
+            email = text
+        default:
+            break
+        }
+    }
+    
+    internal func validateEntries() -> String? {
+        var string: String? = nil
         
         if firstName?.containsANumber() == true ||
             firstName?.containsEmoji == true ||
             firstName?.containsOnlyValidCharacters() == false {
-            isValid = false
+            string = Strings.invalidFirstName
+            return string
         }
         
         if lastName?.containsANumber() == true ||
             lastName?.containsEmoji == true ||
             lastName?.containsOnlyValidCharacters() == false {
-            isValid = false
+            string = Strings.invalidLastName
+            return string
         }
         
-        if email != nil ||
-            email?.isEmpty == false &&
+        if  email == nil ||
+            email?.isEmpty == false,
             email?.isValidEmail() == false {
-            isValid = false
+            string = Strings.invalidEmail
+            return string
         }
         
-        return isValid
+        return string
     }
     
     internal func getTextFromTag(_ tag: Int) -> String {

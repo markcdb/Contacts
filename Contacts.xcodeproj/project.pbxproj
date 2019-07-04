@@ -14,6 +14,7 @@
 		F823015022CE5CA3002A1A5B /* TextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823014F22CE5CA3002A1A5B /* TextFieldHelper.swift */; };
 		F823015222CE617F002A1A5B /* UnicodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823015122CE617F002A1A5B /* UnicodeHelper.swift */; };
 		F823015422CE6685002A1A5B /* GlobalVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823015322CE6685002A1A5B /* GlobalVCFactory.swift */; };
+		F823015622CE860D002A1A5B /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823015522CE860D002A1A5B /* ViewControllerHelper.swift */; };
 		F8271E2322CDEDA700B9F75F /* ContactDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8271E2222CDEDA700B9F75F /* ContactDetailsVC.swift */; };
 		F8271E2522CDEDF000B9F75F /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8271E2422CDEDF000B9F75F /* BaseTableView.swift */; };
 		F8271E2722CDF51400B9F75F /* ProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8271E2622CDF51400B9F75F /* ProfileHeaderCell.xib */; };
@@ -101,6 +102,7 @@
 		F823014F22CE5CA3002A1A5B /* TextFieldHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHelper.swift; sourceTree = "<group>"; };
 		F823015122CE617F002A1A5B /* UnicodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnicodeHelper.swift; sourceTree = "<group>"; };
 		F823015322CE6685002A1A5B /* GlobalVCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVCFactory.swift; sourceTree = "<group>"; };
+		F823015522CE860D002A1A5B /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 		F8271E2222CDEDA700B9F75F /* ContactDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsVC.swift; sourceTree = "<group>"; };
 		F8271E2422CDEDF000B9F75F /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 		F8271E2622CDF51400B9F75F /* ProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCell.xib; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				F8E8D02922CE2A8C00040CDA /* ViewHelper.swift */,
 				F823014F22CE5CA3002A1A5B /* TextFieldHelper.swift */,
 				F823015122CE617F002A1A5B /* UnicodeHelper.swift */,
+				F823015522CE860D002A1A5B /* ViewControllerHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8271E2D22CDFDC700B9F75F /* ActionButton.swift in Sources */,
+				F823015622CE860D002A1A5B /* ViewControllerHelper.swift in Sources */,
 				F8F22D3C22CCD46B0017DA96 /* URLHelper.swift in Sources */,
 				F86BD91322CCACE200324A6A /* ContactCell.swift in Sources */,
 				F86BD91622CCB0A300324A6A /* StringHelper.swift in Sources */,

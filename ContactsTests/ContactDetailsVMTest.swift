@@ -89,8 +89,7 @@ class ContactDetailsVMTest: XCTestCase {
         self.testCase    = .createContactSuccess
         expectation      = XCTestExpectation(description: TestCase.createContactSuccess.rawValue)
         
-        self.viewModel?.createContact(contact: stub,
-                                      completion: {(error) in
+        self.viewModel?.createContact(completion: {(error) in
                                         guard error == nil else {
                                             XCTFail("Expectation not met")
                                             return

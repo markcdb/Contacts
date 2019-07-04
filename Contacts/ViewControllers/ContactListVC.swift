@@ -31,21 +31,35 @@ class ContactListVC: BaseContactVC {
         
         super.tableView(tableView, didSelectRowAt: indexPath)
         selectedIndex = indexPath
-        routeTo(StoryboardIDs.contactDetails)
+        pushTo(StoryboardIDs.contactDetails)
     }
     
-    override func routeTo(_ storyboardId: String) {
-        super.routeTo(storyboardId)
+    override func pushTo(_ storyboardId: String) {
+        super.pushTo(storyboardId)
         
         guard let indexPath = selectedIndex,
             let contact = viewModel?.getContactAt(indexPath) else { return }
         
-        if let vc = GlobalVCFactory.createContactDetails(contact,
-                                                         storyboardId: storyboardId) {
+        if let vc = GlobalVCFactory.createContactDetailsWithType(.view,
+                                                                 contact: contact,
+                                                                 storyboardId: storyboardId) {
             
             navigationController?.pushViewController(vc,
                                                      animated: true)
         }
+    }
+    
+    
+    @IBAction func didTapAddButton(_ sender: Any) {
+        guard let nav = GlobalVCFactory.createContactDetailsWithType(.create,
+                                                               contact: nil,
+                                                               storyboardId: StoryboardIDs.createContact) else {
+                                                                return
+        }
+        
+        present(nav,
+                animated: true,
+                completion: nil)
     }
 }
 

@@ -32,18 +32,15 @@ class ContactCell: BaseCell {
 
 //MARK: - Custom Methods
 extension ContactCell {
+    internal func setImageFrom(_ urlString: String) {
+        
+        setProfileImageFrom(urlString,
+                            imageView: &profileImageView)
+    }
+    
     internal func setNameFrom(_ name: String) {
         
         titleLabel?.text = name
-    }
-    
-    internal func setProfileImageFrom(_ urlString: String) {
-        
-        profileImageView?.setKFImage(with: urlString,
-                                     placeholder: nil,
-                                     shouldAnimate: true,
-                                     keepCurrentImageWhileLoading: false,
-                                     completion: nil)
     }
     
     internal func setFavoriteFrom(_ favorite: Bool) {

@@ -51,6 +51,7 @@ struct Nibs {
 struct StoryboardIDs {
     
     static let contactDetails      = "ContactDetailsVC"
+    static let createContact       = "CreateContactsVC"
 }
 
 struct URLParameters {
@@ -88,9 +89,10 @@ struct Fonts {
 
 struct Images {
     
-    static let favorite = UIImage(named: "home_favourite")
-    static let favorite_button = UIImage(named: "favourite_button")
+    static let favorite                 = UIImage(named: "home_favourite")
+    static let favorite_button          = UIImage(named: "favourite_button")
     static let favorite_button_selected = UIImage(named: "favourite_button_selected")
+    static let placeholder_photo        = UIImage(named: "placeholder_photo")
 }
 
 struct Notifications {
@@ -113,4 +115,16 @@ struct Strings {
     static let email     = "email"
     static let Cancel    = "Cancel"
     static let Next      = "Next"
+    static let Done      = "Done"
+    static let Ok        = "Ok"
+    static let invalidFirstName = "Invalid First Name"
+    static let invalidLastName  = "Invalid Last Name"
+    static let invalidEmail = "Invalid Email Address"
+    static let invalidPhone = "Invalid Phone Number"
+    static let oops      = "Oops!"
+    static let yey       = "Yey!"
+    static let uhm       = "Uhmm"
+    static let something = "Something went wrong!\nPlease try again."
+    static let override  = "Are you sure you want to save the following changes?"
+    static let createdContact = "Successfully created NEW Contact! :)"
 }

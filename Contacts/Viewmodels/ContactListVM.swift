@@ -92,30 +92,42 @@ extension ContactListVM {
         }
         
         print("Added contact with ID: \(contact.id ?? 0)")
-        self.contacts[string]?.append(contact)
+        self.contacts[string]?.insert(contact,
+                                      at: 0)
         self.viewState = .success(nil)
     }
     
     @objc internal func update(notification: Notification) {
-        guard let contact = notification.object as? Contact,
-              let first   = contact.first_name?.first else { return }
+        guard let contact = notification.object as? Contact else { return }
         
-        let string      = String(first).uppercased()
+        let string      = self.contacts.compactMap { (key, contacts) -> String? in
+            if contacts.contains(where: { $0.id == contact.id }) {
+                return key
+            }
+            
+            return nil
+        }.first ?? ""
+        
         if let index    = self.contacts[string]?.firstIndex(where: { $0.id == contact.id }),
-            index < self.contacts.count {
+            index < self.contacts[string]?.count ?? 0 {
             self.contacts[string]?[index] = contact
             self.viewState = .success(nil)
         }
     }
     
     @objc internal func delete(notification: Notification) {
-        guard let contact = notification.object as? Contact,
-            let first   = contact.first_name?.first else { return }
+        guard let contact = notification.object as? Contact else { return }
         
-        let string      = String(first).uppercased()
-        
+        let string      = self.contacts.compactMap { (key, contacts) -> String? in
+            if contacts.contains(where: { $0.id == contact.id }) {
+                return key
+            }
+            
+            return nil
+        }.first ?? ""
+
         if let index    = self.contacts[string]?.firstIndex(where: { $0.id == contact.id }),
-            index < self.contacts.count {
+            index < self.contacts[string]?.count ??  0 {
             self.contacts[string]?.remove(at: index)
             self.viewState = .success(nil)
         }

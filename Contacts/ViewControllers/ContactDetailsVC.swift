@@ -31,6 +31,11 @@ class ContactDetailsVC: BaseTableViewController<ContactDetailsVM>, UITableViewDe
                                 Strings.mobile,
                                 Strings.email]
     
+    lazy var loader: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        return activityIndicator
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -89,6 +94,7 @@ class ContactDetailsVC: BaseTableViewController<ContactDetailsVM>, UITableViewDe
             cell.delegate = self
             cell.doUpdateFromType(contactViewType)
             cell.profileName?.text = viewModel?.getFullName()
+            cell.setImageFrom(viewModel?.getProfileUrl() ?? "")
             cell.separatorInset = .zero
             cell.selectionStyle = .none
             
@@ -99,12 +105,14 @@ class ContactDetailsVC: BaseTableViewController<ContactDetailsVM>, UITableViewDe
         let id   = identifiers[1]
         let cell = tableView.dequeueReusableCell(withIdentifier: id) as! FieldCell
         
+        let toolbarTitle            = row == 3 ? Strings.Done : Strings.Next
+        let enabled                 = contactViewType == .edit || contactViewType == .create
         cell.descriptor?.text       = descriptors[row]
         cell.textField?.placeholder = descriptors[row]
-        cell.textField?.tag         = indexPath.row
+        cell.textField?.tag         = row
         cell.textField?.delegate    = self
-        cell.textField?.addDoneCancelToolbar()
-        cell.textField?.isUserInteractionEnabled = contactViewType == .edit
+        cell.textField?.addDoneCancelToolbar(nextTitle: toolbarTitle)
+        cell.textField?.isUserInteractionEnabled = enabled
         cell.textField?.text        = viewModel?.getTextFromTag(row)
         
         cell.separatorInset = .zero
@@ -115,20 +123,27 @@ class ContactDetailsVC: BaseTableViewController<ContactDetailsVM>, UITableViewDe
     
     //MARK: - TextField Delegate
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField.tag == 3 {
+        if textField.tag == 2 {
             textField.keyboardType = .phonePad
         }
         
         return true
     }
     
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        
+        viewModel?.setTextFromTag(textField.tag,
+                                  text: textField.text ?? "")
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if textField.tag == 4 {
+        if textField.tag == 3 {
             textField.resignFirstResponder()
         }
         
-        let indexPath = IndexPath(row: textField.tag + 1, section: 0)
+        let indexPath = IndexPath(row: textField.tag + 2, section: 0)
         if let cell = tableView?.cellForRow(at: indexPath) as? FieldCell {
             cell.textField?.becomeFirstResponder()
         }
@@ -139,16 +154,71 @@ class ContactDetailsVC: BaseTableViewController<ContactDetailsVM>, UITableViewDe
     @IBAction func didTapEditButton(_ sender: UIBarButtonItem) {
         contactViewType = .edit
 
+        createBarButtons()
+    }
+    
+    @IBAction func didTapDoneButton(_ sender: UIBarButtonItem) {
+        self.view.endEditing(true)
+        
+        if let error = viewModel?.validateEntries() {
+            showAlertMessageWithAction(.default,
+                                       title: Strings.oops,
+                                       message: error.localizedLowercase,
+                                       cancelTitle: Strings.Ok,
+                                       acceptTitle: nil)
+        } else {
+            
+            if contactViewType == .create {
+                create()
+            } else {
+                edit()
+            }
+        }
+    }
+    
+    @IBAction func didTapCancelButton(_ sender: UIBarButtonItem) {
+        if contactViewType == .create {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        createViewTypeBarButton()
+    }
+}
+
+//MARK: - Custom Methods
+extension ContactDetailsVC {
+    func showErrorWith(message: String) {
+        self.showAlertMessageWithAction(.default,
+                                        title: Strings.oops,
+                                        message: message,
+                                        cancelTitle: Strings.Ok,
+                                        acceptTitle: nil)
+    }
+    
+    func showSuccessWith(message: String,
+                         completion: @escaping (() -> Void)) {
+        self.showAlertMessageWithAction(.default,
+                                        title: Strings.yey,
+                                        message: message,
+                                        cancelTitle: nil,
+                                        acceptTitle: Strings.Ok,
+                                        completion: {
+                                        completion()
+        })
+    }
+    
+    func createBarButtons() {
         let doneItem   = UIBarButtonItem.SystemItem.done
         let cancelItem = UIBarButtonItem.SystemItem.cancel
         
         let done: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: doneItem,
-                                                      target: self,
-                                                      action: #selector(didTapDoneButton(_:)))
+                                                    target: self,
+                                                    action: #selector(didTapDoneButton(_:)))
         
         let cancel: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: cancelItem,
-                                                    target: self,
-                                                    action: #selector(didTapCancelButton(_:)))
+                                                      target: self,
+                                                      action: #selector(didTapCancelButton(_:)))
         
         tableView?.reloadData()
         
@@ -159,17 +229,51 @@ class ContactDetailsVC: BaseTableViewController<ContactDetailsVM>, UITableViewDe
         startResponding()
     }
     
-    @IBAction func didTapDoneButton(_ sender: UIBarButtonItem) {
-       createViewTypeBarButton()
+    func create() {
+        startLoader()
+        viewModel?.createContact(completion: {[weak self] error in
+            guard let self = self else { return }
+            guard error == nil else {
+                self.showErrorWith(message: Strings.something)
+                self.createBarButtons()
+                return
+            }
+            
+            self.showSuccessWith(message: Strings.createdContact,
+                                 completion: {
+                                    self.dismiss(animated: true,
+                                                 completion: nil)
+            })
+        })
     }
     
-    @IBAction func didTapCancelButton(_ sender: UIBarButtonItem) {
-       createViewTypeBarButton()
+    func edit(){
+        self.showAlertMessageWithAction(.default,
+                                        title: Strings.uhm,
+                                        message: Strings.override,
+                                        cancelTitle: Strings.Cancel,
+                                        acceptTitle: Strings.Ok,
+                                        completion: {[weak self] in
+                                            guard let self = self else { return }
+                                            self.startLoader()
+                                            self.viewModel?.editContact(completion: { error in
+                                                guard error == nil else {
+                                                    self.showErrorWith(message: Strings.something)
+                                                    self.createBarButtons()
+                                                    return
+                                                }
+                                                
+                                                self.createViewTypeBarButton()
+                                            })
+        })
     }
-}
 
-//MARK: - Custom Methods
-extension ContactDetailsVC {
+    func startLoader() {
+        let barButton = UIBarButtonItem(customView: loader)
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = barButton
+        loader.startAnimating()
+    }
+    
     func startResponding() {
         let indexPath = IndexPath(row: 1, section: 0)
         if let cell = tableView?.cellForRow(at: indexPath) as? FieldCell {

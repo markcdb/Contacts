@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UITextField {
-    func addDoneCancelToolbar() {
+    func addDoneCancelToolbar(nextTitle: String) {
         let onCancel = (target: self, action: #selector(cancelButtonTapped))
         let onDone   = (target: self, action: #selector(doneButtonTapped))
         
@@ -24,7 +24,7 @@ extension UITextField {
                                     UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                                     target: self,
                                                     action: nil),
-                                    UIBarButtonItem(title: Strings.Next,
+                                    UIBarButtonItem(title: nextTitle,
                                                     style: .done,
                                                     target: onDone.target,
                                                     action: onDone.action)

@@ -44,7 +44,7 @@ class BaseVC<T: BaseVM>: UIViewController {
         super.viewDidDisappear(animated)
     }
     
-    open func routeTo(_ storyboardId: String) {}
+    open func pushTo(_ storyboardId: String) {}
     
     open func setShadowImageFrom(color: UIColor = .clear) {
         

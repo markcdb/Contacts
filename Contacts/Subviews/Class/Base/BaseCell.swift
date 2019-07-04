@@ -19,4 +19,14 @@ class BaseCell: UITableViewCell {
         
         titleLabel?.font      = Fonts.helveticaNeue
     }
+    
+    internal func setProfileImageFrom(_ urlString: String,
+                                      imageView: inout UIImageView?) {
+        
+        imageView?.setKFImage(with: urlString,
+                              placeholder: Images.placeholder_photo,
+                              shouldAnimate: true,
+                              keepCurrentImageWhileLoading: false,
+                              completion: nil)
+    }
 }

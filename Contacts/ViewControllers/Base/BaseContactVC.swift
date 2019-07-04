@@ -139,7 +139,7 @@ extension BaseContactVC {
         
         cell?.setNameFrom(name)
         cell?.setFavoriteFrom(favorite)
-        cell?.setProfileImageFrom(urlString)
+        cell?.setImageFrom(urlString)
         
         return cell
     }

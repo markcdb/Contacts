@@ -95,6 +95,12 @@ class ProfileHeaderCell: BaseCell {
 //MARK: - Custom methods
 extension ProfileHeaderCell {
     
+    internal func setImageFrom(_ urlString: String) {
+        
+        setProfileImageFrom(urlString,
+                            imageView: &profileImageView)
+    }
+    
     internal func doUpdateFromType(_ contactViewType: ContactViewType?) {
         
         if contactViewType == .edit ||
