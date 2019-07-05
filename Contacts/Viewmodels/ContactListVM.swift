@@ -92,8 +92,13 @@ extension ContactListVM {
         }
         
         print("Added contact with ID: \(contact.id ?? 0)")
-        self.contacts[string]?.insert(contact,
-                                      at: 0)
+        if self.contacts[string] == nil {
+            self.contacts[string] = [contact]
+        } else {
+            self.contacts[string]?.insert(contact,
+                                          at: 0)
+        }
+       
         self.viewState = .success(nil)
     }
     
