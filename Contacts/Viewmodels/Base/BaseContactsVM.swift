@@ -91,6 +91,7 @@ class BaseContactsVM: BaseVM {
 
 class BaseContactVM: BaseVM {
     
+    internal var repository: ContactsRepository?
     internal var contact: Contact?
     internal var idForUpdate: String?
     

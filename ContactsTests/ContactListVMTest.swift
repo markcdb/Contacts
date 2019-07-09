@@ -71,7 +71,8 @@ class ContactListVMTest: XCTestCase {
         testCase             = .createContactSuccess
         expectation          = XCTestExpectation(description: TestCase.createContactSuccess.rawValue)
         
-        let vm               = GlobalVMFactory.createContactDetailsVM(delegate: self)
+        let vm               = GlobalVMFactory.createContactDetailsVM(repository: repository,
+                                                                      delegate: self)
         viewModel?.request()
         
         testBlock = {
@@ -133,6 +134,7 @@ class ContactListVMTest: XCTestCase {
             guard let self = self else { return }
             self.testBlock = nil
             
+            vm.contact = self.stub
             vm.deleteContact(id: self.stub.id,
                              completion: { error in
                                 guard error == nil else {

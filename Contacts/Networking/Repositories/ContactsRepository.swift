@@ -8,14 +8,21 @@
 
 import Foundation
 
-class ContactsRepository: Repository {
+class ContactsRepository: Repository<Contact> {
+
+    typealias SingleC = ((Contact?, Error?) -> ())
+    typealias ArrayC = (([Contact]?, Error?) -> ())
     
     // MARK: - Init
     override init() {
         super.init()
     }
     
-    internal func getContacts(completion: @escaping (([Contact]?, Error?) -> ())) {
+    override func getList(params: Contact?,
+                          completion: @escaping ArrayC) {
+        super.getList(params: params,
+                      completion: completion)
+        
         let path = Paths.contacts
         
         let request = Request(path: path,
@@ -40,10 +47,12 @@ class ContactsRepository: Repository {
         requests.append(request)
     }
     
-    internal func getContact(id: Int,
-                    completion: @escaping ((Contact?, Error?) -> Void)) {
+    override func get<U: LosslessStringConvertible>(params: U?,
+                                   completion: @escaping SingleC) {
+        guard let param = params else { return }
+        
         let path = Paths.contact.replacingOccurrences(of: URLParameters.id,
-                                                      with: String(id))
+                                                      with: String(param))
         
         let request = Request(path: path,
                               method: .get)
@@ -54,15 +63,20 @@ class ContactsRepository: Repository {
         requests.append(request)
     }
     
-    internal func editContact(newContact: Contact,
-                     completion: @escaping ((Contact?, Error?) -> Void)) {
+    override func edit(params: Contact?,
+                       completion: @escaping ((Contact?, Error?) -> ())) {
+        super.edit(params: params,
+                   completion: completion)
+        
+        guard let contact = params else { return }
+        
         let path = Paths.contact.replacingOccurrences(of: URLParameters.id,
-                                                      with: String(newContact.id ?? 0))
+                                                      with: String(contact.id ?? 0))
         
         let request = Request(path: path,
                               method: .put)
         
-        request.createParametersFrom(newContact)
+        request.createParametersFrom(contact)
         
         createSuccessAndFail(request,
                              completion: completion)
@@ -70,31 +84,35 @@ class ContactsRepository: Repository {
         requests.append(request)
     }
     
-    internal func createContact(newContact: Contact,
-                       completion: @escaping ((Contact?, Error?) -> Void)) {
-    
+    override func create(params: Contact?,
+                completion: @escaping SingleC) {
+        
+        guard let contact = params else { return }
+        
         let path = Paths.contacts
         
         let request = Request(path: path,
                               method: .post)
         
-        request.createParametersFrom(newContact)
+        request.createParametersFrom(contact)
         
         createSuccessAndFail(request,
                              completion: completion)
         
         requests.append(request)
     }
-    
-    internal func deleteContact(id: Int,
-                                completion: @escaping ((Contact?, Error?) -> Void)) {
+   
+    override func delete<U: LosslessStringConvertible>(params: U?,
+                                              completion: @escaping SingleC) {
+        
+        guard let params = params else { return }
         
         let path = Paths.contact.replacingOccurrences(of: URLParameters.id,
-                                                      with: String(id))
+                                                      with: String(params))
         
         let request = Request(path: path,
                               method: .delete)
-                
+        
         createSuccessAndFail(request,
                              completion: completion)
         
@@ -115,31 +133,33 @@ class MockContactsRepository: ContactsRepository {
         api = MockAPI(host: NetworkConfig.baseUrl)
     }
     
-    override func getContacts(completion: @escaping (([Contact]?, Error?) -> ())) {
-        super.getContacts(completion: completion)
+    override func get<U: LosslessStringConvertible>(params: U?,
+                                                    completion: @escaping SingleC) {
+        super.get(params: params,
+                  completion: completion)
     }
     
-    override func getContact(id: Int,
-                             completion: @escaping ((Contact?, Error?) -> Void)) {
-        super.getContact(id: id,
-                         completion: completion)
+    override func getList(params: Contact?,
+                          completion: @escaping ArrayC) {
+        super.getList(params: params,
+                      completion: completion)
     }
     
-    override func editContact(newContact: Contact,
-                              completion: @escaping ((Contact?, Error?) -> Void)) {
-        super.editContact(newContact: newContact,
-                          completion: completion)
+    override func create(params: Contact?,
+                         completion: @escaping SingleC) {
+        super.create(params: params,
+                     completion: completion)
     }
     
-    override func createContact(newContact: Contact,
-                                completion: @escaping ((Contact?, Error?) -> Void)) {
-        super.createContact(newContact: newContact,
-                            completion: completion)
+    override func edit(params: Contact?,
+                       completion: @escaping SingleC) {
+        super.edit(params: params,
+                   completion: completion)
     }
     
-    override func deleteContact(id: Int,
-                                completion: @escaping ((Contact?, Error?) -> Void)) {
-        super.deleteContact(id: id,
-                            completion: completion)
+    override func delete<U: LosslessStringConvertible>(params: U?,
+                                                       completion: @escaping SingleC) {
+        super.delete(params: params,
+                     completion: completion)
     }
 }

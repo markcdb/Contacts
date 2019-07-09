@@ -9,12 +9,34 @@
 import Foundation
 
 protocol RepositoryProtocol {
+    
+    associatedtype T: Codable
+
+    func getList(params: T?,
+                 completion: @escaping (([T]?, Error?) -> ()))
+    
+    func get<U>(params: U?,
+                completion: @escaping ((T?, Error?) -> ()))
+    
+    func create(params: T?,
+                completion: @escaping ((T?, Error?) -> ()))
+    
+    func edit(params: T?,
+              completion: @escaping ((T?, Error?) -> ()))
+    
+    func delete<U>(params: U?,
+                   completion: @escaping ((T?, Error?) -> ()))
+}
+
+protocol MainRepositoryProtocol {
     //Screen specific request
     func request()
 }
 
-class Repository: RepositoryProtocol {
-    
+class Repository<T: Codable>: MainRepositoryProtocol, RepositoryProtocol {
+   
+    typealias T = T
+
     var background = DispatchQueue.global(qos: .userInitiated)
     var main       = DispatchQueue.main
     var group      = DispatchGroup()
@@ -31,6 +53,21 @@ class Repository: RepositoryProtocol {
     init() {
         api = API(host: NetworkConfig.baseUrl)
     }
+
+    func getList(params: T?,
+                 completion: @escaping (([T]?, Error?) -> ())) {}
+    
+    func get<U>(params: U?,
+                completion: @escaping ((T?, Error?) -> ())) {}
+    
+    func create(params: T?,
+                completion: @escaping ((T?, Error?) -> ())) {}
+    
+    func edit(params: T?,
+              completion: @escaping ((T?, Error?) -> ())) {}
+    
+    func delete<U>(params: U?,
+                   completion: @escaping ((T?, Error?) -> ())) {}
     
     internal func request() {
         // Construct the request object (ListRequest)

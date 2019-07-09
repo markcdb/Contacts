@@ -15,7 +15,7 @@ protocol BaseVMDelegate: class {
 }
 
 class BaseVM {
-        
+    
     open var viewState: ViewState? {
         didSet {
             if let viewState = viewState {

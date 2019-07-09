@@ -25,33 +25,35 @@ class ContactListVM: BaseContactsVM {
         
         self.viewState = .loading(nil)
         
-        repository?.getContacts(completion: {[weak self] (contacts, error) in
-            guard let self = self else { return }
-            
-            guard error == nil,
-                let contacts = contacts else {
-                    
-                let errorMsg = error?.localizedDescription ?? ""
-                self.viewState = .error(errorMsg)
-
-                return
-            }
-            
-            self.sortingKeys = contacts.compactMap({ contact -> String? in
-                guard let first = contact.first_name?.first else { return nil }
-                let string = String(first).uppercased()
-                return string
-            }).removingDuplicates().sorted(by: { $0 < $1 })
-            
-            self.sortingKeys.forEach({ key in
-                self.contacts[key] = contacts.filter({ contact -> Bool in
-                    guard let first = contact.first_name?.first else { return false }
-                    let string = String(first)
-                    return string == key
-                })
-            })
-            
-            self.viewState = .success(nil)
+        repository?.getList(params: nil,
+                            completion: {[weak self] (contacts, error) in
+                                guard let self = self else { return }
+                                
+                                guard error == nil,
+                                    let contacts = contacts else {
+                                        
+                                        let errorMsg = error?.localizedDescription ?? ""
+                                        self.viewState = .error(errorMsg)
+                                        
+                                        return
+                                }
+                                
+                                self.sortingKeys = contacts.compactMap({ contact -> String? in
+                                    guard let first = contact.first_name?.first else { return nil }
+                                    let string = String(first).uppercased()
+                                    return string
+                                }).removingDuplicates().sorted(by: { $0 < $1 })
+                                
+                                self.sortingKeys.forEach({ key in
+                                    self.contacts[key] = contacts.filter({ contact -> Bool in
+                                        guard let first = contact.first_name?.first else { return false }
+                                        let string = String(first)
+                                        return string == key
+                                    })
+                                })
+                                
+                                self.viewState = .success(nil)
+                                
         })
     }
     
@@ -92,8 +94,13 @@ extension ContactListVM {
         }
         
         print("Added contact with ID: \(contact.id ?? 0)")
-        self.contacts[string]?.insert(contact,
-                                      at: 0)
+        if self.contacts[string] == nil {
+            self.contacts[string] = [contact]
+        } else {
+            self.contacts[string]?.insert(contact,
+                                          at: 0)
+        }
+       
         self.viewState = .success(nil)
     }
     
