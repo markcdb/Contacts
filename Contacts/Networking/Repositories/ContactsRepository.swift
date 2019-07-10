@@ -132,34 +132,4 @@ class MockContactsRepository: ContactsRepository {
         super.init()
         api = MockAPI(host: NetworkConfig.baseUrl)
     }
-    
-    override func get<U: LosslessStringConvertible>(params: U?,
-                                                    completion: @escaping SingleC) {
-        super.get(params: params,
-                  completion: completion)
-    }
-    
-    override func getList(params: Contact?,
-                          completion: @escaping ArrayC) {
-        super.getList(params: params,
-                      completion: completion)
-    }
-    
-    override func create(params: Contact?,
-                         completion: @escaping SingleC) {
-        super.create(params: params,
-                     completion: completion)
-    }
-    
-    override func edit(params: Contact?,
-                       completion: @escaping SingleC) {
-        super.edit(params: params,
-                   completion: completion)
-    }
-    
-    override func delete<U: LosslessStringConvertible>(params: U?,
-                                                       completion: @escaping SingleC) {
-        super.delete(params: params,
-                     completion: completion)
-    }
 }
