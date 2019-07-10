@@ -48,7 +48,7 @@ class ContactsRepository: Repository<Contact> {
     }
     
     override func get<U: LosslessStringConvertible>(params: U?,
-                                   completion: @escaping SingleC) {
+                                                    completion: @escaping SingleC) {
         guard let param = params else { return }
         
         let path = Paths.contact.replacingOccurrences(of: URLParameters.id,
@@ -85,7 +85,7 @@ class ContactsRepository: Repository<Contact> {
     }
     
     override func create(params: Contact?,
-                completion: @escaping SingleC) {
+                         completion: @escaping SingleC) {
         
         guard let contact = params else { return }
         
@@ -103,7 +103,7 @@ class ContactsRepository: Repository<Contact> {
     }
    
     override func delete<U: LosslessStringConvertible>(params: U?,
-                                              completion: @escaping SingleC) {
+                                                       completion: @escaping SingleC) {
         
         guard let params = params else { return }
         
