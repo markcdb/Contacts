@@ -26,7 +26,7 @@ struct Contact: Codable {
     static func createStub() -> Contact {
         
         return Contact(id: 6027,
-                       first_name: "SUT_FirstName",
+                       first_name: "Mark Christian SUT",
                        last_name: "SUT_LastName",
                        email: "SUT_email@SUT.com",
                        phone_number: nil,

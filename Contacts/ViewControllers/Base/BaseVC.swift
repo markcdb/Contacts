@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseVC<T: BaseVM>: UIViewController {
+class BaseVC<T: BaseVMRequestProtocol>: UIViewController {
 
     var viewModel: T?
     

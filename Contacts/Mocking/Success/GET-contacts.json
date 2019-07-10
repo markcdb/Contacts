@@ -1,5 +1,13 @@
 [
     {
+        "id": 6027,
+        "first_name": "Mark Christian SUT",
+        "last_ name": "SUT_LastName",
+        "profile_pic": "/images/mising.png",
+        "favorite": false,
+        "url": "http://gojek-contacts-app.herokuapp.com/contacts/6608.json"
+    },
+    {
         "id": 6608,
         "first_name": "Some",
         "last_name": "Two",

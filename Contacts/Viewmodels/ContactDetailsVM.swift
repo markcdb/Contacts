@@ -31,8 +31,6 @@ class ContactDetailsVM: BaseContactVM {
     internal var lastName: String?
     internal var mobile: String?
     internal var email: String?
-
-    private var repository: ContactsRepository?
     
     init(delegate: BaseVMDelegate,
          repository: ContactsRepository) {
@@ -40,32 +38,32 @@ class ContactDetailsVM: BaseContactVM {
         
         self.repository = repository
     }
-    
+
     override func request() {
         super.request()
-        
+
         guard let contact = contact else {
             self.viewState = .error(nil)
             return
         }
-        
+
         self.viewState = .loading(nil)
-        
-        repository?.getContact(id: contact.id ?? 0,
-                               completion: {[weak self] (contact, error) in
-                                guard let self = self else { return }
-                                
-                                guard error == nil,
-                                    let contact = contact else {
-                                        
-                                        let errorMsg = error?.localizedDescription ?? ""
-                                        self.viewState = .error(errorMsg)
-                                        
-                                        return
-                                }
-                                
-                                self.contact = contact
-                                self.viewState = .success(nil)
+
+        repository?.get(params: contact.id ?? 0,
+                        completion: {[weak self] (contact, error) in
+                            guard let self = self else { return }
+
+                            guard error == nil,
+                                let contact = contact else {
+
+                                    let errorMsg = error?.localizedDescription ?? ""
+                                    self.viewState = .error(errorMsg)
+
+                                    return
+                            }
+
+                            self.contact = contact
+                            self.viewState = .success(nil)
         })
     }
     
@@ -74,13 +72,13 @@ class ContactDetailsVM: BaseContactVM {
         
         guard let con = contact else { return }
         
-        repository?.editContact(newContact: con,
-                                completion: {[weak self] (contact, error) in
-                                    guard let self = self else { return }
-                                    self.contact = contact
-                                    NotificationCenter.default.post(name: Notifications.update,
-                                                                    object: contact)
-                                    completion(error)
+        repository?.edit(params: con,
+                         completion: {[weak self] (contact, error) in
+                            guard let self = self else { return }
+                            self.contact = contact
+                            NotificationCenter.default.post(name: Notifications.update,
+                                                            object: contact)
+                            completion(error)
         })
     }
     
@@ -96,18 +94,18 @@ class ContactDetailsVM: BaseContactVM {
                               created_at: nil,
                               updated_at: nil)
         
-        repository?.createContact(newContact: con,
-                                  completion: {[weak self] (newContact, error) in
-                                    guard let self = self,
-                                        error == nil else {
-                                            completion(error)
-                                            return
-                                    }
-                                    
-                                    self.contact = newContact
-                                    NotificationCenter.default.post(name: Notifications.create,
-                                                                    object: newContact)
-                                    completion(nil)
+        repository?.create(params: con,
+                           completion: {[weak self] (contact, error) in
+                            guard let self = self,
+                                error == nil else {
+                                    completion(error)
+                                    return
+                            }
+                            
+                            self.contact = contact
+                            NotificationCenter.default.post(name: Notifications.create,
+                                                            object: contact)
+                            completion(nil)
         })
     }
     
@@ -122,18 +120,18 @@ class ContactDetailsVM: BaseContactVM {
         
         guard let con = contact else { return }
         
-        repository?.editContact(newContact: con,
-                                completion: { [weak self] contact, error in
-                                    guard let self = self,
-                                        error == nil else {
-                                            completion(error)
-                                            return
-                                    }
-                                    
-                                    self.contact = contact
-                                    NotificationCenter.default.post(name: Notifications.update,
-                                                                    object: contact)
-                                    completion(nil)
+        repository?.edit(params: con,
+                         completion: {[weak self] (contact, error) in
+                            guard let self = self,
+                                error == nil else {
+                                    completion(error)
+                                    return
+                            }
+                            
+                            self.contact = contact
+                            NotificationCenter.default.post(name: Notifications.update,
+                                                            object: contact)
+                            completion(nil)
         })
     }
     
@@ -144,17 +142,17 @@ class ContactDetailsVM: BaseContactVM {
         
         guard let i = id else { return }
         
-        repository?.deleteContact(id: i,
-                                  completion: {[weak self] (_, error) in
-                                    guard let self = self,
-                                        error == nil else {
-                                            completion(error)
-                                            return
-                                    }
-                                    
-                                    NotificationCenter.default.post(name: Notifications.delete,
-                                                                    object: self.contact)
-                                    completion(nil)
+        repository?.delete(params: i,
+                           completion: {[weak self] (contact, error) in
+                            guard let self = self,
+                                error == nil else {
+                                    completion(error)
+                                    return
+                            }
+                            
+                            NotificationCenter.default.post(name: Notifications.delete,
+                                                            object: self.contact)
+                            completion(nil)
         })
     }
     

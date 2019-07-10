@@ -9,11 +9,37 @@
 import Foundation
 
 protocol RepositoryProtocol {
-    //Screen specific request
-    func request()
+    
+    associatedtype T: Codable
+
+    func getList(params: T?,
+                 completion: @escaping (([T]?, Error?) -> ()))
+    
+    func get<U>(params: U?,
+                completion: @escaping ((T?, Error?) -> ()))
+    
+    func create(params: T?,
+                completion: @escaping ((T?, Error?) -> ()))
+    
+    func edit(params: T?,
+              completion: @escaping ((T?, Error?) -> ()))
+    
+    func delete<U>(params: U?,
+                   completion: @escaping ((T?, Error?) -> ()))
+    
+    func retry()
 }
 
-class Repository: RepositoryProtocol {
+protocol MainRepositoryProtocol {
+    //Screen specific request
+    func request(_ req: Request?)
+}
+
+class Repository<T: Codable>: MainRepositoryProtocol, RepositoryProtocol {
+   
+    typealias T = T
+    typealias ArrayC = (([T]?, Error?) -> ())
+    typealias SingleC = ((T?, Error?) -> ())
     
     var background = DispatchQueue.global(qos: .userInitiated)
     var main       = DispatchQueue.main
@@ -31,16 +57,44 @@ class Repository: RepositoryProtocol {
     init() {
         api = API(host: NetworkConfig.baseUrl)
     }
+
+    func getList(params: T?,
+                 completion: @escaping ArrayC) {}
     
-    internal func request() {
+    func get<U>(params: U?,
+                completion: @escaping SingleC) {}
+    
+    func create(params: T?,
+                completion: @escaping SingleC) {}
+    
+    func edit(params: T?,
+              completion: @escaping SingleC) {}
+    
+    func delete<U>(params: U?,
+                   completion: @escaping SingleC) {}
+    
+    func retry() {
+        for req in requests {
+            request(req)
+        }
+    }
+
+    internal func request(_ req: Request? = nil) {
         // Construct the request object (ListRequest)
-        guard let currRequest = requests.last else { return }
-        api?.request(request: currRequest)
+        var request: Request?
+        
+        if let req = req {
+            request = req
+        } else {
+            request = requests.last
+        }
+        
+        api?.request(request: request)
     }
     
     internal func createSuccessAndFail<T: Codable>(_ request: Request,
-                                          completion: @escaping ((T?, Error?) -> ()),
-                                          operationBlock: ((inout T, DispatchGroup) -> ())? = nil ) {
+                                                   completion: @escaping ((T?, Error?) -> ()),
+                                                   operationBlock: ((inout T, DispatchGroup) -> ())? = nil ) {
         
         request.successCompletion = {[weak self] response in
             guard let self = self else { return }
@@ -76,12 +130,12 @@ class Repository: RepositoryProtocol {
                         self.group.leave()
                     }
                     
+                    if let index = self.requests.firstIndex(where: { $0.id == request.id }) {
+                        self.requests.remove(at: index)
+                    }
+                    
                     self.group.notify(queue: self.main, execute: {
                         completion(object, nil)
-                        
-                        if self.requests.isEmpty == false {
-                            self.requests.removeLast()
-                        }
                     })
                 } catch let error {
                     

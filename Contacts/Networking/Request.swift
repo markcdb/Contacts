@@ -18,6 +18,7 @@ protocol RequestProtocol {
 
 class Request: RequestProtocol {
     
+    var id: String = UUID().uuidString
     var path: String
     var method: HTTPMethod
     var parameters: [String: Any]?

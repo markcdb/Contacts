@@ -53,7 +53,8 @@ class API {
         return queryString
     }
     
-    internal func request(request: Request) {
+    internal func request(request: Request?) {
+        guard let request = request else { return }
         
         let parametersDict: [String: Any]? = request.parameters
         let method                         = request.method
@@ -109,7 +110,9 @@ class MockAPI: API {
         return httpMethod.rawValue + "\(path.replacingOccurrences(of: "/", with: "-"))"
     }
 
-    override func request(request: Request) {
+    override func request(request: Request?) {
+        guard let request = request else { return }
+        
         let method      = request.method
         let path        = request.path
         var mockPath    = createMockPathFrom(request.path,

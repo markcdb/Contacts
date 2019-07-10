@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BaseContactsVM: BaseVM {
+class BaseContactsVM: BaseVMRepo<ContactsRepository> {
     
     internal var contacts: [String: [Contact]] = [:]
     internal var sortingKeys: [String]         = []
@@ -89,7 +89,7 @@ class BaseContactsVM: BaseVM {
     }
 }
 
-class BaseContactVM: BaseVM {
+class BaseContactVM: BaseVMRepo<ContactsRepository> {
     
     internal var contact: Contact?
     internal var idForUpdate: String?

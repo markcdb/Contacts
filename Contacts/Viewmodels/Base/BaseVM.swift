@@ -14,8 +14,14 @@ protocol BaseVMDelegate: class {
                         withState viewState: ViewState)
 }
 
+protocol BaseVMRequestProtocol {
+    
+    func request()
+    func retry()
+}
+
 class BaseVM {
-        
+    
     open var viewState: ViewState? {
         didSet {
             if let viewState = viewState {
@@ -30,6 +36,15 @@ class BaseVM {
     init(delegate: BaseVMDelegate) {
         self.delegate = delegate
     }
+}
+
+class BaseVMRepo<T: RepositoryProtocol>: BaseVM, BaseVMRequestProtocol {
+    
+    var repository: T?
     
     open func request() {}
+    
+    open func retry() {
+        repository?.retry()
+    }
 }
