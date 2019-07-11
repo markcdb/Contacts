@@ -29,7 +29,9 @@ class BaseTableViewController<T: BaseVMRequestProtocol>: BaseVC<T> {
     
     @objc func keyboardWillShow(notification: Notification) {
         
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        let key = UIResponder.keyboardFrameEndUserInfoKey
+        
+        if let keyboardSize = (notification.userInfo?[key] as? NSValue)?.cgRectValue {
             tableView?.contentInset = UIEdgeInsets(top: 0,
                                                    left: 0,
                                                    bottom: keyboardSize.height,
